@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<div 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" 
+	id="cabecalho">
+	
+	<div class="wrapper">
+		qualquer coisa no cabecalho
+		
+		<p:outputLabel rendered="#{adminBean.autenticadoPF!=null}" value="Bem vindo #{adminBean.autenticadoPF.nome}"/>
+		<p:outputLabel rendered="#{adminBean.autenticadoPJ!=null}" value="Bem vindo #{adminBean.autenticadoPJ.nome}"/>
+		<p:commandButton rendered="#{adminBean.autenticadoPJ==null and adminBean.autenticadoPF==null}" ajax="false" value="Logout" actionListener="#{adminBean.logout()}" />
+	
+	rendered="#{bean.a==12 and (bean.b==13 or bean.b==15)}"
+	</div>
+	
+</div>
+
+
+
+

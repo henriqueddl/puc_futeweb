@@ -1,0 +1,53 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	
+	<ui:define name="conteudo"> 
+		<div class="wrapper">
+			
+			<p:panelGrid columns="2" styleClass="tabela-campos">
+					
+				<p:outputLabel for="pf-cadastrar-nome" value="Nome"/>
+				<p:inputText id="pf-cadastrar-nome" title="Nome" required="true" value="#{adminBean.pessoaFisica.nome}" />
+			
+				<p:outputLabel for="pf-cadastrar-email" value="Email"/>
+				<p:inputText id="pf-cadastrar-email" title="Email" required="true" value="#{adminBean.pessoaFisica.email}" />
+				
+				<p:outputLabel for="pf-cadastrar-cpf" value="CPF"/>
+				<p:inputMask id="pf-cadastrar-cpf" title="CPF" required="true" value="#{adminBean.pessoaFisica.cpf}" mask="999.999.999-99" />
+				
+				<p:outputLabel for="pf-cadastrar-dataNascimento" value="Data de Nascimento"/>
+				<p:calendar id="pf-cadastrar-dataNascimento" title="Data de Nascimento" required="true" value="#{adminBean.pessoaFisica.dataNascimento}" readonly="#{facesContext.renderResponse}" showOn="button" pattern="dd/MM/yyyy" maxdate="today" locale="br" />
+					
+				<p:outputLabel for="pf-cadastrar-senha" value="Senha"/>
+				<p:password id="pf-cadastrar-senha" title="Senha" required="true" value="#{adminBean.pessoaFisica.usuario.senha}" />
+				
+				<p:outputLabel for="pf-cadastrar-confirmaSenha" value="Confirmação da Senha"/>
+				<p:password id="pf-cadastrar-confirmaSenha" title="Confirmação da Senha" required="true" value="#{adminBean.pessoaFisica.usuario.confirmaSenha}" />
+				
+				<p:outputLabel for="pf-cadastrar-cep" value="CEP"/>
+				<p:inputMask id="pf-cadastrar-cep" title="CEP" required="true" mask="99.999-999" value="#{adminBean.pessoaFisica.endereco.cep}" />
+				
+				<p:column/>
+				<p:commandButton id="pf-cadastrar-buscarcep" ajax="false" value="Consultar CEP" actionListener="#{adminBean.buscarCEP()}"/>
+				
+				<p:outputLabel for="pf-cadastrar-logradouro" value="Logradouro"/>
+				<p:inputText id="pf-cadastrar-logradouro" title="Logradouro" required="true" value="#{adminBean.pessoaFisica.endereco.logradouro}" />
+				
+				<p:outputLabel for="pf-cadastrar-numero" value="Número"/>
+				<p:inputText id="pf-cadastrar-numero" title="Número" required="true" value="#{adminBean.pessoaFisica.endereco.numero}" type="number" />
+				
+				<p:outputLabel for="pf-cadastrar-cidade" value="Cidade"/>
+				<p:inputText id="pf-cadastrar-cidade" title="Cidade" required="true" value="#{adminBean.pessoaFisica.endereco.cidade}" />
+				
+				<p:outputLabel for="pf-cadastrar-estado" value="Estado"/>
+				<p:inputText id="pf-cadastrar-estado" title="Estado" required="true" value="#{adminBean.pessoaFisica.endereco.estado}" />
+				
+			</p:panelGrid>
+			
+		</div>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	
+	<ui:define name="conteudo"> 
+		<div class="wrapper">
+			
+			<p:panelGrid columns="2" styleClass="tabela-campos">
+			
+				<p:panelGrid columns="2" styleClass="tabela-campos">
+					
+					<p:outputLabel for="usuario-entrar-login" value="Login"/>
+					<p:inputText id="usuario-entrar-login" title="Login" required="true" value="#{adminBean.usuario.login}" />
+				
+					<p:outputLabel for="usuario-entrar-senha" value="Senha"/>
+					<p:password id="usuario-entrar-senha" title="Senha" required="true"  value="#{adminBean.usuario.senha}" />
+					
+					<p:column/>
+					<p:commandButton id="usuario-entrar" ajax="false" value="Entrar" actionListener="#{adminBean.autenticar()}"/>
+					
+				</p:panelGrid>
+				
+				<p:panelGrid columns="2" styleClass="tabela-campos">
+				
+					<p:column/>
+					<p:outputLabel value="Abra já sua conta no FuteWeb"/>
+					
+					<p:outputLabel for="usuario-cadastrar-tipoUsuario" value="Tipo de Usuario"/>
+					<p:selectOneRadio id="usuario-cadastrar-tipoUsuario" required="false" >
+						<f:selectItem itemLabel="Pessoa Fisica" itemValue="Pessoa Fisica"/>
+						<f:selectItem itemLabel="Pessoa Juridica" itemValue="Pessoa Juridica"/>
+					</p:selectOneRadio>
+					
+					<p:column/>
+					<p:commandButton id="usuario-cadastrar" value="Abrir uma conta"  actionListener="#{adminBean.abrirConta()}"/>
+
+				</p:panelGrid>
+				
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,1000 @@
+
+/* /** ELEMENTOS DO PRIME FACES **/ */
+/* /* INPUT TEXT */ */
+/* .ui-inputfield, .ui-inputtext { */
+/* 	font-family: Verdana, Arial, Helvetica, sans-serif !important; */
+/*     font-size: 11px !important; */
+/* 	text-align: left; */
+/* 	height: 8px; */
+/* 	border: 1px solid #B5B8C8; */
+/* 	width: 300ppx; */
+/* 	-moz-box-shadow: inset 0 0px 0px #8f8f8f; */
+/* 	-webkit-box-shadow: inset 0 0px 0px #8f8f8f; */
+/* 	box-shadow: inset 0 0px 0px #8f8f8f; */
+/* 	color: black; */
+/* 	vertical-align: middle; */
+/* 	line-height: 8px; */
+/* 	padding-top: 2px!important; */
+/* 	padding-bottom: 2px; */
+/* 	height: 12px; */
+/* 	margin-bottom: 2px; */
+/* } */
+
+/* .ui-corner-all { */
+/* 	border-radius: 3px; */
+/* } */
+
+/* .campo-nao-preenchido { */
+/* 	border: solid 1px #b94a48!important; */
+/* 	background-color: #f9f0f0; */
+/* } */
+
+/* .campo-ok-radiobutton { */
+/* 	border: none; */
+/* } */
+
+/* .ui-inputtext.ui-state-disabled{ */
+/* 	background-color: #c0c0c0; */
+/* 	border-color: gray!important; */
+/* } */
+
+/* .ui-inputmask.ui-state-disabled{ */
+/* 	background-color: #c0c0c0; */
+/* 	border-color: gray!important; */
+/* } */
+/* /*FIM INPUT TEXT */ */
+
+/* /* COMMAND BUTTON */ */
+/* .ui-button{ */
+/* 	font-family: Verdana, Arial, Helvetica, sans-serif; */
+/* 	font-size: 11px; */
+/* 	border: 1px solid #7C8FB0; */
+/* 	font-weight: bold; */
+/* 	height: 20px !important; */
+/* 	color: #0e4878; */
+/* 	transition: All 1s ease; */
+/* 	padding-bottom: 1px;  */
+/* 	background-color: #eaeaea; */
+/* } */
+/* .ui-button.ui-state-disabled, .ui-button.ui-state-disabled:HOVER{ */
+/* 	background-color: #c0c0c0; */
+/* 	transition: none; */
+/* 	color: gray; */
+/* 	border-color: gray; */
+/* } */
+/* .ui-button:HOVER{ */
+/* 	background-color: #7C8FB0; */
+/* 	color: white; */
+/* } */
+
+/* .ui-button-text-only .ui-button-text{ */
+/* 	padding: 0px; */
+/* 	padding-left: 12px; */
+/* 	padding-right: 12px; */
+/* } */
+/* /* FIM BUTTON */ */
+
+/* /* OUTPUT LABEL */ */
+/* .ui-outputlabel { */
+/* 	font-size: 15px !important; */
+/* 	color: black; */
+/*     width: 300px; */
+/*     text-align: right; */
+/*     margin-right: 5px; */
+/* } */
+
+/* .label-campo { */
+/* 	float: left; */
+/* 	margin-top: 3px; */
+/*     margin-bottom: 3px; */
+/* } */
+/* /*FIM OUTPUT LABEL */ */
+
+/* /* FIELDSET */ */
+/* .ui-fieldset-legend { */
+/* 	font-size: 11px !important; */
+/* 	color: #EC6D2D; */
+/*     font-weight: bold; */
+/* } */
+
+/* /*FIM FIELDSET */ */
+
+/* /* MESSAGE */ */
+/* .ui-messages-error-summary .ui-messages-info-summary .ui-messages-warn-summary { */
+/* 	font-weight: normal;		 */
+/* } */
+
+/* .ui-messages-info, .ui-messages-warn, .ui-messages-error, .ui-messages-fatal { */
+/*     border: 1px solid; */
+/*     margin: 10px 0px; */
+/*     padding: 0px; */
+/*     font-size: 11px; */
+/* 	padding-top: 3px; */
+/* 	padding-bottom: 3px; */
+/* 	margin-left: 50px; */
+/* 	margin-right: 50px; */
+/* } */
+/* .ui-messages-error { */
+/* 	color : #b94a48; */
+/* } */
+
+/* .ui-messages-info { */
+/* 	color: #296b29; */
+/* } */
+
+/* .ui-messages-warn { */
+/* 	color: #ff9615; */
+/* } */
+/* /* FIM MESSAGE */ */
+
+/* /* PANEL GRID */ */
+/* .ui-panelgrid td { */
+/* 	border-style: none !important; */
+/* } */
+
+/* .ui-panelgrid{ */
+/* 	line-height: 14px; */
+/* } */
+
+/* .ui-panelgrid tr { */
+/* 	border-style: none !important; */
+/* } */
+
+/* .ui-panelgrid-cell{ */
+/* 	border-collapse: collapse; */
+/* 	padding: 1px !important; */
+/* 	vertical-align: top; */
+/* } */
+
+/* /*FIM PANEL GRID */ */
+
+/* /* TEXT AREA */ */
+
+/* textarea { */
+/* 	Resize: none;  */
+/*   	height: 120px !important;  */
+/*   	width: 554px !important;  */
+/* 	margin-top: 10px; */
+/* 	margin-bottom: 2px; */
+/* 	border: 1px solid #B5B8C8; */
+/*    	border-radius: 3px; */
+/* 	font-weight: normal; */
+/* 	font-family: Verdana, Arial, Helvetica, sans-serif !important; */
+/*    	font-size: 11px !important; */
+/*    	text-align: left; */
+/*    	color: black; */
+/*    	vertical-align: middle; */
+/*    	line-height: 14px; */
+/*    	padding-top: 2px!important; */
+/*    	padding-bottom: 2px!important; */
+/* } */
+
+/* .ui-inputtextarea{  */
+/* 	Resize: none;  */
+/*   	height: 120px !important;  */
+/* 	margin-top: 10px; */
+/* 	margin-bottom: 2px; */
+/* 	border: 1px solid #B5B8C8; */
+/*    	border-radius: 3px; */
+/* 	font-weight: normal; */
+/* 	font-family: Verdana, Arial, Helvetica, sans-serif !important; */
+/*    	font-size: 11px !important; */
+/*    	text-align: left; */
+/*    	color: black; */
+/*    	vertical-align: middle; */
+/*    	line-height: 14px; */
+/*    	padding-top: 2px!important; */
+/*    	padding-bottom: 2px!important; */
+/* } */
+/* .ui-inputtextarea.ui-state-disabled{ */
+/* 	background-color: #c0c0c0; */
+/* 	border-color: gray!important; */
+/* } */
+
+/* /*FIM TEXT AREA */ */
+
+/* /* RADIO BUTTON */ */
+/* .ui-radiobutton{ */
+/* 	display: block; */
+/* } */
+
+/* .ui-radiobutton .ui-widget{ */
+/* 	border: solid 1px #0E4878; */
+/* 	background-color: #eaeaea; */
+/* 	width: 11px!important; */
+/* 	height: 11px!important; */
+/* 	cursor: pointer; */
+/* } */
+
+/* .ui-radiobutton-box.ui-state-disabled{ */
+/* 	background-color: #c0c0c0; */
+/* } */
+
+/* .ui-icon-bullet{ */
+/* 	background-color: #0E4878; */
+/* 	border: outset 1px #1263a5; */
+/* 	width: 3px; */
+/* 	height: 3px; */
+/* 	margin-left: 3px; */
+/* 	margin-top: 3px; */
+/*   	border-radius: 10px; */
+/* } */
+
+/* .ui-selectoneradio { */
+/* 	font-size: 11px; */
+/* } */
+
+/* .ui-selectoneradio label{ */
+/* 	padding-right: 20px; */
+/* } */
+
+/* .ui-radiobutton-box.ui-widget.ui-corner-all.ui-state-default{ */
+/* 	margin-top: -5px!important; */
+/* } */
+
+
+/* .ui-selectmanycheckbox.ui-widget td, .ui-selectoneradio.ui-widget td { */
+/*     border: 0 none; */
+/*     vertical-align: top; */
+/*     line-height: 0px; */
+/* } */
+
+/* /*FIM RADIO BUTTON */ */
+
+/* /* COMBO BOX */ */
+/* .ui-selectonemenu-panel .ui-selectonemenu-list { */
+/* 	overflow-x: hidden;  */
+/* } */
+
+/* .ui-selectonemenu .ui-selectonemenu-trigger { */
+/*     border-right: 0; */
+/*     border-top: 0; */
+/*     border-bottom: 0; */
+/*     cursor: pointer; */
+/*     width: 16px; */
+/*     height: 100%; */
+/*     position: absolute; */
+/*     right: 0; */
+/*     top: 0; */
+/*     padding: 0 0px; */
+/* 	background-position: -64px -15px; */
+/* } */
+
+/* .ui-selectonemenu .ui-selectonemenu-trigger, .ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger { */
+/*     border-color: #fff; */
+/* } */
+
+/* .ui-selectonemenu .ui-selectonemenu-trigger .ui-icon { */
+/*     margin-top: 1px; */
+/* } */
+
+
+/* .ui-selectonemenu .ui-selectonemenu-trigger, .ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger { */
+/*     display: block; */
+/*     text-indent: -99999px; */
+/*     overflow: hidden; */
+/*     background-repeat: no-repeat; */
+/*     width: 16px; */
+/*     height: 16px; */
+/*     background-image: url("../images/icones-black.png"); */
+/* } */
+
+
+/* .ui-selectonemenu { */
+/* 	border: 1px solid #B5B8C8; */
+/* 	width: 558px!important; */
+/* } */
+/* .ui-selectonemenu-panel .ui-selectonemenu-list { */
+/* 	background-color: white; */
+/* 	font-size: 11px; */
+/* 	line-height: 11px; */
+/* 	border: 1px solid #B5B8C8; */
+/* 	padding: 0px; */
+/* } */
+/* .ui-selectonemenu-panel .ui-selectonemenu-item { */
+/* 	border: solid 1px white; */
+/* 	margin: 0px; */
+/* } */
+/* .ui-selectonemenu-panel .ui-selectonemenu-item:HOVER { */
+/* 	background-color: blue; */
+/* 	border: solid 1px #0E4878; */
+/* 	background-color: #7C8FB0; */
+/* 	color: white; */
+/* } */
+
+/* .ui-selectonemenu.ui-state-disabled{ */
+/* 	background-color: #c0c0c0; */
+/* 	border-color: gray!important; */
+/* } */
+/* /* FIM COMBO BOX */ */
+
+/* .ui-selectonemenu-label{ */
+/* 	margin-bottom: 0px; */
+/* } */
+
+/* .ui-selectonemenu .ui-selectonemenu-label{ */
+/* 	line-height: 11px; */
+/* } */
+
+/* /* DATA TABLE */ */
+/* .ui-datatable td{ */
+/* 	padding: 0px!important; */
+/* 	padding-left: 5px!important; */
+/* 	padding-right: 5px!important; */
+/* 	border: solid 1px #7C8FB0!important; */
+	
+/* } */
+/* .ui-datatable thead th{ */
+/* 	padding: 0px!important; */
+/* 	font-weight: bold; */
+/*     color: white; */
+/*     border: solid 1px #7C8FB0!important; */
+/*     background-image: url("../images/barra-ca.png"); */
+/* } */
+
+/* .ui-datatable thead th, .ui-datatable tbody td, .ui-datatable tfoot td{ */
+/* 	font-size: 11px; */
+/* 	height: 25px; */
+/* 	font-family: Verdana, Arial, Helvetica, sans-serif !important; */
+/* } */
+
+/* .ui-datatable-even { */
+/* 	background-color: #ecf1f9; */
+/* } */
+
+/* .ui-datatable-odd { */
+/* 	background-color: #D9E2F3; */
+/* } */
+
+/* .ui-datatable-even:HOVER, .ui-datatable-odd:HOVER{ */
+/* 	background-color: #bfcde3; */
+/* } */
+
+/* .ui-sortable-column-icon { */
+/* 	float: left; */
+/* 	width: 16px; */
+/* 	height: 16px; */
+/* 	background-image: url("../images/icones.png"); */
+/* 	margin-top: 1px !important; */
+/* } */
+
+/* .ui-icon-carat-2-n-s { */
+/* 	background-position: -128px 0; */
+/* } */
+
+/* .ui-icon-triangle-1-n { */
+/* 	background-position: 0 -16px; */
+/* } */
+
+/* .ui-icon-triangle-1-s { */
+/* 	background-position: -64px -16px; */
+/* } */
+
+/* .ui-datatable .ui-column-filter { */
+/*     width: 100%; */
+/* 	box-sizing: border-box; */
+/* 	height: 18px; */
+/* } */
+
+/* .ui-selectonemenu.filtro { */
+/*     width: 100%!important; */
+/*     box-sizing: border-box; */
+/* 	background-color: white; */
+/* } */
+
+/* .ui-datatable .ui-datatable-header{ */
+/* 	background-color: #7C8FB0; */
+/* 	border: solid 1px #959595; */
+/* 	color: white; */
+/* 	font-size:14px; */
+/* 	border-radius: 4px; */
+/* 	font-weight: bold; */
+/* } */
+
+/* .ui-selectonemenu-panel .ui-selectonemenu-filter-container { */
+/*     width: 100%; */
+/*     background-color: white; */
+/*     box-sizing: border-box; */
+/*     border-bottom: solid 1px #B5B8C8; */
+/*     padding: 0px; */
+/* } */
+
+/* .ui-row-toggler.ui-icon.ui-icon-circle-triangle-e{ */
+/*     background-position: -48px -192px; */
+/* } */
+
+/* .ui-row-toggler.ui-icon.ui-icon-circle-triangle-s{ */
+/* 	background-position: -64px -192px; */
+/* } */
+
+/* /* FIM DATA TABLE */ */
+
+/* /* DIALOG */ */
+/* .ui-dialog{ */
+/* 	background-color: white; 	 */
+/* } */
+
+/* .ui-dialog .ui-dialog-buttonpane{ */
+/* 	text-align: center; */
+/* } */
+
+/* .ui-confirm-dialog-message{ */
+/* 	font-size: 13px; */
+/* } */
+
+/* .ui-dialog .ui-dialog-content{ */
+/* 	background-color: #ffffff; */
+/* 	border-color: #7C8FB0!important; */
+/* } */
+
+/* .ui-dialog-titlebar { */
+/* 	background-image: url("../images/barra-ca.png"); */
+/* 	padding-top: 5px; */
+/* 	padding-right: 3px;  */
+/* 	padding-bottom: 2px; */
+/* 	border-bottom: solid 1px #9298a9; */
+/* } */
+
+/* .ui-dialog-title{ */
+/* 	color: #ffffff; */
+/* 	font-weight: bold; */
+/* 	font-size: 12px; */
+/* 	font-family: Verdana, Arial, Helvetica, sans-serif !important; */
+/* } */
+
+/* .ui-dialog .ui-dialog-titlebar-close, .ui-dialog .ui-dialog-titlebar-minimize, .ui-dialog .ui-dialog-titlebar-maximize { */
+/* 	padding: 0px; */
+/* } */
+
+/* .ui-icon-closethick, .ui-icon-minus, .ui-icon-plus { */
+/* 	background-image: url("../images/icones.png"); */
+/* 	width: 16px; */
+/* 	height: 16px; */
+/* } */
+
+/* .ui-icon-minus { */
+/* 	background-position: -48px -128px; */
+/* } */
+/* .ui-icon-closethick { */
+/* 	background-position: -96px -128px; */
+/* } */
+/* .ui-icon-plus{ */
+/* 	background-position: -32px -128px; */
+/* } */
+
+/* .ui-widget-header { */
+/* 	height: 14px; */
+/* } */
+
+/* .ui-widget-overlay { */
+/* 	background: gray; */
+/* 	opacity: 0.30; */
+	
+/* 	-moz-opacity: 0.30; */
+/* 	filter: alpha(opacity=30); */
+/* } */
+	
+/* /* FIM DIALOG */ */
+
+
+/* /* CHECK BOX */ */
+
+/* .ui-chkbox-box.ui-state-disabled{ */
+/* 	background-color: #c0c0c0!important; */
+/* 	border-color: gray!important; */
+/* } */
+
+/* .ui-selectmanycheckbox{ */
+/* 	padding-top: 0px!important; */
+/*     padding-bottom: 4px; */
+/*     margin-top: 1px!important; */
+/* } */
+
+/* .ui-selectmanycheckbox{ */
+/* 	font-size: 11px; */
+/* } */
+/* .ui-selectmanycheckbox label{ */
+/* 	padding-right: 20px; */
+/* } */
+
+/* .ui-selectmanycheckbox{ */
+/* 	line-height: 9px; */
+/* 	margin-top: -2px; */
+/* 	vertical-align: middle; */
+/* } */
+
+/* .ui-selectmanycheckbox td{ */
+/* 	padding: 0px; */
+/* 	padding-left: 2px; */
+/* } */
+
+/* .ui-selectmanycheckbox { */
+/* 	margin-bottom: 5px; */
+/* } */
+
+/* .ui-chkbox .ui-chkbox-box{ */
+/* 	border: solid 1px #0E4878; */
+/* 	background-color: #eaeaea; */
+/* 	width: 10px; */
+/* 	height: 10px;  */
+/* 	margin-right: 4px; */
+/* 	margin-bottom: -4px; */
+/* 	cursor: pointer; */
+/* 	margin-top: 2px; */
+/* } */
+
+/* .ui-chkbox { */
+/*     margin-bottom: 1px; */
+/* 	margin-top: 1px; */
+/* } */
+			
+/* .ui-icon-check{ */
+/* 	border-color: #0E4878; */
+/* 	border: outset 1px #1263a5; */
+/* 	width: 4px; */
+/* 	height: 4px; */
+/* 	margin-top: 2px; */
+/* 	margin-left: 2px; */
+/* 	background-color: #0E4878; */
+/* 	border-radius: 2px; */
+/* } */
+
+
+
+/* /* FIM CHECK BOX */ */
+
+/* /* ANEXO */ */
+
+/* .anexo, .anexo-ok { */
+/* 	width: 100%; */
+/* 	border: none; */
+/* } */
+
+/* .anexo-nook { */
+/* 	width: 100%; */
+/* 	border: solid 1px #b94a48!important; */
+/* 	background-color: #f9f0f0; */
+/* } */
+
+/* /* FIM ANEXO */ */
+
+/* /* CALENDAR */ */
+/* .ui-datepicker{ */
+/* 	background-color: #eaeaea;	 */
+/* 	border: solid 1px #7C8FB0; */
+/* 	color: #0e4878; */
+/* 	width: 180px; */
+/* } */
+
+
+/* .ui-datepicker .ui-datepicker-header{ */
+/* 	background-color: #7C8FB0; */
+/* 	color: white; */
+/* 	height: 24px; */
+/* 	font-weight: bold; */
+/* 	font-size: 14px; */
+/* } */
+
+/* .ui-datepicker td a:HOVER{ */
+/* 	background: #7C8FB0; */
+/* 	color: white; */
+/* 	transition: 0.5s; */
+/* } */
+
+/* .ui-datepicker thead th { */
+/* 	background-color: #f9f9f9; */
+/* 	font-size: 12px; */
+/* } */
+
+/* .ui-datepicker td a, .ui-datepicker td{ */
+/* 	color: #0e4878; */
+	
+/* 	font-size: 11px; */
+/* 	width: 19px; */
+/* 	margin-left: 0px; */
+/* 	margin-right: 0px; */
+/* } */
+
+/* .ui-datepicker td a{ */
+/* 	background: #f9f9f9; */
+/* } */
+
+/* .ui-datepicker .ui-datepicker-next, .ui-datepicker .ui-datepicker-next-hover{ */
+/*     right: 2px; */
+/*     top: 1px; */
+/* } */
+/* .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-prev-hover{ */
+/*     top: 1px; */
+/*     left: 2px; */
+/* } */
+
+/* .ui-datepicker .ui-icon-circle-triangle-e , .ui-datepicker .ui-icon-circle-triangle-w{ */
+/*     cursor: pointer; */
+/*     width: 16px; */
+/*     height: 16px; */
+/* } */
+
+/* .ui-datepicker .ui-icon-circle-triangle-e { */
+/* 	background: url("../images/icones.png") -32px -16px no-repeat !important; */
+/* } */
+
+/* .ui-datepicker .ui-icon-circle-triangle-w{ */
+/* 	background: url("../images/icones.png") -96px -16px no-repeat !important; */
+/* } */
+
+/* .ui-datepicker .ui-icon-circle-triangle-e:HOVER { */
+/* 	border: none; */
+/* } */
+
+/* .ui-datepicker .ui-datepicker-next { */
+/* 	cursor: pointer; */
+/* } */
+
+/* .ui-icon-calendar{ */
+/* 	width: 16px; */
+/* 	height: 16px; */
+/* 	background: url("../images/icones.png") -32px -112px no-repeat !important; */
+/* } */
+
+/* .ui-datepicker-trigger{ */
+/* 	background-color: #7C8FB0; */
+/* 	height: 18px!important; */
+/* 	top: 2px; */
+/* } */
+
+/* .hasDatepicker{ */
+/* 	width: 524px; */
+/* } */
+
+/* .ui-timepicker-div{ */
+/* 	font-size: 13px; */
+/* } */
+
+/* .ui-timepicker-div dl dt{ */
+/* 	height: 30px; */
+/* } */
+
+/* /* FIM CALENDAR */ */
+
+/* /* SLIDER */ */
+/* .ui-slider { */
+/*     position: relative; */
+/*     -moz-border-radius: 5px; */
+/*     -webkit-border-radius: 5px; */
+/*     border-radius: 5px; */
+/*     background: #cbcbcb; */
+/*     -moz-box-shadow: inset 0 2px 2px #8f8f8f; */
+/*     -webkit-box-shadow: inset 0 2px 2px #8f8f8f; */
+/*     box-shadow: inset 0 2px 2px #8f8f8f; */
+/*     margin-bottom: 7px; */
+/*     margin-left: 7px; */
+/* } */
+
+/* .ui-slider-horizontal { */
+/*     height: 6px; */
+/* } */
+
+/* .ui-slider-horizontal .ui-slider-handle { */
+/*     top: -4px; */
+/*     margin-left: -6px; */
+/* } */
+/* .ui-slider .ui-slider-handle { */
+/*     position: absolute; */
+/*     z-index: 2; */
+/*     width: 5px; */
+/*     height: 12px; */
+/*     cursor: pointer; */
+/*     background: #7C8FB0; */
+/*     border: solid 1px #485a77; */
+/*     -moz-border-radius: 10px; */
+/*     -webkit-border-radius: 10px; */
+/*     border-radius: 10px; */
+/* } */
+
+/* .ui_tpicker_time_input{ */
+/* 	border: solid 1px black;	 */
+/* } */
+
+/* dt.ui_tpicker_time_label { */
+/*     margin: 0px!important; */
+/*     height: 1px!important; */
+/* } */
+
+/* .ui-timepicker-div dl dd { */
+/* } */
+/* /* FIM SLIDER */ */
+
+/* /* Tab View */ */
+/* .ui-tabs { */
+/* 	border: none !important; */
+/* 	background: transparent !important; */
+/* } */
+
+/* .ui-tabs-nav { */
+/* 	background: transparent !important; */
+/* } */
+
+/* .ui-tabs-nav .ui-state-default { */
+/* 	background-color: #c0c0c0; */
+/* 	border: 1px solid #777777 !important; */
+/* 	border-radius: 5px; */
+/* 	transition: All 1s ease; */
+/* } */
+
+/* .ui-tabs-nav .ui-state-active { */
+/* 	background-color: #7C8FB0; */
+/* 	border: 1px solid #777777 !important; */
+/* 	border-radius: 5px; */
+/* } */
+
+/* .ui-tabs-nav a{ */
+/* 	color: #FFFFFF !important; */
+/* 	font-weight: bold; */
+/* 	text-transform: uppercase; */
+/* } */
+
+/* .ui-tabs-panel { */
+/* 	border: 1px solid #777777 !important; */
+/* 	padding-left: 2px; */
+/* 	padding-right: 2px; */
+/* 	background-color: transparent !important; */
+/* } */
+
+/* .ui-tabs .ui-tabs-nav li { */
+/* 	height: 20px; */
+/* 	font-size: 11px; */
+/* } */
+
+/* .ui-tabs .ui-tabs-nav li a { */
+/* 	padding: 3px 10px; */
+/* } */
+/* /* FIM - Tab View */ */
+
+/* /*DATA-TABLE*/ */
+/* .ui-selectcheckboxmenu-panel{ */
+/* 	background-color: #D9E2F3; */
+/* 	border: solid 1px #7C8FB0; */
+/* 	float: left; */
+/* 	margin-left: -30px; */
+/* 	font-size: 11px; */
+/* 	border-radius:0px 7px 7px 7px; */
+/* } */
+
+/* .ui-datatable .ui-selectcheckboxmenu{ */
+/* 	width: 100%; */
+/* 	text-align: center; */
+/* } */
+/* .ui-datatable .ui-selectcheckboxmenu .ui-selectcheckboxmenu-label { */
+/* 	padding: 0px; */
+/* } */
+/* .ui-selectcheckboxmenu-header{ */
+/* 	display: none;  */
+/* } */
+
+/* /*FIM - DATA-TABLE*/ */
+
+
+/* /*PAGINATOR*/ */
+/* .ui-paginator.ui-paginator-top { */
+/*     border-bottom: 0 none; */
+/* } */
+
+/* .ui-paginator { */
+/* 	background: #c0c0c0; !important; */
+/*    	border: solid 1px #7C8FB0 !important; */
+/*     padding: 5px; */
+/*     margin-right: 1px; */
+/*     -moz-border-radius: 3px; */
+/*     -webkit-border-radius: 3px; */
+/*     -khtml-border-radius: 3px; */
+/*     border-radius: 3px; */
+/*     height: 20px; */
+/*     text-align: center; */
+/*     font-weight: bold; */
+/*     font-size: 12px; */
+/*     color: white; */
+/* } */
+
+/* .ui-paginator .ui-paginator-page, .ui-paginator .ui-paginator-pages, */
+/* .ui-paginator .ui-paginator-first, .ui-paginator .ui-paginator-prev, .ui-paginator .ui-paginator-next, .ui-paginator .ui-paginator-last { */
+/*     cursor: pointer; */
+    
+/* } */
+
+/* .ui-icon-seek-first { */
+/*     background-position: -80px -160px; */
+/*     background-image: url("../images/icones.png"); */
+/*     width: 16px; */
+/*     height: 16px; */
+/*     border: solid 1px #777777 !important; */
+/*     border-radius: 3px; */
+/*     background-color: #7C8FB0; */
+/* } */
+
+/* .ui-icon-seek-prev { */
+/*     background-position: -48px -160px; */
+/*     background-image: url("../images/icones.png"); */
+/*     width: 16px; */
+/*     height: 16px; */
+/* 	border: solid 1px #777777 !important; */
+/*     border-radius: 3px; */
+/*     background-color: #7C8FB0; */
+/* } */
+
+/* .ui-icon-seek-next { */
+/*     background-position: -32px -160px; */
+/*     background-image: url("../images/icones.png"); */
+/*     width: 16px; */
+/*     height: 16px; */
+/* 	border: solid 1px #777777 !important; */
+/*     border-radius: 3px; */
+/*     background-color: #7C8FB0; */
+/* } */
+
+/* .ui-icon-seek-end { */
+/*     background-position: -64px -160px; */
+/*     background-image: url("../images/icones.png"); */
+/*     width: 16px; */
+/*     height: 16px; */
+/* 	border: solid 1px #777777 !important; */
+/*     border-radius: 3px; */
+/*     background-color: #7C8FB0; */
+/* } */
+
+/* /*FIM-PAGINATOR*/ */
+
+/* /* PICK LIST */ */
+
+/* ul.ui-widget-content.ui-picklist-list.ui-picklist-source.ui-corner-all.ui-sortable, */
+/* ul.ui-widget-content.ui-picklist-list.ui-picklist-target.ui-corner-all.ui-sortable { */
+/* 	border: solid 1px #B5B8C8;  */
+/* } */
+/* li.ui-picklist-item.ui-corner-all.ui-sortable-handle { */
+/*  	font-size: 11px; */
+/* } */
+/* li.ui-picklist-item.ui-corner-all.ui-sortable-handle:HOVER { */
+/* 	background-color: #B5B8C8; */
+/* } */
+/* li.ui-picklist-item.ui-corner-all.ui-sortable-handle.ui-state-highlight { */
+/* 	background-color: #7c8fb0; */
+/* 	color: white;  */
+/* 	border: solid 1px #B5B8C8;  */
+/* } */
+/* .ui-picklist .ui-picklist-list { */
+/*  	width: 259px; */
+/*  	border: solid 1px #B5B8C8;  */
+/*     border-radius: 3px; */
+/* } */
+
+/* .ui-picklist .ui-picklist-caption { */
+/*     text-align: center; */
+/*     padding: 4px 10px 4px 10px; */
+/*     border: 1px solid #777777 !important; */
+/*     font-size: 11px; */
+/*     font-weight: bolder; */
+/*     color: white; */
+/*     background-color: #7C8FB0; */
+/*     border-radius: 3px; */
+/*     height: 11px; */
+/* } */
+
+/* .ui-picklist .ui-picklist-filter { */
+/*     height: 16px; */
+/*  	width: 90%; */
+/* } */
+
+/* .ui-picklist .ui-picklist-filter-container .ui-icon { */
+/*     position: absolute; */
+/*     top: 3px; */
+/*     right: 3px; */
+/*     width: 16px; */
+/*     height: 16px; */
+/*     background-image: url("../images/icone-search.png"); */
+/* } */
+
+/* li.ui-picklist-item.ui-corner-all.ui-sortable-handle { */
+/* 	font-size: 11px; */
+/* 	border: solid 1px white; */
+/* } */
+
+
+
+
+/* button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-picklist-button-remove, */
+/* button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-picklist-button-add, */
+/* button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-picklist-button-add-all, */
+/* button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-picklist-button-remove-all */
+/* { */
+/* 	background-color: #7c8fb0; */
+/* } */
+
+/* span.ui-button-icon-left.ui-icon.ui-c.ui-icon.ui-icon-arrow-1-e, */
+/* span.ui-button-icon-left.ui-icon.ui-c.ui-icon.ui-icon-arrowstop-1-e, */
+/* span.ui-button-icon-left.ui-icon.ui-c.ui-icon.ui-icon-arrow-1-w, */
+/* span.ui-button-icon-left.ui-icon.ui-c.ui-icon.ui-icon-arrowstop-1-w{ */
+/* 	background-image: url("../images/icones.png"); */
+/* 	width: 16px; */
+/* 	height: 16px; */
+/* } */
+
+/* span.ui-button-icon-left.ui-icon.ui-c.ui-icon.ui-icon-arrow-1-e { */
+/* 	background-position: -32px -49px; */
+/* } */
+
+/* span.ui-button-icon-left.ui-icon.ui-c.ui-icon.ui-icon-arrowstop-1-e{ */
+/* 	background-position: -208px -48px; */
+/* } */
+
+/* span.ui-button-icon-left.ui-icon.ui-c.ui-icon.ui-icon-arrow-1-w{ */
+/* 	background-position: -96px -49px; */
+/* } */
+
+/* span.ui-button-icon-left.ui-icon.ui-c.ui-icon.ui-icon-arrowstop-1-w{ */
+/* 	background-position: -241px -48px; */
+/* } */
+
+/* /* FIM - PICK LIST */ */
+
+
+/* /* INICIO - PROGRESSBAR */ */
+
+/* .ui-progressbar { */
+/* 	height: 20px; */
+/* 	width: 370px; */
+/* 	margin: 10px 45px 10px 45px; */
+/* 	border: solid 2px #7C8FB0 !important; */
+/* 	border-radius: 5px; */
+/* } */
+
+/* .ui-progressbar .ui-progressbar-value {  */
+/* 	background-color: #c0c0c0 !important; */
+/*     height: 100%; */
+/*     width: 0%; */
+/*     margin: 0px; */
+/*    } */
+   
+/*    .ui-progressbar .ui-progressbar-label { */
+/*     text-align: center; */
+/*     height: 100%; */
+/*     width: 100%; */
+/*     position: absolute; */
+/*     display: none; */
+/*     font-weight: bold; */
+/*     color: #7C8FB0 !important; */
+/*     font-size: 12px; */
+/*     padding-top: 4px; */
+/* } */
+
+/* /* FIM - PROGRESSBAR */ */
+
+
+/* /* BOTOES ICONE */ */
+	
+/* .botao-icone, .ui-row-toggler{ */
+/* 	width: 16px; */
+/* 	height: 16px!important; */
+/* 	background-color: transparent; */
+/* 	padding: 0px!important;	 */
+/* 	background-repeat: no-repeat; */
+/* 	background-color: #959595;  */
+/* 	border-radius:2px; */
+/*     background-image: url("../images/icones.png"); */
+/* } */
+
+/* .botao-icone.icone-form{ */
+/* 	background-position: -33px -98px;	 */
+/* } */
+
+/* .botao-icone.icone-lapis{ */
+/* 	background-position: -65px -114px; */
+/* } */
+
+/* .botao-icone.icone-lixeira{ */
+/* 	background-position: -177px -98px; */
+/* } */
+
+/* .botao-icone.icone-grafico{ */
+/* 	background-position: -32px -81px; */
+/* } */
+
+/* /* FIM BOTOES ICONE */ */

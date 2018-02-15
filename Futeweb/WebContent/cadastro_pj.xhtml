@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	
+	<ui:define name="conteudo"> 
+		<div class="wrapper">
+			
+			<p:panelGrid columns="2" styleClass="tabela-campos">
+					
+				<p:outputLabel for="pj-cadastrar-nome" value="Nome"/>
+				<p:inputText id="pj-cadastrar-nome" title="Nome" required="true" value="#{adminBean.pessoaJuridica.nome}" />
+			
+				<p:outputLabel for="pj-cadastrar-email" value="Email"/>
+				<p:inputText id="pj-cadastrar-email" title="Email" required="true" value="#{adminBean.pessoaJuridica.email}" />
+				
+				<p:outputLabel for="pj-cadastrar-cnpj" value="CNPJ"/>
+				<p:inputMask id="pj-cadastrar-cnpj" title="CNPJ" required="true" value="#{adminBean.pessoaJuridica.cnpj}" mask="99.999.999/9999-99" />
+				
+				<p:outputLabel for="pj-cadastrar-dataNascimento" value="Data de Nascimento"/>
+				<p:calendar id="pj-cadastrar-dataNascimento" title="Data de Nascimento" required="true" value="#{adminBean.pessoaJuridica.dataNascimento}" readonly="#{facesContext.renderResponse}" showOn="button" pattern="dd/MM/yyyy" maxdate="today" locale="br" />
+					
+				<p:outputLabel for="pj-cadastrar-senha" value="Senha"/>
+				<p:password id="pj-cadastrar-senha" title="Senha" required="true" value="#{adminBean.pessoaJuridica.usuario.senha}" />
+				
+				<p:outputLabel for="pj-cadastrar-confirmaSenha" value="Confirmação da Senha"/>
+				<p:password id="pj-cadastrar-confirmaSenha" title="Confirmação da Senha" required="true" value="#{adminBean.pessoaJuridica.usuario.confirmaSenha}" />
+				
+			</p:panelGrid>
+			
+		</div>
+	</ui:define>
+</ui:composition>
