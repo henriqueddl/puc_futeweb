@@ -16,6 +16,7 @@ import br.com.futeweb.aplicacao.admin.bean.entidade.AdminVO;
 import br.com.futeweb.aplicacao.utils.AplicacaoEnum;
 import br.com.futeweb.aplicacao.utils.Logger;
 import br.com.futeweb.aplicacao.utils.Mensagens;
+import br.com.futeweb.aplicacao.utils.Teste;
 
 @Stateless
 @SessionScoped
@@ -27,24 +28,13 @@ public class AdminBean extends AdminVO implements Serializable{
 	@EJB(beanName="FacadeAdmin")
 	private FacadeAdmin facadeAdmin;
 	
-//	public void inserirEndereco(){
-//		try {
-//			facadeAdmin.getControleEndereco().inserir(endereco);
-//		} catch (SQLException e) {
-//			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ENDERECO_INSERIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
-//		}
-//	}
+	public void abrirConta(){
+		Teste teste = new Teste();
+		teste.teste();
+	}
 	
-//	public void buscarCEP(){
-//		try {
-//			facadeAdmin.getControleEndereco().buscarCep(endereco);
-//		} catch (ServiceException | RemoteException e) {
-//			if (!"CEP NAO INFORMADO".equalsIgnoreCase(e.toString()) && !"BUSCA DEFINIDA COMO EXATA, 0 CEP DEVE TER 8 DIGITOS".equalsIgnoreCase(e.toString())){
-//				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ENDERECO_BUSCA_CEP.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
-//			}
-//		}
-//	}
-//	
+	
+	
 	
 	public void logout(){
 		autenticadoPF = null;

@@ -1,8 +1,11 @@
 package br.com.futeweb.aplicacao.interfaces.estabelecimento.entidade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.futeweb.aplicacao.interfaces.endereco.entidade.Endereco;
+import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaJuridica;
 
 public class Estabelecimento implements Serializable {
 
@@ -12,7 +15,7 @@ public class Estabelecimento implements Serializable {
 	private String nome;
 	private String descricao;
 	private Endereco endereco;
-//	private List<PessoaJuridica> listPessoaJuridica;
+	private List<PessoaJuridica> listPessoaJuridica = new ArrayList<PessoaJuridica>();
 //	private List<Quadra> listQuadra;
 //	private List<Material> listMaterial;
 	
@@ -77,6 +80,13 @@ public class Estabelecimento implements Serializable {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
+
+	public List<PessoaJuridica> getListPessoaJuridica() {
+		return listPessoaJuridica;
+	}
+
+	public void setListPessoaJuridica(List<PessoaJuridica> listPessoaJuridica) {
+		this.listPessoaJuridica = listPessoaJuridica;
+	}
 
 }

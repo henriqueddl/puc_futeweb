@@ -17,9 +17,6 @@ public class Mensagens {
 	
 	public static final String ERRO_PREENCHIMENTO = "Todos os campos com * devem ser preenchidos.";
 	
-	
-	public static final String ERRO_ENDERECO_BUSCA_CEP = "Ocorreu um erro ao consultar o CEP informado: "+PARAMETRO_EXCEPTION+". Informe os dados manualmente.";
-	
 	public static final String ERRO_ENDERECO_INSERIR = "Ocorreu um erro ao inserir o endereço: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_ENDERECO_INSERIR_0 = "Ocorreu um erro ao inserir o endereço, nenhum endereço foi registrado.";
 	public static final String ERRO_ENDERECO_ATUALIZAR = "Ocorreu um erro ao atualizar o endereço: "+PARAMETRO_EXCEPTION;
@@ -35,6 +32,14 @@ public class Mensagens {
 	public static final String ERRO_ESTABELECIMENTO_CONSULTAR = "A busca do estabelecimento foi realizada com sucesso, porem não retornou nenhum registro.";
 	public static final String OK_ESTABELECIMENTO_INSERIR = "O estabelecimento foi registrado com sucesso.";
 	public static final String OK_ESTABELECIMENTO_ATUALIZAR = "O estabelecimento foi atualizado com sucesso.";
+	
+	public static final String ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_INSERIR = "Ocorreu um erro ao vincular o estabelecimento ao usuário: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_INSERIR_0 = "Ocorreu um erro ao vincular o estabelecimento ao usuário, nenhum vinculo foi registrado.";
+	public static final String ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_REMOVER = "Ocorreu um erro ao desvincular o estabelecimento ao usuário: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_REMOVER_0 = "Ocorreu um erro ao desvincular o estabelecimento ao usuário, nenhum vinculo foi removido.";
+	public static final String ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_CONSULTAR = "A busca dos estabelecimentos vinculados ao usuário foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String OK_ESTABELECIMENTO_PESSOA_JURIDICA_INSERIR = "O estabelecimento foi vinculado ao usuário com sucesso.";
+	public static final String OK_ESTABELECIMENTO_PESSOA_JURIDICA_REMOVER = "O estabelecimento foi desvinculado ao usuário com sucesso.";
 	
 	public static final String ERRO_MATERIAL_INSERIR = "Ocorreu um erro ao inserir o material: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_MATERIAL_INSERIR_0 = "Ocorreu um erro ao inserir o material, nenhum material foi registrado.";

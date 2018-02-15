@@ -5,8 +5,8 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
+import br.com.futeweb.aplicacao.interfaces.endereco.controle.ControleEndereco;
 import br.com.futeweb.aplicacao.interfaces.endereco.controle.IControleEndereco;
-import br.com.futeweb.aplicacao.interfaces.endereco.dao.EnderecoDAO;
 import br.com.futeweb.aplicacao.interfaces.endereco.entidade.Endereco;
 import br.com.futeweb.aplicacao.interfaces.estabelecimento.controle.ControleEstabelecimento;
 import br.com.futeweb.aplicacao.interfaces.estabelecimento.controle.IControleEstabelecimento;
@@ -40,14 +40,14 @@ public class Teste {
 	private PessoaJuridica pessoaJuridica;
 	
 	
-	private void init(){
+	public void init(){
 		
-		acao = 0;
+		acao = 1;
 		
 		endereco = new Endereco(1, "Rua Fredolin Wolf", 641, "Curitiba", "PR", "82115000");
 		estabelecimento = new Estabelecimento(1, "Stark", "Aqui voce joga bola", endereco);
-		material = new Material(1, "bola nike", estabelecimento);
-		quadra = new Quadra(1, "Coberta 1", estabelecimento);
+		material = new Material(1, "bola nike", "bola qualquer", estabelecimento);
+		quadra = new Quadra(1, "Coberta 1", "quadra qualquer", estabelecimento);
 		usuario = new Usuario(1, "G0036216", "Sr4d2018!3", true);
 		Date dataNascimento = null;
 		try {
@@ -60,22 +60,31 @@ public class Teste {
 		
 	}
 	
-	public static void main(String[] args) throws SQLException {
+	public void teste(){
 		
-		Teste teste = new Teste();
-		teste.init();
-		teste.testarEndereco();
-		teste.testarEstabelecimento();
-		teste.testarMaterial();
-		teste.testarQuadra();
-		teste.testarReserva();
-		teste.testarUsuario();
-		teste.testarPessoaFisica();
-		teste.testarPessoaJuridica();
+		init();
+		
+		try {
+			testarEndereco();
+			testarEstabelecimento();
+			testarMaterial();
+			testarQuadra();
+			
+			testarUsuario();
+			testarPessoaFisica();
+			testarPessoaJuridica();
+			
+			testarEstabelecimentoPessoaJuridica();
+			
+			
+			testarReserva();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private void testarEndereco() throws SQLException{
-		IControleEndereco impl = new EnderecoDAO();
+		IControleEndereco impl = new ControleEndereco();
 		if (acao==1){
 			impl.inserir(endereco);
 		}else if (acao==2){
@@ -150,25 +159,6 @@ public class Teste {
 		}
 	}
 
-	private void testarReserva() throws SQLException{
-		IControleReserva impl = new ControleReserva();
-		if (acao==1){
-			impl.inserir(reserva);
-		}else if (acao==2){
-			List<Reserva> lista = impl.obterTodos();
-			for (Reserva obj : lista){
-				System.out.println(obj.toString());
-			}
-		}else if (acao==3){
-			List<Reserva> lista = impl.obterPorCriterio(reserva);
-			for (Reserva obj : lista){
-				System.out.println(obj.toString());
-			}
-		}else if (acao==4){
-			impl.atualizar(reserva);
-		}
-	}
-	
 	private void testarUsuario() throws SQLException{
 		IControleUsuario impl = new ControleUsuario();
 		if (acao==1){
@@ -223,6 +213,45 @@ public class Teste {
 			}
 		}else if (acao==4){
 			impl.atualizar(pessoaJuridica);
+		}
+	}
+	
+	private void testarEstabelecimentoPessoaJuridica() throws SQLException{
+		IControleEstabelecimento impl = new ControleEstabelecimento();
+		if (acao==1){
+			impl.inserirEstabelecimentoPessoaJuridica(estabelecimento, pessoaJuridica);
+		}else if (acao==2){
+			System.out.println("nao implementado");
+		}else if (acao==3){
+			List<PessoaJuridica> lista = impl.obterPessoaJuridica(estabelecimento);
+			for (PessoaJuridica obj : lista){
+				System.out.println(obj.toString());
+			}
+		}else if (acao==4){
+			impl.removerEstabelecimentoPessoaJuridica(estabelecimento, pessoaJuridica);
+		}
+	}
+	
+	
+	
+	
+	
+	private void testarReserva() throws SQLException{
+		IControleReserva impl = new ControleReserva();
+		if (acao==1){
+			impl.inserir(reserva);
+		}else if (acao==2){
+			List<Reserva> lista = impl.obterTodos();
+			for (Reserva obj : lista){
+				System.out.println(obj.toString());
+			}
+		}else if (acao==3){
+			List<Reserva> lista = impl.obterPorCriterio(reserva);
+			for (Reserva obj : lista){
+				System.out.println(obj.toString());
+			}
+		}else if (acao==4){
+			impl.atualizar(reserva);
 		}
 	}
 

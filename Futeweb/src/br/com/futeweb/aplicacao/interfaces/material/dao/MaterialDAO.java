@@ -18,10 +18,11 @@ public class MaterialDAO extends GenericoDAO implements IControleMaterial {
 	
 	@Override
 	public int inserir(Material object) throws SQLException {
-		String query = " insert into material (nome, id_estabelecimento) values (?, ?) ";
+		String query = " insert into material (nome, descricao, id_estabelecimento) values (?, ?, ?) ";
 		montarQuery(query);
 		setParametros().setString(1, object.getNome());
-		setParametros().setInt(2, object.getEstabelecimento().getId());
+		setParametros().setString(2, object.getDescricao());
+		setParametros().setInt(3, object.getEstabelecimento().getId());
 		return executarUpdate();
 	}
 
@@ -36,8 +37,8 @@ public class MaterialDAO extends GenericoDAO implements IControleMaterial {
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new Material(Integer.parseInt(r[0]), r[1],
-						new Estabelecimento(Integer.parseInt(r[2]), r[3], r[4], null)));
+				lista.add(new Material(Integer.parseInt(r[0]), r[1], r[2],
+						new Estabelecimento(Integer.parseInt(r[3]), r[4], r[5], null)));
 			}
 		}
 		return lista;
@@ -56,8 +57,8 @@ public class MaterialDAO extends GenericoDAO implements IControleMaterial {
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new Material(Integer.parseInt(r[0]), r[1],
-						new Estabelecimento(Integer.parseInt(r[2]), r[3], r[4], null)));
+				lista.add(new Material(Integer.parseInt(r[0]), r[1], r[2],
+						new Estabelecimento(Integer.parseInt(r[3]), r[4], r[5], null)));
 			}
 		}
 		return lista;
@@ -65,10 +66,11 @@ public class MaterialDAO extends GenericoDAO implements IControleMaterial {
 	
 	@Override
 	public int atualizar(Material object) throws SQLException {
-		String query = " update material set nome = ? where id = ? ";
+		String query = " update material set nome = ? descricao = ? where id = ? ";
 		montarQuery(query);
 		setParametros().setString(1, object.getNome());
-		setParametros().setInt(2, object.getId());
+		setParametros().setString(2, object.getDescricao());
+		setParametros().setInt(3, object.getId());
 		return executarUpdate();
 	}
 }

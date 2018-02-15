@@ -12,21 +12,24 @@ public class Material implements Serializable {
 	
 	private int id;
 	private String nome;
+	private String descricao;
 	private Estabelecimento estabelecimento;
 	private List<Disponibilidade> listDisponibilidade;
 	
         public Material(){}
         
-	public Material(int id, String nome, Estabelecimento estabelecimento) {
+	public Material(int id, String nome, String descricao, Estabelecimento estabelecimento) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.descricao = descricao;
 		this.estabelecimento = estabelecimento;
 	}
 	
 	public boolean validarObjeto(Material obj){
 		return (obj!=null
 				&& obj.getNome()!=null && !"".equals(obj.getNome())
+				&& obj.getDescricao()!=null && !"".equals(obj.getDescricao())
 				&& obj.getEstabelecimento()!=null
 				) ? true : false;
 	}
@@ -55,7 +58,13 @@ public class Material implements Serializable {
 	public void setListDisponibilidade(List<Disponibilidade> listDisponibilidade) {
 		this.listDisponibilidade = listDisponibilidade;
 	}
-	
-	
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 	
 }
