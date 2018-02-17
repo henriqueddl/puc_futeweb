@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.faces.application.FacesMessage;
 
 import br.com.futeweb.aplicacao.dao.generico.GenericoDAO;
+import br.com.futeweb.aplicacao.interfaces.estabelecimento.entidade.Estabelecimento;
 import br.com.futeweb.aplicacao.interfaces.master.entidade.Disponibilidade;
 import br.com.futeweb.aplicacao.interfaces.quadra.dao.QuadraDAO;
 import br.com.futeweb.aplicacao.interfaces.quadra.entidade.Quadra;
@@ -26,11 +27,17 @@ public class ControleQuadra extends GenericoDAO implements IControleQuadra {
 		return dao;
 	}
 	
+	@Deprecated
 	@Override
 	public int inserir(Quadra object) throws SQLException {
+		return dao.inserir(object);
+	}
+	
+	@Override
+	public int inserir(Quadra quadra, int idEstabelecimento) throws SQLException {
 		int retorno = 0;
-		if (object.validarObjeto(object)){
-			retorno = getInstance().inserir(object);
+		if (quadra.validarObjeto(quadra)){
+			retorno = getInstance().inserir(quadra, idEstabelecimento);
 			if (retorno!=0){
 				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_QUADRA_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
 			}else{
@@ -41,19 +48,22 @@ public class ControleQuadra extends GenericoDAO implements IControleQuadra {
 		}
 		return retorno;
 	}
-
+	
+	@Deprecated
 	@Override
 	public List<Quadra> obterTodos() {
-		List<Quadra> lista = getInstance().obterTodos();
-		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
-		}
-		return lista;
+		return dao.obterTodos();
+	}
+	
+	@Deprecated
+	@Override
+	public List<Quadra> obterPorCriterio(Quadra object) throws SQLException {
+		return dao.obterPorCriterio(object);
 	}
 
 	@Override
-	public List<Quadra> obterPorCriterio(Quadra object) throws SQLException {
-		List<Quadra> lista = getInstance().obterPorCriterio(object);
+	public List<Quadra> obterQuadra(Estabelecimento estabelecimento) throws SQLException {
+		List<Quadra> lista = getInstance().obterQuadra(estabelecimento);
 		if (lista==null || lista.size()==0){
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
 		}
@@ -116,4 +126,5 @@ public class ControleQuadra extends GenericoDAO implements IControleQuadra {
 		}
 		return retorno;
 	}
+
 }

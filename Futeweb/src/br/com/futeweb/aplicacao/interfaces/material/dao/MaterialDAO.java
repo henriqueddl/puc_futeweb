@@ -18,49 +18,47 @@ public class MaterialDAO extends GenericoDAO implements IControleMaterial {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Deprecated
 	@Override
 	public int inserir(Material object) throws SQLException {
+		throw new SQLException("Método não implementado");
+	}
+	
+	@Override
+	public int inserir(Material material, int idEstabelecimento) throws SQLException {
 		String query = " insert into material (nome, descricao, id_estabelecimento) values (?, ?, ?) ";
 		montarQuery(query);
-		setParametros().setString(1, object.getNome());
-		setParametros().setString(2, object.getDescricao());
-		setParametros().setInt(3, object.getEstabelecimento().getId());
+		setParametros().setString(1, material.getNome());
+		setParametros().setString(2, material.getDescricao());
+		setParametros().setInt(3, idEstabelecimento);
 		return executarUpdate();
 	}
-
+	
+	@Deprecated
 	@Override
 	public List<Material> obterTodos() {
-		List<Material> lista = new ArrayList<Material>();
-		String query = " select m.id, m.nome, ";
-		query += " es.id, es.nome, es.descricao ";
-		query += " from material m, estabelecimento e ";
-		query += " where m.id_estabelecimento = e.id ";
-		montarQuery(query);
-		String[][] retorno = executarQuery();
-		if (retorno != null){
-			for (String r[] : retorno){
-				lista.add(new Material(Integer.parseInt(r[0]), r[1], r[2],
-						new Estabelecimento(Integer.parseInt(r[3]), r[4], r[5], null)));
-			}
-		}
-		return lista;
+		return new ArrayList<Material>();
+	}
+	
+	@Deprecated
+	@Override
+	public List<Material> obterPorCriterio(Material object) throws SQLException {
+		throw new SQLException("Método não implementado");
 	}
 
 	@Override
-	public List<Material> obterPorCriterio(Material object) throws SQLException {
+	public List<Material> obterMaterial(Estabelecimento estabelecimento) throws SQLException {
 		List<Material> lista = new ArrayList<Material>();
-		String query = " select m.id, m.nome, ";
-		query += " es.id, es.nome, es.descricao ";
+		String query = " select m.id, m.nome, m.descricao ";
 		query += " from material m, estabelecimento e ";
-		query += " where m.id = ? or m.nome ";
+		query += " where e.id = ? ";
 		query += " and m.id_estabelecimento = e.id ";
 		montarQuery(query);
-		setParametros().setInt(1, object.getId());
+		setParametros().setInt(1, estabelecimento.getId());
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new Material(Integer.parseInt(r[0]), r[1], r[2],
-						new Estabelecimento(Integer.parseInt(r[3]), r[4], r[5], null)));
+				lista.add(new Material(Integer.parseInt(r[0]), r[1], r[2]));
 			}
 		}
 		return lista;
@@ -89,7 +87,7 @@ public class MaterialDAO extends GenericoDAO implements IControleMaterial {
 	@Override
 	public List<Disponibilidade> obterDisponibilidadeMaterial(Material material) throws SQLException {
 		List<Disponibilidade> lista = new ArrayList<Disponibilidade>();
-		String query = " select d.id, d.id_material, d.data_inicio, d.data_fim ";
+		String query = " select d.id, d.data_inicio, d.data_fim ";
 		query += " from disponibilidade_material d ";
 		query += " where d.id_material = ? ";
 		montarQuery(query);
@@ -110,4 +108,6 @@ public class MaterialDAO extends GenericoDAO implements IControleMaterial {
 		setParametros().setInt(1, disponibilidade.getId());
 		return executarUpdate();
 	}
+
+
 }

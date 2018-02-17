@@ -26,6 +26,11 @@ public class Disponibilidade implements Serializable{
 				&& obj.getDataFim()!=null
 				) ? true : false;
 	}
+	
+	@Override
+	public String toString() {
+		return "Disponibilidade [id=" + id + ", dataInicio=" + dataInicio + ", dataFim=" + dataFim + "]";
+	}
 
 	public int getId() {
 		return id;

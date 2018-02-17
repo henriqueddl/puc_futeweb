@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.faces.application.FacesMessage;
 
 import br.com.futeweb.aplicacao.dao.generico.GenericoDAO;
+import br.com.futeweb.aplicacao.interfaces.estabelecimento.entidade.Estabelecimento;
 import br.com.futeweb.aplicacao.interfaces.master.entidade.Disponibilidade;
 import br.com.futeweb.aplicacao.interfaces.material.dao.MaterialDAO;
 import br.com.futeweb.aplicacao.interfaces.material.entidade.Material;
@@ -26,11 +27,17 @@ public class ControleMaterial extends GenericoDAO implements IControleMaterial {
 		return dao;
 	}
 	
+	@Deprecated
 	@Override
 	public int inserir(Material object) throws SQLException {
+		return dao.inserir(object);
+	}
+	
+	@Override
+	public int inserir(Material material, int idEstabelecimento) throws SQLException {
 		int retorno = 0;
-		if (object.validarObjeto(object)){
-			retorno = getInstance().inserir(object);
+		if (material.validarObjeto(material) && idEstabelecimento != 0){
+			retorno = getInstance().inserir(material, idEstabelecimento);
 			if (retorno!=0){
 				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
 			}else{
@@ -42,18 +49,21 @@ public class ControleMaterial extends GenericoDAO implements IControleMaterial {
 		return retorno;
 	}
 
+	@Deprecated
 	@Override
 	public List<Material> obterTodos() {
-		List<Material> lista = getInstance().obterTodos();
-		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
-		}
-		return lista;
+		return dao.obterTodos();
+	}
+	
+	@Deprecated
+	@Override
+	public List<Material> obterPorCriterio(Material object) throws SQLException {
+		return dao.obterPorCriterio(object);
 	}
 
 	@Override
-	public List<Material> obterPorCriterio(Material object) throws SQLException {
-		List<Material> lista = getInstance().obterPorCriterio(object);
+	public List<Material> obterMaterial(Estabelecimento estabelecimento) throws SQLException {
+		List<Material> lista = getInstance().obterMaterial(estabelecimento);
 		if (lista==null || lista.size()==0){
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
 		}

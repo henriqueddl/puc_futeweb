@@ -42,6 +42,12 @@ public class PessoaFisica implements Serializable {
 				) ? true : false;
 	}
 	
+	@Override
+	public String toString() {
+		return "PessoaFisica [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", dataNascimento="
+				+ dataNascimento + ", usuario=" + usuario + ", endereco=" + endereco + "]";
+	}
+
 	public int getId() {
 		return id;
 	}

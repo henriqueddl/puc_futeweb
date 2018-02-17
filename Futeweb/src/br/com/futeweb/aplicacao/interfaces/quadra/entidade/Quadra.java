@@ -3,7 +3,6 @@ package br.com.futeweb.aplicacao.interfaces.quadra.entidade;
 import java.io.Serializable;
 import java.util.List;
 
-import br.com.futeweb.aplicacao.interfaces.estabelecimento.entidade.Estabelecimento;
 import br.com.futeweb.aplicacao.interfaces.master.entidade.Disponibilidade;
 
 public class Quadra implements Serializable {
@@ -13,27 +12,30 @@ public class Quadra implements Serializable {
 	private int id;
 	private String nome;
 	private String descricao;
-	private Estabelecimento estabelecimento;
 	private List<Disponibilidade> listDisponibilidade;
         
         public Quadra(){}
 	
-	public Quadra(int id, String nome, String descricao, Estabelecimento estabelecimento) {
+	public Quadra(int id, String nome, String descricao) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
-		this.estabelecimento = estabelecimento;
 	}
 	
 	public boolean validarObjeto(Quadra obj){
 		return (obj!=null
 				&& obj.getNome()!=null && !"".equals(obj.getNome())
 				&& obj.getDescricao()!=null && !"".equals(obj.getDescricao())
-				&& obj.getEstabelecimento()!=null
 				) ? true : false;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Quadra [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", listDisponibilidade="
+				+ listDisponibilidade + "]";
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -45,12 +47,6 @@ public class Quadra implements Serializable {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public Estabelecimento getEstabelecimento() {
-		return estabelecimento;
-	}
-	public void setEstabelecimento(Estabelecimento estabelecimento) {
-		this.estabelecimento = estabelecimento;
 	}
 	public List<Disponibilidade> getListDisponibilidade() {
 		return listDisponibilidade;

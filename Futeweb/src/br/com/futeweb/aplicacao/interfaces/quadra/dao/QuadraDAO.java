@@ -18,49 +18,47 @@ public class QuadraDAO extends GenericoDAO implements IControleQuadra {
 
 	private static final long serialVersionUID = 1L;
 
+	@Deprecated
 	@Override
 	public int inserir(Quadra object) throws SQLException {
+		throw new SQLException("Método não implementado");
+	}
+	
+	@Override
+	public int inserir(Quadra quadra, int idEstabelecimento) throws SQLException {
 		String query = " insert into quadra (nome, descricao, id_estabelecimento) values (?, ?, ?) ";
 		montarQuery(query);
-		setParametros().setString(1, object.getNome());
-		setParametros().setString(2, object.getDescricao());
-		setParametros().setInt(3, object.getEstabelecimento().getId());
+		setParametros().setString(1, quadra.getNome());
+		setParametros().setString(2, quadra.getDescricao());
+		setParametros().setInt(3, idEstabelecimento);
 		return executarUpdate();
 	}
 
+	@Deprecated
 	@Override
 	public List<Quadra> obterTodos() {
-		List<Quadra> lista = new ArrayList<Quadra>();
-		String query = " select q.id, q.nome, ";
-		query += " es.id, es.nome, es.descricao ";
-		query += " from quadra q, estabelecimento e ";
-		query += " where q.id_estabelecimento = e.id ";
-		montarQuery(query);
-		String[][] retorno = executarQuery();
-		if (retorno != null){
-			for (String r[] : retorno){
-				lista.add(new Quadra(Integer.parseInt(r[0]), r[1], r[2],
-						new Estabelecimento(Integer.parseInt(r[3]), r[4], r[5], null)));
-			}
-		}
-		return lista;
+		return new ArrayList<Quadra>();
 	}
 
+	@Deprecated
 	@Override
 	public List<Quadra> obterPorCriterio(Quadra object) throws SQLException {
+		throw new SQLException("Método não implementado");
+	}
+	
+	@Override
+	public List<Quadra> obterQuadra(Estabelecimento estabelecimento) throws SQLException {
 		List<Quadra> lista = new ArrayList<Quadra>();
-		String query = " select q.id, q.nome, ";
-		query += " es.id, es.nome, es.descricao ";
+		String query = " select q.id, q.nome, q.descricao ";
 		query += " from quadra q, estabelecimento e ";
-		query += " where q.id = ? or m.nome ";
+		query += " where e.id = ? ";
 		query += " and q.id_estabelecimento = e.id ";
 		montarQuery(query);
-		setParametros().setInt(1, object.getId());
+		setParametros().setInt(1, estabelecimento.getId());
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new Quadra(Integer.parseInt(r[0]), r[1], r[2],
-						new Estabelecimento(Integer.parseInt(r[3]), r[4], r[5], null)));
+				lista.add(new Quadra(Integer.parseInt(r[0]), r[1], r[2]));
 			}
 		}
 		return lista;
@@ -89,7 +87,7 @@ public class QuadraDAO extends GenericoDAO implements IControleQuadra {
 	@Override
 	public List<Disponibilidade> obterDisponibilidadeQuadra(Quadra quadra) throws SQLException {
 		List<Disponibilidade> lista = new ArrayList<Disponibilidade>();
-		String query = " select d.id, d.id_quadra, d.data_inicio, d.data_fim ";
+		String query = " select id, data_inicio, data_fim ";
 		query += " from disponibilidade_quadra d ";
 		query += " where d.id_quadra = ? ";
 		montarQuery(query);
@@ -110,4 +108,5 @@ public class QuadraDAO extends GenericoDAO implements IControleQuadra {
 		setParametros().setInt(1, disponibilidade.getId());
 		return executarUpdate();
 	}
+
 }

@@ -1,5 +1,19 @@
 use futeweb;
 
+commit;
+
+drop table endereco;
+drop table Estabelecimento;
+drop table Material;
+drop table Quadra;
+drop table Usuario;
+drop table Pessoa_Fisica;
+drop table Pessoa_Juridica;
+drop table Estabelecimento_Pessoa_Juridica;
+drop table Disponibilidade_Quadra;
+drop table Disponibilidade_Material;
+drop table Reserva;
+
 CREATE TABLE Endereco (
   id INT NOT NULL AUTO_INCREMENT,
   logradouro VARCHAR(200) NOT NULL,
@@ -105,5 +119,3 @@ CREATE TABLE Reserva (
   INDEX Reserva_FKIndex2(id_disponibilidade_material),
   INDEX Reserva_FKIndex3(id_pessoa_fisica)
 );
-
-commit;

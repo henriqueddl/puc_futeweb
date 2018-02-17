@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.futeweb.aplicacao.interfaces.endereco.entidade.Endereco;
+import br.com.futeweb.aplicacao.interfaces.material.entidade.Material;
+import br.com.futeweb.aplicacao.interfaces.quadra.entidade.Quadra;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaJuridica;
 
 public class Estabelecimento implements Serializable {
@@ -16,8 +18,8 @@ public class Estabelecimento implements Serializable {
 	private String descricao;
 	private Endereco endereco;
 	private List<PessoaJuridica> listPessoaJuridica = new ArrayList<PessoaJuridica>();
-//	private List<Quadra> listQuadra;
-//	private List<Material> listMaterial;
+	private List<Quadra> listQuadra = new ArrayList<Quadra>();
+	private List<Material> listMaterial = new ArrayList<Material>();
 	
 	public Estabelecimento(){}
         
@@ -36,7 +38,12 @@ public class Estabelecimento implements Serializable {
 				&& obj.getEndereco()!=null
 				) ? true : false;
 	}
-
+	
+	@Override
+	public String toString() {
+		return "Estabelecimento [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", endereco=" + endereco
+				+ ", listPessoaJuridica=" + listPessoaJuridica + "]";
+	}
 
 	public int getId() {
 		return id;
@@ -88,5 +95,23 @@ public class Estabelecimento implements Serializable {
 	public void setListPessoaJuridica(List<PessoaJuridica> listPessoaJuridica) {
 		this.listPessoaJuridica = listPessoaJuridica;
 	}
+
+	public List<Quadra> getListQuadra() {
+		return listQuadra;
+	}
+
+	public void setListQuadra(List<Quadra> listQuadra) {
+		this.listQuadra = listQuadra;
+	}
+
+	public List<Material> getListMaterial() {
+		return listMaterial;
+	}
+
+	public void setListMaterial(List<Material> listMaterial) {
+		this.listMaterial = listMaterial;
+	}
+	
+	
 
 }

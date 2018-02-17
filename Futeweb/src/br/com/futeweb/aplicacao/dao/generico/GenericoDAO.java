@@ -50,7 +50,7 @@ public abstract class GenericoDAO {
 					}
 				}
 			} catch (SQLException e) {
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_EXECUTAR_QUERY.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_EXECUTAR_QUERY.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
 			} finally {
 				fecharConexao();
 			}		
@@ -64,7 +64,7 @@ public abstract class GenericoDAO {
 			try {
 				retorno = pstmt.executeUpdate();
 			} catch (SQLException e) {
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_EXECUTAR_UPDATE.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_EXECUTAR_UPDATE.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
 			} finally {
 				fecharConexao();
 			}		

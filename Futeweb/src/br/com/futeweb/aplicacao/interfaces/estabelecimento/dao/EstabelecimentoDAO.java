@@ -12,7 +12,6 @@ import br.com.futeweb.aplicacao.interfaces.estabelecimento.controle.IControleEst
 import br.com.futeweb.aplicacao.interfaces.estabelecimento.entidade.Estabelecimento;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaJuridica;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.Usuario;
-import br.com.futeweb.aplicacao.utils.AplicacaoUtils;
 
 @Stateless
 public class EstabelecimentoDAO extends GenericoDAO implements IControleEstabelecimento {
@@ -86,7 +85,7 @@ public class EstabelecimentoDAO extends GenericoDAO implements IControleEstabele
 	@Override
 	public List<PessoaJuridica> obterPessoaJuridica(Estabelecimento estabelecimento) throws SQLException {
 		List<PessoaJuridica> lista = new ArrayList<PessoaJuridica>();
-		String query = " select pj.id, pj.nome, pj.email, pj.cnpj, pj.data_nascimento ";
+		String query = " select pj.id, pj.nome, pj.email, pj.cnpj, ";
 		query += " u.id, u.login, u.ativo ";
 		query += " from pessoa_juridica pj, usuario u, estabelecimento_pessoa_juridica espj ";
 		query += " where espj.id_estabelecimento = ? ";
@@ -97,8 +96,8 @@ public class EstabelecimentoDAO extends GenericoDAO implements IControleEstabele
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new PessoaJuridica(Integer.parseInt(r[0]), r[1], r[2], r[3], AplicacaoUtils.parseDate(r[4]) ,
-						new Usuario(Integer.parseInt(r[4]), r[5], r[6], ("1".equals(r[7])))));
+				lista.add(new PessoaJuridica(Integer.parseInt(r[0]), r[1], r[2], r[3], 
+						new Usuario(Integer.parseInt(r[4]), r[5], null, ("1".equals(r[6])))));
 			}
 		}
 		return lista;

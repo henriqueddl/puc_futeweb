@@ -45,12 +45,12 @@ public class Teste {
 	
 	public void init(){
 		
-		acao = 1;
+		acao = 3;
 		
 		endereco = new Endereco(1, "Rua Fredolin Wolf", 641, "Curitiba", "PR", "82115000");
 		estabelecimento = new Estabelecimento(1, "Stark", "Aqui voce joga bola", endereco);
-		material = new Material(1, "bola nike", "bola qualquer", estabelecimento);
-		quadra = new Quadra(1, "Coberta 1", "quadra qualquer", estabelecimento);
+		material = new Material(1, "bola nike", "bola qualquer");
+		quadra = new Quadra(1, "Coberta 1", "quadra qualquer");
 		usuario = new Usuario(1, "G0036216", "Sr4d2018!3", true);
 		Date dataNascimento = null;
 		try {
@@ -59,7 +59,7 @@ public class Teste {
 			e.printStackTrace();
 		}
 		pessoaFisica = new PessoaFisica(1, "Jose Henrique Dias de Lima", "henriqueddl89@gmail.com", "04654782982", dataNascimento, usuario, endereco);
-		pessoaJuridica = new PessoaJuridica(1, "Desiree Angelica Rieiro de Lima", "desiree.ribeiro@hotmail.com", "1234/0001-10", dataNascimento,  usuario);
+		pessoaJuridica = new PessoaJuridica(1, "Desiree Angelica Rieiro de Lima", "desiree.ribeiro@hotmail.com", "1234/0001-10", usuario);
 		
 		
 		Date inicioQuadra = null;
@@ -83,10 +83,6 @@ public class Teste {
 			e.printStackTrace();
 		}
 		disponibilidadeMaterial = new Disponibilidade(1, inicioMaterial, fimMaterial);
-		
-		
-		
-		
 		reserva = new Reserva(1, disponibilidadeQuadra, disponibilidadeMaterial, pessoaFisica);
 	}
 	
@@ -152,14 +148,14 @@ public class Teste {
 	private void testarMaterial() throws SQLException{
 		IControleMaterial impl = new ControleMaterial();
 		if (acao==1){
-			impl.inserir(material);
+			impl.inserir(material, estabelecimento.getId());
 		}else if (acao==2){
-			List<Material> lista = impl.obterTodos();
+			List<Material> lista = impl.obterMaterial(estabelecimento);
 			for (Material obj : lista){
 				System.out.println(obj.toString());
 			}
 		}else if (acao==3){
-			List<Material> lista = impl.obterPorCriterio(material);
+			List<Material> lista = impl.obterMaterial(estabelecimento);
 			for (Material obj : lista){
 				System.out.println(obj.toString());
 			}
@@ -171,14 +167,14 @@ public class Teste {
 	private void testarQuadra() throws SQLException{
 		IControleQuadra impl = new ControleQuadra();
 		if (acao==1){
-			impl.inserir(quadra);
+			impl.inserir(quadra, estabelecimento.getId());
 		}else if (acao==2){
-			List<Quadra> lista = impl.obterTodos();
+			List<Quadra> lista = impl.obterQuadra(estabelecimento);
 			for (Quadra obj : lista){
 				System.out.println(obj.toString());
 			}
 		}else if (acao==3){
-			List<Quadra> lista = impl.obterPorCriterio(quadra);
+			List<Quadra> lista = impl.obterQuadra(estabelecimento);
 			for (Quadra obj : lista){
 				System.out.println(obj.toString());
 			}
@@ -298,10 +294,7 @@ public class Teste {
 		if (acao==1){
 			impl.inserir(reserva);
 		}else if (acao==2){
-			List<Reserva> lista = impl.obterTodos();
-			for (Reserva obj : lista){
-				System.out.println(obj.toString());
-			}
+			System.out.println("nao implementado");
 		}else if (acao==3){
 			List<Reserva> lista = impl.obterPorCriterio(reserva);
 			for (Reserva obj : lista){

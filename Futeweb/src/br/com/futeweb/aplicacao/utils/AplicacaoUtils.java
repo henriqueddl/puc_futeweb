@@ -8,6 +8,7 @@ import java.util.Locale;
 public class AplicacaoUtils {
 
 	public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", new Locale("pt", "BR"));
+	public static SimpleDateFormat sdfBD = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", new Locale("pt", "BR"));
 	
 	public static java.sql.Timestamp dateUtilToSql(java.util.Date utilDate){
 		return new Timestamp(utilDate.getTime());
@@ -22,7 +23,7 @@ public class AplicacaoUtils {
 	public static java.util.Date parseDate(String stringDate){
 		java.util.Date date = null;
 		try {
-			date = AplicacaoUtils.sdf.parse(stringDate);
+			date = AplicacaoUtils.sdfBD.parse(stringDate);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

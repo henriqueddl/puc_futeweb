@@ -28,6 +28,14 @@ public class Usuario implements Serializable {
 				&& obj.getSenha()!=null && !"".equals(obj.getSenha())
 				) ? true : false;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", login=" + login + ", senha=" + senha + ", confirmaSenha=" + confirmaSenha
+				+ ", ativo=" + ativo + "]";
+	}
 
 	public int getId() {
 		return id;

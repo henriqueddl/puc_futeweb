@@ -7,8 +7,11 @@ import javax.ejb.Stateless;
 import javax.faces.application.FacesMessage;
 
 import br.com.futeweb.aplicacao.dao.generico.GenericoDAO;
+import br.com.futeweb.aplicacao.interfaces.material.entidade.Material;
+import br.com.futeweb.aplicacao.interfaces.quadra.entidade.Quadra;
 import br.com.futeweb.aplicacao.interfaces.reserva.dao.ReservaDAO;
 import br.com.futeweb.aplicacao.interfaces.reserva.entidade.Reserva;
+import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaFisica;
 import br.com.futeweb.aplicacao.utils.Logger;
 import br.com.futeweb.aplicacao.utils.Mensagens;
 
@@ -40,15 +43,50 @@ public class ControleReserva extends GenericoDAO implements IControleReserva {
 		}
 		return retorno;
 	}
-
+	
+	@Deprecated
 	@Override
 	public List<Reserva> obterTodos() {
-		List<Reserva> lista = getInstance().obterTodos();
+		return getInstance().obterTodos();
+	}
+
+//	@Override
+//	public List<Reserva> obterTodos() {
+//		List<Reserva> lista = getInstance().obterTodos();
+//		if (lista==null || lista.size()==0){
+//			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+//		}
+//		return lista;
+//	}
+	
+	@Override
+	public List<Reserva> obterReservaDisponibilidadeMaterial(Material material) throws SQLException {
+		List<Reserva> lista = getInstance().obterReservaDisponibilidadeMaterial(material);
 		if (lista==null || lista.size()==0){
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
 		}
 		return lista;
 	}
+
+	@Override
+	public List<Reserva> obterReservaDisponibilidadeQuadra(Quadra quadra) throws SQLException {
+		List<Reserva> lista = getInstance().obterReservaDisponibilidadeQuadra(quadra);
+		if (lista==null || lista.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+		}
+		return lista;
+	}
+
+	@Override
+	public List<Reserva> obterReservaPessoaFisica(PessoaFisica pessoaFisica) throws SQLException {
+		List<Reserva> lista = getInstance().obterReservaPessoaFisica(pessoaFisica);
+		if (lista==null || lista.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+		}
+		return lista;
+	}
+	
+	
 
 	@Override
 	public List<Reserva> obterPorCriterio(Reserva object) throws SQLException {

@@ -43,7 +43,7 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 	@Override
 	public PessoaJuridica autenticarPJ(Usuario object) throws SQLException{
 		PessoaJuridica pessoa = null;
-		String query = " select pj.id, pj.nome, pj.email, pj.cnpj, pj.data_nascimento ";
+		String query = " select pj.id, pj.nome, pj.email, pj.cnpj, ";
 		query += " u.id, u.login, u.ativo ";
 		query += " from pessoa_juridica pj, usuario u ";
 		query += " where pj.id_usuario = u.id ";
@@ -54,8 +54,8 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				pessoa = new PessoaJuridica(Integer.parseInt(r[0]), r[1], r[2], r[3], AplicacaoUtils.parseDate(r[4]) ,
-						new Usuario(Integer.parseInt(r[4]), r[5], r[6], ("1".equals(r[7]))));
+				pessoa = new PessoaJuridica(Integer.parseInt(r[0]), r[1], r[2], r[3],
+						new Usuario(Integer.parseInt(r[4]), r[5], null, ("1".equals(r[6]))));
 			}
 		}
 		return pessoa;
@@ -134,14 +134,14 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 		query += " e.id, e.logradouro, e.numero, e.cidade, e.estado, e.cep ";
 		query += " from pessoa_fisica pf, usuario u, endereco e ";
 		query += " where pf.id_usuario = u.id ";
-		query += " and pf.endereco = e.id ";
+		query += " and pf.id_endereco = e.id ";
 		montarQuery(query);
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
 				lista.add(new PessoaFisica(Integer.parseInt(r[0]), r[1], r[2], r[3], AplicacaoUtils.parseDate(r[4]),
-						new Usuario(Integer.parseInt(r[5]), r[6], r[7], ("1".equals(r[8]))),
-						new Endereco(Integer.parseInt(r[9]), r[10], Integer.parseInt(r[11]), r[12], r[13], r[14])));
+						new Usuario(Integer.parseInt(r[5]), r[6], null, ("1".equals(r[7]))),
+						new Endereco(Integer.parseInt(r[8]), r[9], Integer.parseInt(r[10]), r[11], r[12], r[13])));
 			}
 		}
 		return lista;
@@ -156,7 +156,7 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 		query += " from pessoa_fisica pf, usuario u, endereco e ";
 		query += " where pf.id = ? or pf.nome = ? or pf.email = ? or pf.cpf = ? ";
 		query += " and pf.id_usuario = u.id ";
-		query += " and pf.endereco = e.id ";
+		query += " and pf.id_endereco = e.id ";
 		montarQuery(query);
 		setParametros().setInt(1, object.getId());
 		setParametros().setString(2, object.getNome());
@@ -166,8 +166,8 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 		if (retorno != null){
 			for (String r[] : retorno){
 				lista.add(new PessoaFisica(Integer.parseInt(r[0]), r[1], r[2], r[3], AplicacaoUtils.parseDate(r[4]),
-						new Usuario(Integer.parseInt(r[5]), r[6], r[7], ("1".equals(r[8]))),
-						new Endereco(Integer.parseInt(r[9]), r[10], Integer.parseInt(r[11]), r[12], r[13], r[14])));
+						new Usuario(Integer.parseInt(r[5]), r[6], null, ("1".equals(r[7]))),
+						new Endereco(Integer.parseInt(r[8]), r[9], Integer.parseInt(r[10]), r[11], r[12], r[13])));
 			}
 		}
 		return lista;
@@ -199,7 +199,7 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 	@Override
 	public List<PessoaJuridica> obterPessoaJuridica() {
 		List<PessoaJuridica> lista = new ArrayList<PessoaJuridica>();
-		String query = " select pj.id, pj.nome, pj.email, pj.cnpj, pj.data_nascimento ";
+		String query = " select pj.id, pj.nome, pj.email, pj.cnpj, ";
 		query += " u.id, u.login, u.ativo ";
 		query += " from pessoa_juridica pj, usuario u ";
 		query += " where pj.id_usuario = u.id ";
@@ -207,8 +207,8 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new PessoaJuridica(Integer.parseInt(r[0]), r[1], r[2], r[3], AplicacaoUtils.parseDate(r[4]) ,
-						new Usuario(Integer.parseInt(r[4]), r[5], r[6], ("1".equals(r[7])))));
+				lista.add(new PessoaJuridica(Integer.parseInt(r[0]), r[1], r[2], r[3],
+						new Usuario(Integer.parseInt(r[4]), r[5], null, ("1".equals(r[6])))));
 			}
 		}
 		return lista;
@@ -217,17 +217,18 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 	@Override
 	public List<PessoaJuridica> obterPorCriterio(PessoaJuridica object) throws SQLException {
 		List<PessoaJuridica> lista = new ArrayList<PessoaJuridica>();
-		String query = " select pj.id, pj.nome, pj.email, pj.cnpj, pj.data_nascimento ";
+		String query = " select pj.id, pj.nome, pj.email, pj.cnpj, ";
 		query += " u.id, u.login, u.ativo ";
 		query += " from pessoa_juridica pj, usuario u ";
-		query += " where pj.id = ? or pj.nome = ? or pj.email = ? or pj.cnpj = ? ";
+		query += " where pj.id = ? ";
 		query += " and pj.id_usuario = u.id ";
 		montarQuery(query);
+		setParametros().setInt(1, object.getId());
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new PessoaJuridica(Integer.parseInt(r[0]), r[1], r[2], r[3], AplicacaoUtils.parseDate(r[4]) ,
-						new Usuario(Integer.parseInt(r[4]), r[5], r[6], ("1".equals(r[7])))));
+				lista.add(new PessoaJuridica(Integer.parseInt(r[0]), r[1], r[2], r[3],
+						new Usuario(Integer.parseInt(r[4]), r[5], null, ("1".equals(r[6])))));
 			}
 		}
 		return lista;

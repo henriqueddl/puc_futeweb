@@ -31,7 +31,12 @@ public class Reserva implements Serializable {
 				) ? true : false;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Reserva [id=" + id + ", disponibilidadeQuadra=" + disponibilidadeQuadra + ", disponibilidadeMaterial="
+				+ disponibilidadeMaterial + ", pessoaFisica=" + pessoaFisica + "]";
+	}
+
 	public int getId() {
 		return id;
 	}
