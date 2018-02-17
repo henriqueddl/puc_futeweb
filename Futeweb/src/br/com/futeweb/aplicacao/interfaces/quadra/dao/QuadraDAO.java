@@ -66,7 +66,7 @@ public class QuadraDAO extends GenericoDAO implements IControleQuadra {
 	
 	@Override
 	public int atualizar(Quadra object) throws SQLException {
-		String query = " update quadra set nome = ? descricao = ? where id = ? ";
+		String query = " update quadra set nome = ?, descricao = ? where id = ? ";
 		montarQuery(query);
 		setParametros().setString(1, object.getNome());
 		setParametros().setString(2, object.getDescricao());
@@ -103,7 +103,7 @@ public class QuadraDAO extends GenericoDAO implements IControleQuadra {
 
 	@Override
 	public int removerDisponibilidadeQuadra(Disponibilidade disponibilidade) throws SQLException {
-		String query = " delete disponibilidade_quadra where id = ? ";
+		String query = " delete from disponibilidade_quadra where id = ? ";
 		montarQuery(query);
 		setParametros().setInt(1, disponibilidade.getId());
 		return executarUpdate();

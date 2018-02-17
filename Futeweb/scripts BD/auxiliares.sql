@@ -11,4 +11,3 @@ select * from Estabelecimento_Pessoa_Juridica;
 select * from Disponibilidade_Quadra;
 select * from Disponibilidade_Material;
 select * from Reserva;
-

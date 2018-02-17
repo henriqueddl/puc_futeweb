@@ -42,10 +42,9 @@ public class Teste {
 	private Disponibilidade disponibilidadeMaterial;
 	private Reserva reserva;
 	
-	
 	public void init(){
 		
-		acao = 3;
+		acao = 1;
 		
 		endereco = new Endereco(1, "Rua Fredolin Wolf", 641, "Curitiba", "PR", "82115000");
 		estabelecimento = new Estabelecimento(1, "Stark", "Aqui voce joga bola", endereco);
@@ -73,7 +72,6 @@ public class Teste {
 		disponibilidadeQuadra = new Disponibilidade(1, inicioQuadra, fimQuadra);
 		
 		
-		
 		Date inicioMaterial = null;
 		Date fimMaterial = null;
 		try {
@@ -87,23 +85,24 @@ public class Teste {
 	}
 	
 	public void teste(){
-		
 		init();
-		
-		try {
-			testarEndereco();
-			testarEstabelecimento();
-			testarMaterial();
-			testarQuadra();
-			testarUsuario();
-			testarPessoaFisica();
-			testarPessoaJuridica();
-			testarEstabelecimentoPessoaJuridica();
-			testarDisponibilidadeMaterial();
-			testarDisponibilidadeQuadra();
-			testarReserva();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		while (acao <=4){
+			try {
+				testarEndereco();
+				testarEstabelecimento();
+				testarMaterial();
+				testarQuadra();
+				testarUsuario();
+				testarPessoaFisica();
+				testarPessoaJuridica();
+				testarEstabelecimentoPessoaJuridica();
+				testarDisponibilidadeMaterial();
+				testarDisponibilidadeQuadra();
+				testarReserva();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			acao++;
 		}
 	}
 	
@@ -255,7 +254,6 @@ public class Teste {
 			impl.removerEstabelecimentoPessoaJuridica(estabelecimento, pessoaJuridica);
 		}
 	}
-	
 	
 	private void testarDisponibilidadeQuadra() throws SQLException{
 		IControleQuadra impl = new ControleQuadra();

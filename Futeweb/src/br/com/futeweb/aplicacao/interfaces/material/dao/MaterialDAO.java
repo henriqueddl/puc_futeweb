@@ -66,7 +66,7 @@ public class MaterialDAO extends GenericoDAO implements IControleMaterial {
 	
 	@Override
 	public int atualizar(Material object) throws SQLException {
-		String query = " update material set nome = ? descricao = ? where id = ? ";
+		String query = " update material set nome = ?, descricao = ? where id = ? ";
 		montarQuery(query);
 		setParametros().setString(1, object.getNome());
 		setParametros().setString(2, object.getDescricao());
@@ -103,7 +103,7 @@ public class MaterialDAO extends GenericoDAO implements IControleMaterial {
 
 	@Override
 	public int removerDisponibilidadeMaterial(Disponibilidade disponibilidade) throws SQLException {
-		String query = " delete disponibilidade_material where id = ? ";
+		String query = " delete from disponibilidade_material where id = ? ";
 		montarQuery(query);
 		setParametros().setInt(1, disponibilidade.getId());
 		return executarUpdate();
