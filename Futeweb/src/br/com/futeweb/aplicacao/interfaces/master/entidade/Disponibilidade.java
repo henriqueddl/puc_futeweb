@@ -10,12 +10,21 @@ public class Disponibilidade implements Serializable{
 	private int id;
 	private Date dataInicio;
 	private Date dataFim;
+
+	public Disponibilidade (){}
 	
 	public Disponibilidade(int id, Date dataInicio, Date dataFim) {
 		super();
 		this.id = id;
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
+	}
+	
+	public boolean validarObjeto(Disponibilidade obj){
+		return (obj!=null
+				&& obj.getDataInicio()!=null
+				&& obj.getDataFim()!=null
+				) ? true : false;
 	}
 
 	public int getId() {

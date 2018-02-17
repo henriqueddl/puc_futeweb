@@ -20,7 +20,7 @@ public class ReservaDAO extends GenericoDAO implements IControleReserva {
 	
 	@Override
 	public int inserir(Reserva object) throws SQLException {
-		String query = " insert into reserva (id_disponibilidade_quadra, id_disponibilidade material, id_pessoa_fisica) values (?, ?, ?) ";
+		String query = " insert into reserva (id_disponibilidade_quadra, id_disponibilidade_material, id_pessoa_fisica) values (?, ?, ?) ";
 		montarQuery(query);
 		setParametros().setInt(1, object.getDisponibilidadeQuadra().getId());
 		setParametros().setInt(2, object.getDisponibilidadeMaterial().getId());

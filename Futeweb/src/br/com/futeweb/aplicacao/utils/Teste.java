@@ -11,6 +11,7 @@ import br.com.futeweb.aplicacao.interfaces.endereco.entidade.Endereco;
 import br.com.futeweb.aplicacao.interfaces.estabelecimento.controle.ControleEstabelecimento;
 import br.com.futeweb.aplicacao.interfaces.estabelecimento.controle.IControleEstabelecimento;
 import br.com.futeweb.aplicacao.interfaces.estabelecimento.entidade.Estabelecimento;
+import br.com.futeweb.aplicacao.interfaces.master.entidade.Disponibilidade;
 import br.com.futeweb.aplicacao.interfaces.material.controle.ControleMaterial;
 import br.com.futeweb.aplicacao.interfaces.material.controle.IControleMaterial;
 import br.com.futeweb.aplicacao.interfaces.material.entidade.Material;
@@ -34,10 +35,12 @@ public class Teste {
 	private Estabelecimento estabelecimento;
 	private Material material;
 	private Quadra quadra;
-	private Reserva reserva;
 	private Usuario usuario;
 	private PessoaFisica pessoaFisica;
 	private PessoaJuridica pessoaJuridica;
+	private Disponibilidade disponibilidadeQuadra;
+	private Disponibilidade disponibilidadeMaterial;
+	private Reserva reserva;
 	
 	
 	public void init(){
@@ -51,13 +54,40 @@ public class Teste {
 		usuario = new Usuario(1, "G0036216", "Sr4d2018!3", true);
 		Date dataNascimento = null;
 		try {
-			dataNascimento = AplicacaoUtils.sdf.parse("21/09/1989 00:00:00");
+			dataNascimento = AplicacaoUtils.sdf.parse("21/09/1989 12:34:56");
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		pessoaFisica = new PessoaFisica(1, "Jose Henrique Dias de Lima", "henriqueddl89@gmail.com", "04654782982", dataNascimento, usuario, endereco);
 		pessoaJuridica = new PessoaJuridica(1, "Desiree Angelica Rieiro de Lima", "desiree.ribeiro@hotmail.com", "1234/0001-10", dataNascimento,  usuario);
 		
+		
+		Date inicioQuadra = null;
+		Date fimQuadra = null;
+		try {
+			inicioQuadra = AplicacaoUtils.sdf.parse("16/02/2018 16:00:00");
+			fimQuadra = AplicacaoUtils.sdf.parse("16/02/2018 17:00:00");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		disponibilidadeQuadra = new Disponibilidade(1, inicioQuadra, fimQuadra);
+		
+		
+		
+		Date inicioMaterial = null;
+		Date fimMaterial = null;
+		try {
+			inicioMaterial = AplicacaoUtils.sdf.parse("16/02/2018 16:00:00");
+			fimMaterial = AplicacaoUtils.sdf.parse("16/02/2018 17:00:00");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		disponibilidadeMaterial = new Disponibilidade(1, inicioMaterial, fimMaterial);
+		
+		
+		
+		
+		reserva = new Reserva(1, disponibilidadeQuadra, disponibilidadeMaterial, pessoaFisica);
 	}
 	
 	public void teste(){
@@ -69,14 +99,12 @@ public class Teste {
 			testarEstabelecimento();
 			testarMaterial();
 			testarQuadra();
-			
 			testarUsuario();
 			testarPessoaFisica();
 			testarPessoaJuridica();
-			
 			testarEstabelecimentoPessoaJuridica();
-			
-			
+			testarDisponibilidadeMaterial();
+			testarDisponibilidadeQuadra();
 			testarReserva();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -233,8 +261,37 @@ public class Teste {
 	}
 	
 	
+	private void testarDisponibilidadeQuadra() throws SQLException{
+		IControleQuadra impl = new ControleQuadra();
+		if (acao==1){
+			impl.inserirDisponibilidadeQuadra(disponibilidadeQuadra, quadra);
+		}else if (acao==2){
+			System.out.println("nao implementado");
+		}else if (acao==3){
+			List<Disponibilidade> lista = impl.obterDisponibilidadeQuadra(quadra);
+			for (Disponibilidade obj : lista){
+				System.out.println(obj.toString());
+			}
+		}else if (acao==4){
+			impl.removerDisponibilidadeQuadra(disponibilidadeQuadra);
+		}
+	}
 	
-	
+	private void testarDisponibilidadeMaterial() throws SQLException{
+		IControleMaterial impl = new ControleMaterial();
+		if (acao==1){
+			impl.inserirDisponibilidadeMaterial(disponibilidadeMaterial, material);
+		}else if (acao==2){
+			System.out.println("nao implementado");
+		}else if (acao==3){
+			List<Disponibilidade> lista = impl.obterDisponibilidadeMaterial(material);
+			for (Disponibilidade obj : lista){
+				System.out.println(obj.toString());
+			}
+		}else if (acao==4){
+			impl.removerDisponibilidadeMaterial(disponibilidadeMaterial);
+		}
+	}
 	
 	private void testarReserva() throws SQLException{
 		IControleReserva impl = new ControleReserva();

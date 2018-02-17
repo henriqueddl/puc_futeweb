@@ -120,7 +120,7 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 		setParametros().setString(1, object.getNome());
 		setParametros().setString(2, object.getEmail());
 		setParametros().setString(3, object.getCpf());
-		setParametros().setDate(4, AplicacaoUtils.dateUtilToSql(object.getDataNascimento()));
+		setParametros().setTimestamp(4, AplicacaoUtils.dateUtilToSql(object.getDataNascimento()));
 		setParametros().setInt(5, object.getUsuario().getId());
 		setParametros().setInt(6, object.getEndereco().getId());
 		return executarUpdate();

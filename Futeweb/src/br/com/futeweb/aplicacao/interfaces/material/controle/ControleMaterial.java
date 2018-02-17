@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 import javax.faces.application.FacesMessage;
 
 import br.com.futeweb.aplicacao.dao.generico.GenericoDAO;
+import br.com.futeweb.aplicacao.interfaces.master.entidade.Disponibilidade;
 import br.com.futeweb.aplicacao.interfaces.material.dao.MaterialDAO;
 import br.com.futeweb.aplicacao.interfaces.material.entidade.Material;
 import br.com.futeweb.aplicacao.utils.Logger;
@@ -68,6 +69,47 @@ public class ControleMaterial extends GenericoDAO implements IControleMaterial {
 				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
 			}else{
 				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+		}
+		return retorno;
+	}
+	
+	@Override
+	public int inserirDisponibilidadeMaterial(Disponibilidade disponibilidade, Material material) throws SQLException {
+		int retorno = 0;
+		if (disponibilidade.validarObjeto(disponibilidade) && material.validarObjeto(material)){
+			retorno = getInstance().inserirDisponibilidadeMaterial(disponibilidade, material);
+			if (retorno!=0){
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_DISPONIBILIDADE_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			}else{
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_DISPONIBILIDADE_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+		}
+		return retorno;
+	}
+
+	@Override
+	public List<Disponibilidade> obterDisponibilidadeMaterial(Material material) throws SQLException {
+		List<Disponibilidade> lista = getInstance().obterDisponibilidadeMaterial(material);
+		if (lista==null || lista.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_DISPONIBILIDADE_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+		}
+		return lista;
+	}
+
+	@Override
+	public int removerDisponibilidadeMaterial(Disponibilidade disponibilidade) throws SQLException {
+		int retorno = 0;
+		if (disponibilidade.validarObjeto(disponibilidade)){
+			retorno = getInstance().removerDisponibilidadeMaterial(disponibilidade);
+			if (retorno!=0){
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_DISPONIBILIDADE_REMOVER, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			}else{
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_DISPONIBILIDADE_REMOVER_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
 			}
 		}else{
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);

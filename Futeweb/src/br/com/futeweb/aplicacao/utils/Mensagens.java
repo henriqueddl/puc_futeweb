@@ -49,6 +49,14 @@ public class Mensagens {
 	public static final String OK_MATERIAL_INSERIR = "O material foi registrado com sucesso.";
 	public static final String OK_MATERIAL_ATUALIZAR = "O material foi atualizado com sucesso.";
 	
+	public static final String ERRO_MATERIAL_DISPONIBILIDADE_INSERIR = "Ocorreu um erro ao inserir a disponibilidade do material: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_MATERIAL_DISPONIBILIDADE_INSERIR_0 = "Ocorreu um erro ao inserir a disponibilidade do material, nenhuma disponibilidade foi registrada.";
+	public static final String ERRO_MATERIAL_DISPONIBILIDADE_REMOVER = "Ocorreu um erro ao remover a disponibilidade do material: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_MATERIAL_DISPONIBILIDADE_REMOVER_0 = "Ocorreu um erro ao remover a disponibilidade do material, nenhuma disponibilidade foi removida.";
+	public static final String ERRO_MATERIAL_DISPONIBILIDADE_CONSULTAR = "A busca da disponibilidade do material foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String OK_MATERIAL_DISPONIBILIDADE_INSERIR = "A disponibilidade do material foi registrada com sucesso.";
+	public static final String OK_MATERIAL_DISPONIBILIDADE_REMOVER = "A disponibilidade do material foi removida com sucesso.";
+	
 	public static final String ERRO_QUADRA_INSERIR = "Ocorreu um erro ao inserir a quadra: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_QUADRA_INSERIR_0 = "Ocorreu um erro ao inserir a quadra, nenhuma quadra foi registrada.";
 	public static final String ERRO_QUADRA_ATUALIZAR = "Ocorreu um erro ao atualizar a quadra: "+PARAMETRO_EXCEPTION;
@@ -56,6 +64,14 @@ public class Mensagens {
 	public static final String ERRO_QUADRA_CONSULTAR = "A busca da quadra foi realizada com sucesso, porem não retornou nenhum registro.";
 	public static final String OK_QUADRA_INSERIR = "A quadra foi registrada com sucesso.";
 	public static final String OK_QUADRA_ATUALIZAR = "A quadra foi atualizada com sucesso.";
+	
+	public static final String ERRO_QUADRA_DISPONIBILIDADE_INSERIR = "Ocorreu um erro ao inserir a disponibilidade da quadra: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_QUADRA_DISPONIBILIDADE_INSERIR_0 = "Ocorreu um erro ao inserir a disponibilidade da quadra, nenhuma disponibilidade foi registrada.";
+	public static final String ERRO_QUADRA_DISPONIBILIDADE_REMOVER = "Ocorreu um erro ao remover a disponibilidade da quadra: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_QUADRA_DISPONIBILIDADE_REMOVER_0 = "Ocorreu um erro ao remover a disponibilidade da quadra, nenhuma disponibilidade foi removida.";
+	public static final String ERRO_QUADRA_DISPONIBILIDADE_CONSULTAR = "A busca da disponibilidade da quadra foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String OK_QUADRA_DISPONIBILIDADE_INSERIR = "A disponibilidade da quadra foi registrada com sucesso.";
+	public static final String OK_QUADRA_DISPONIBILIDADE_REMOVER = "A disponibilidade da quadra foi removida com sucesso.";
 	
 	public static final String ERRO_RESERVA_INSERIR = "Ocorreu um erro ao inserir a reserva: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_RESERVA_INSERIR_0 = "Ocorreu um erro ao inserir a reserva, nenhuma reserva foi registrada.";
