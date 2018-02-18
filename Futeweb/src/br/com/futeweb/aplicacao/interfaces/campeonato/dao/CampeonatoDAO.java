@@ -10,6 +10,7 @@ import br.com.futeweb.aplicacao.dao.generico.GenericoDAO;
 import br.com.futeweb.aplicacao.interfaces.campeonato.controle.IControleCampeonato;
 import br.com.futeweb.aplicacao.interfaces.campeonato.entidade.Campeonato;
 import br.com.futeweb.aplicacao.interfaces.jogo.entidade.Jogo;
+import br.com.futeweb.aplicacao.interfaces.time.entidade.Time;
 
 @Stateless
 public class CampeonatoDAO extends GenericoDAO implements IControleCampeonato {
@@ -76,6 +77,14 @@ public class CampeonatoDAO extends GenericoDAO implements IControleCampeonato {
 		montarQuery(query);
 		setParametros().setString(1, object.getNome());
 		setParametros().setInt(2, object.getId());
+		return executarUpdate();
+	}
+	
+	public int inserirTimesCampeonato(Time time, Campeonato campeonato) throws SQLException {
+		String query = " insert into times_campeonato (id_campeonato, id_time) values (?, ?) ";
+		montarQuery(query);
+		setParametros().setInt(1, campeonato.getId());
+		setParametros().setInt(2, time.getId());
 		return executarUpdate();
 	}
 }

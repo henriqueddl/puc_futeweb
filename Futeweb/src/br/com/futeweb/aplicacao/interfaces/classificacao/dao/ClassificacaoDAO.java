@@ -3,14 +3,11 @@ package br.com.futeweb.aplicacao.interfaces.classificacao.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.ResultSet;
 
 import javax.ejb.Stateless;
 
 import br.com.futeweb.aplicacao.dao.generico.GenericoDAO;
 import br.com.futeweb.aplicacao.interfaces.classificacao.entidade.Classificacao;
-import br.com.futeweb.aplicacao.interfaces.master.entidade.Disponibilidade;
-import br.com.futeweb.aplicacao.utils.AplicacaoUtils;
 import br.com.futeweb.aplicacao.interfaces.classificacao.controle.IControleClassificacao;
 
 
@@ -21,13 +18,14 @@ public class ClassificacaoDAO extends GenericoDAO implements IControleClassifica
 
 	@Override
 	public int inserir(Classificacao object) throws SQLException {
-		String query = " insert into classificacao (id_campeonato,id_time,vitorias,golspro,golscontra,saldo) values (?, ?,?,?,?) ";
+		String query = " insert into classificacao (id_campeonato,id_time,jogos,vitorias,golspro,golscontra,saldo) values (?,?, ?,?,?,?) ";
 		montarQuery(query);
 		setParametros().setInt(1, object.getId_Campeonato());
 		setParametros().setInt(2, object.getId_Time());
-		setParametros().setInt(3, object.getvitorias());
-		setParametros().setInt(4, object.getgolsPro());
-		setParametros().setInt(5, object.getgolsContra());		
+		setParametros().setInt(3, object.getjogos());
+		setParametros().setInt(4, object.getvitorias());
+		setParametros().setInt(5, object.getgolsPro());
+		setParametros().setInt(6, object.getgolsContra());		
 		return executarUpdate();
 	}
 
@@ -35,14 +33,14 @@ public class ClassificacaoDAO extends GenericoDAO implements IControleClassifica
 	public List<Classificacao> obterTodos() {
 		List<Classificacao> lista = new ArrayList<Classificacao>();
 		String query = " select q.id, q.id_campeonato,q.id_time, ";
-		query += " q.vitorias, q.golsPro,q.golsContra ";
+		query += " q.jogos,q.vitorias, q.golsPro,q.golsContra ";
 		query += " from classificacao q, campeonato e ";
 		query += " where q.id_campeonato = e.id ";
 		montarQuery(query);
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new Classificacao(Integer.parseInt(r[0]),Integer.parseInt(r[1]),Integer.parseInt(r[2]),Integer.parseInt(r[3]),Integer.parseInt(r[4]),Integer.parseInt(r[5])));
+				lista.add(new Classificacao(Integer.parseInt(r[0]),Integer.parseInt(r[1]),Integer.parseInt(r[2]),Integer.parseInt(r[3]),Integer.parseInt(r[4]),Integer.parseInt(r[5]), Integer.parseInt(r[6])));
 			}
 		}
 		return lista;
@@ -61,7 +59,7 @@ public class ClassificacaoDAO extends GenericoDAO implements IControleClassifica
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new Classificacao(Integer.parseInt(r[0]),Integer.parseInt(r[1]),Integer.parseInt(r[2]),Integer.parseInt(r[3]),Integer.parseInt(r[4]),Integer.parseInt(r[5])));
+				lista.add(new Classificacao(Integer.parseInt(r[0]),Integer.parseInt(r[1]),Integer.parseInt(r[2]),Integer.parseInt(r[3]),Integer.parseInt(r[4]),Integer.parseInt(r[5]),Integer.parseInt(r[6])));
 			}
 		}
 		return lista;
@@ -81,25 +79,86 @@ public class ClassificacaoDAO extends GenericoDAO implements IControleClassifica
 	}
 	
 	public int AtualizarClassificacao(Classificacao object) throws SQLException {
-		String queryJogos = " select id_jogo,id_timeMandante,id_Timevisitante, golsTimeMandante,golsTime visitante from jogo where id_campeonato = ?";
+		int pontosMandante = 0;
+		int pontosVisitante = 0;
+		int golsProMandante = 0;
+		int golsContraMandante = 0;
+		int golsProVisitante = 0;
+		int golsContraVisitante = 0;
+		int vitoriasMandante = 0;
+		int vitoriasVisitante = 0;
+		int jogosMandante = 0;
+		int jogosVisitante = 0;	
+		int id_timemandante = 0;
+		int id_timevisitante = 0;
+		
+		String queryJogos = " select id_jogo,id_timeMandante,id_Timevisitante, golsTimeMandante,golsTime visitante from jogo where id_campeonato = ? and data_realizacao is not null";
 		montarQuery(queryJogos);
 		setParametros().setInt(1, object.getId_Campeonato());		
 		
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				//lista.add(new Disponibilidade(Integer.parseInt(r[0]), AplicacaoUtils.parseDate(r[1]), AplicacaoUtils.parseDate(r[2])));
+				
+			
+		    	id_timemandante = Integer.parseInt(r[1]);
+		    	id_timevisitante = Integer.parseInt(r[2]);
+				jogosMandante = jogosMandante + 1;
+				jogosVisitante = jogosVisitante + 1;	
+			
+				if (Integer.parseInt(r[3]) > Integer.parseInt(r[4])) {
+					vitoriasMandante = vitoriasMandante + 1;
+					pontosMandante = pontosMandante + 3;
+					golsProMandante = golsProMandante + Integer.parseInt(r[3]);
+					golsProVisitante = golsProVisitante + Integer.parseInt(r[4]);
+
+					golsContraMandante = golsContraMandante + golsProVisitante;
+					golsContraVisitante = golsContraVisitante + golsProMandante;
+				}
+				if (Integer.parseInt(r[3]) < Integer.parseInt(r[4])) {
+					vitoriasVisitante = vitoriasVisitante + 1;
+					pontosVisitante = pontosVisitante + 3;
+					golsProMandante = golsProMandante + Integer.parseInt(r[3]);
+					golsProVisitante = golsProVisitante + Integer.parseInt(r[4]);
+
+					golsContraMandante = golsContraMandante + golsProVisitante;
+					golsContraVisitante = golsContraVisitante + golsProMandante;	
+				}      
+				
+				if (Integer.parseInt(r[3]) == Integer.parseInt(r[4])) {
+					pontosMandante =  pontosMandante + 1;
+					pontosVisitante = pontosVisitante + 1;
+					golsProMandante = golsProMandante + Integer.parseInt(r[3]);
+					golsProVisitante = golsProVisitante + Integer.parseInt(r[4]);
+
+					golsContraMandante = golsContraMandante + golsProVisitante;
+					golsContraVisitante = golsContraVisitante + golsProMandante;				}
+				
 			}
+		    
+			//Atualiza informação do mandante, e depois do visitante
+			String query = " update classificacao set Id_campeonato = ?, jogos = ?,vitorias = ?,golsPro = ?, golsContra = ? where id = ? and Id_time = ?";
+			montarQuery(query);
+			setParametros().setInt(1, object.getId_Campeonato());
+			setParametros().setInt(2, jogosMandante);			
+			setParametros().setInt(3, vitoriasMandante);
+			setParametros().setInt(4, golsProMandante);
+			setParametros().setInt(5, golsContraMandante);
+			setParametros().setInt(6, object.getId());	
+			setParametros().setInt(7, id_timemandante);			
+			executarUpdate();
+			
+			query = " update classificacao set Id_campeonato = ?, vitorias = ?,golsPro = ?, golsContra = ? where id = ? and Id_time = ?";
+			montarQuery(query);
+			setParametros().setInt(1, object.getId_Campeonato());
+			setParametros().setInt(2, jogosVisitante);			
+			setParametros().setInt(3, vitoriasVisitante);
+			setParametros().setInt(4, golsProVisitante);
+			setParametros().setInt(5, golsContraVisitante);
+			setParametros().setInt(6, object.getId());	
+			setParametros().setInt(7, id_timevisitante);			
+			executarUpdate();
 		}
-		
-		String query = " update classificacao set Id_campeonato = ?,Id_time = ?, vitorias = ?,golsPro = ?, golsContra = ? where id = ? ";
-		montarQuery(query);
-		setParametros().setInt(1, object.getId_Campeonato());
-		setParametros().setInt(2, object.getId_Time());
-		setParametros().setInt(3, object.getvitorias());
-		setParametros().setInt(4, object.getgolsPro());
-		setParametros().setInt(5, object.getgolsContra());	
-		setParametros().setInt(6, object.getId());			
-		return executarUpdate();
+		return 1;
 	}	
 }

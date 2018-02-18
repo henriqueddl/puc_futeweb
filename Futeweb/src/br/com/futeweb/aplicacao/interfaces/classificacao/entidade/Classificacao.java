@@ -11,14 +11,16 @@ public class Classificacao implements Serializable {
 	private int id;
 	private int Id_Campeonato;
 	private int Id_Time;
+	private int jogos;
 	private int vitorias;
 	private int golsPro;
 	private int golsContra;	
         
-	public Classificacao(int id, int Id_Campeonato,int Id_Time, int Vitorias,int golsPro, int golsContra) {
+	public Classificacao(int id, int Id_Campeonato,int Id_Time,int jogos, int Vitorias,int golsPro, int golsContra) {
 		super();
 		this.id = id;
 		this.Id_Campeonato = Id_Campeonato;
+		this.jogos = jogos;
 		this.Id_Time = Id_Time;
 		this.vitorias = Vitorias;
 		this.golsPro = golsPro;
@@ -52,6 +54,13 @@ public class Classificacao implements Serializable {
 	public void setId_Time(int id_Time) {
 		this.Id_Time = id_Time;
 	}	
+	
+	public int getjogos() {
+		return jogos;
+	}
+	public void setjogos(int jogos) {
+		this.jogos = jogos;
+	}
 	
 	public int getvitorias() {
 		return vitorias;
