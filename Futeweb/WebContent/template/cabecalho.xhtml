@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <div 
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -15,8 +15,29 @@
 	rendered="#{bean.a==12 and (bean.b==13 or bean.b==15)}"
 	</div>
 	
-</div>
+</div> -->
 
+<ui:composition
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" >
+	<nav role="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarMain">
+					<span class="sr-only">Navegar</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<!--link e logo-->
+				<a href="" title="FuteWeb" class="navbar-brand logo-home">
+					<img rel="logo" src="" alt="FuteWeb" class="hidden-xs" width="94"/>
+					<img rel="logo" src="" alt="FuteWeb" class="visible-xs-block" width="150"/>
+				</a>
+			</div>
+	</nav>
 
+</ui:composition>
 
 
