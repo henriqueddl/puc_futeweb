@@ -4,14 +4,16 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
 	template="/template/template.xhtml">
+	<h:form>
+		<h:panelGrid id="gridMaterial" columns="2" cellpadding="5">
+				<p:outputLabel for="nome" value="Nome: " />
+				<p:inputText id="nomeMaterial" value="#{adminVO.material.nome}" required="true"/>
+
+				<p:outputLabel for="descricao" value="Descrição: " />
+				<p:inputText id="descricaoMaterial" value="#{adminVO.material.descricao}" required="true"/>
+
+				<p:commandButton value="Form" id="btnForm" process="@form" update="gridMaterial" actionListener="#{controlematerial.inserir(adminVO.material)}" />
+		</h:panelGrid>
+	</h:form>
 	
-	<ui:define name="conteudo"> 
-		<div class="wrapper">
-			<p:panelGrid columns="2" styleClass="tabela-campos">
-				<p:outputLabel for="cadastrar-material-nome" value="Nome"/>
-                                <p:inputText id="cadastrar-material-nome" title="Nome" required="true" value="#{adminBean.material.nome}" />
-			</p:panelGrid>
-			
-		</div>
-	</ui:define>
 </ui:composition>
