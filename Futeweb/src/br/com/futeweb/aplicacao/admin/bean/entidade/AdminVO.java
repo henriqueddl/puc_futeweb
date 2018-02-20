@@ -25,7 +25,7 @@ public class AdminVO implements Serializable {
 	protected PessoaFisica autenticadoPF = new PessoaFisica();
 	protected PessoaJuridica autenticadoPJ = new PessoaJuridica();
 
-	protected Quadra quabdra = new Quadra();
+	protected Quadra quadra = new Quadra();
 	protected Material material = new Material();
 
 	public Usuario getUsuario() {
@@ -76,12 +76,12 @@ public class AdminVO implements Serializable {
 		this.autenticadoPJ = autenticadoPJ;
 	}
 
-	public Quadra getQuabdra() {
-		return quabdra;
+	public Quadra getQuadra() {
+		return quadra;
 	}
 
-	public void setQuabdra(Quadra quabdra) {
-		this.quabdra = quabdra;
+	public void setQuadra(Quadra quadra) {
+		this.quadra = quadra;
 	}
 
 	public Material getMaterial() {

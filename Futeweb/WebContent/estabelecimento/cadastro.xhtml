@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	
+	<ui:define name="conteudo"> 
+	
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+	
+		<div class="wrapper">
+			<p:messages  id="id-mensagem-estabelecimento" showIcon="false" closable="true" />
+			
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-estabelecimento">
+			
+				<p:outputLabel for="cadastrar-estabelecimento-nome" value="Nome" />
+	            <p:inputText id="cadastrar-estabelecimento-nome" title="Nome" required="true" value="#{adminBean.estabelecimento.nome}" />
+	            
+	            <p:outputLabel for="cadastrar-estabelecimento-descricao" value="Descrição" />
+	            <p:inputTextarea id="cadastrar-estabelecimento-descricao" title="Nome" required="true" value="#{adminBean.estabelecimento.descricao}" />
+	            
+	            <p:outputLabel for="estabelecimento-cadastrar-logradouro" value="Logradouro" />
+	            <p:inputText id="estabelecimento-cadastrar-logradouro" title="Logradouro" required="true" value="#{adminBean.estabelecimento.endereco.logradouro}"/>
+	
+	            <p:outputLabel for="estabelecimento-cadastrar-numero" value="Número" />
+	            <p:inputText id="estabelecimento-cadastrar-numero" title="Número" required="true" value="#{adminBean.estabelecimento.endereco.numero}" type="number" />
+	
+	            <p:outputLabel for="estabelecimento-cadastrar-cidade" value="Cidade" />
+	            <p:inputText id="estabelecimento-cadastrar-cidade" title="Cidade" required="true" value="#{adminBean.estabelecimento.endereco.cidade}"/>
+	
+	            <p:outputLabel for="estabelecimento-cadastrar-estado" value="Estado" />
+	            <p:inputText id="estabelecimento-cadastrar-estado" title="Estado" required="true" value="#{adminBean.estabelecimento.endereco.estado}"/>
+	
+				<p:column/>
+	            <p:commandButton id="estabelecimento-cadastrar-button" value="Cadastar Estabelecimento" update="grid-cadastrar-estabelecimento" ajax="false" actionListener="#{adminBean.cadastrarEstabelecimento()}" />
+            
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

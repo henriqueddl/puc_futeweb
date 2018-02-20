@@ -26,17 +26,29 @@ public class AdminBean extends AdminVO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@EJB(beanName="FacadeAdmin")
-	private FacadeAdmin facadeAdmin;
+	private FacadeAdmin facadeAdmin;	
 	
 	public void abrirConta(){
 		Teste teste = new Teste();
 		teste.teste();
 	}
 	
-	public void teste(){
-		System.out.println("chamou teste");
-		
+	public void cadastrarEstabelecimento(){
+		System.out.println("chamou cadastrar estabelecimento");
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public boolean isLogged(){
 		boolean retorno = false;
