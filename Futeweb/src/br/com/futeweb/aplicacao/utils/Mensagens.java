@@ -3,7 +3,7 @@ package br.com.futeweb.aplicacao.utils;
 
 public class Mensagens {
 	
-	public static final String ID_CAMPO_MENSAGEM_QUALQUER = "ID_MENSAGEM_QUALQUER";
+	public static final String ID_CAMPO_MENSAGEM_INDEX = "form:id-mensagem-index";
 	
 	public static final String PARAMETRO_EXCEPTION = "<exception/>";
 	
@@ -89,7 +89,9 @@ public class Mensagens {
 	public static final String OK_USUARIO_INSERIR = "O usuário foi registrado com sucesso.";
 	public static final String OK_USUARIO_ATUALIZAR = "O usuário foi atualizado com sucesso.";
 	
+	public static final String ERRO_AUTENTICAR_PREENCHIMENTO = "Para logar no sistema o campo Login e Senha devem ser preenchidos.";
 	public static final String ERRO_ATENTICAR = "Ocorreu um erro ao tentar autenticar o usuário: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_ATENTICAR_0 = "Não foi encontrado nenhum usuário ativo a partir dos dados informados.";
+	public static final String OK_ATENTICAR = "O usuário foi autenticado com sucesso.";
 
 }

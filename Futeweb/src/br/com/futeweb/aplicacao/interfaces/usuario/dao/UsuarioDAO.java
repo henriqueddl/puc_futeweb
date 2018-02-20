@@ -34,7 +34,7 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 		if (retorno != null){
 			for (String r[] : retorno){
 				pessoa = new PessoaFisica(Integer.parseInt(r[0]), r[1], r[2], r[3], AplicacaoUtils.parseDate(r[4]),
-						new Usuario(Integer.parseInt(r[5]), r[6], r[7], ("1".equals(r[8]))), null);
+						new Usuario(Integer.parseInt(r[5]), r[6], null, ("1".equals(r[7]))), null);
 			}
 		}
 		return pessoa;

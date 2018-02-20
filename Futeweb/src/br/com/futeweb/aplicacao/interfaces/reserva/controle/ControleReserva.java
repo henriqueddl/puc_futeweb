@@ -34,12 +34,12 @@ public class ControleReserva extends GenericoDAO implements IControleReserva {
 		if (object.validarObjeto(object)){
 			retorno = getInstance().inserir(object);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_RESERVA_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_RESERVA_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}
@@ -54,7 +54,7 @@ public class ControleReserva extends GenericoDAO implements IControleReserva {
 //	public List<Reserva> obterTodos() {
 //		List<Reserva> lista = getInstance().obterTodos();
 //		if (lista==null || lista.size()==0){
-//			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+//			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 //		}
 //		return lista;
 //	}
@@ -63,7 +63,7 @@ public class ControleReserva extends GenericoDAO implements IControleReserva {
 	public List<Reserva> obterReservaDisponibilidadeMaterial(Material material) throws SQLException {
 		List<Reserva> lista = getInstance().obterReservaDisponibilidadeMaterial(material);
 		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return lista;
 	}
@@ -72,7 +72,7 @@ public class ControleReserva extends GenericoDAO implements IControleReserva {
 	public List<Reserva> obterReservaDisponibilidadeQuadra(Quadra quadra) throws SQLException {
 		List<Reserva> lista = getInstance().obterReservaDisponibilidadeQuadra(quadra);
 		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return lista;
 	}
@@ -81,7 +81,7 @@ public class ControleReserva extends GenericoDAO implements IControleReserva {
 	public List<Reserva> obterReservaPessoaFisica(PessoaFisica pessoaFisica) throws SQLException {
 		List<Reserva> lista = getInstance().obterReservaPessoaFisica(pessoaFisica);
 		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return lista;
 	}
@@ -92,7 +92,7 @@ public class ControleReserva extends GenericoDAO implements IControleReserva {
 	public List<Reserva> obterPorCriterio(Reserva object) throws SQLException {
 		List<Reserva> lista = getInstance().obterPorCriterio(object);
 		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return lista;
 	}
@@ -103,12 +103,12 @@ public class ControleReserva extends GenericoDAO implements IControleReserva {
 		if (object.validarObjeto(object)){
 			retorno = getInstance().atualizar(object);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_RESERVA_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_RESERVA_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}

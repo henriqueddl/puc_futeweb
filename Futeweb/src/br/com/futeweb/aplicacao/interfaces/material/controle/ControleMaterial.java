@@ -39,12 +39,12 @@ public class ControleMaterial extends GenericoDAO implements IControleMaterial {
 		if (material.validarObjeto(material) && idEstabelecimento != 0){
 			retorno = getInstance().inserir(material, idEstabelecimento);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}
@@ -65,7 +65,7 @@ public class ControleMaterial extends GenericoDAO implements IControleMaterial {
 	public List<Material> obterMaterial(Estabelecimento estabelecimento) throws SQLException {
 		List<Material> lista = getInstance().obterMaterial(estabelecimento);
 		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return lista;
 	}
@@ -76,12 +76,12 @@ public class ControleMaterial extends GenericoDAO implements IControleMaterial {
 		if (object.validarObjeto(object)){
 			retorno = getInstance().atualizar(object);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}
@@ -92,12 +92,12 @@ public class ControleMaterial extends GenericoDAO implements IControleMaterial {
 		if (disponibilidade.validarObjeto(disponibilidade) && material.validarObjeto(material)){
 			retorno = getInstance().inserirDisponibilidadeMaterial(disponibilidade, material);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_DISPONIBILIDADE_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_DISPONIBILIDADE_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_DISPONIBILIDADE_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_DISPONIBILIDADE_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}
@@ -106,7 +106,7 @@ public class ControleMaterial extends GenericoDAO implements IControleMaterial {
 	public List<Disponibilidade> obterDisponibilidadeMaterial(Material material) throws SQLException {
 		List<Disponibilidade> lista = getInstance().obterDisponibilidadeMaterial(material);
 		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_DISPONIBILIDADE_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_DISPONIBILIDADE_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return lista;
 	}
@@ -117,12 +117,12 @@ public class ControleMaterial extends GenericoDAO implements IControleMaterial {
 		if (disponibilidade.validarObjeto(disponibilidade)){
 			retorno = getInstance().removerDisponibilidadeMaterial(disponibilidade);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_DISPONIBILIDADE_REMOVER, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_DISPONIBILIDADE_REMOVER, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_DISPONIBILIDADE_REMOVER_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_DISPONIBILIDADE_REMOVER_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}

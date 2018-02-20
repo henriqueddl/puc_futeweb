@@ -33,8 +33,30 @@ public class AdminBean extends AdminVO implements Serializable{
 		teste.teste();
 	}
 	
+	public void teste(){
+		System.out.println("chamou teste");
+		
+	}
 	
-	
+	public boolean isLogged(){
+		boolean retorno = false;
+		try {
+			if ( (autenticadoPF!=null && autenticadoPF.getId()!=0) || (autenticadoPJ!=null && autenticadoPJ.getId()!=0)){
+				if (!logado){
+					logado = true;
+					retorno = true;
+					new Logger(true, null, Mensagens.OK_ATENTICAR, null);
+					FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_HOME.getValor());
+				}
+			}else if (logado){ 
+				logado = false;
+				FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_INDEX.getValor());
+			}
+		} catch (IOException e) {
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+		return  retorno;
+	}
 	
 	public void logout(){
 		autenticadoPF = null;
@@ -48,17 +70,22 @@ public class AdminBean extends AdminVO implements Serializable{
 
 	public void autenticar(){
 		try {
-			autenticadoPF = facadeAdmin.getControleUsuario().autenticarPF(usuario);
-			if (autenticadoPF==null){
-				autenticadoPJ = facadeAdmin.getControleUsuario().autenticarPJ(usuario);
+			if (!isLogged() ){
+				if (usuario!=null && !"".equals(usuario.getLogin()) && !"".equals(usuario.getSenha())){
+					autenticadoPF = facadeAdmin.getControleUsuario().autenticarPF(usuario);
+					if (autenticadoPF==null){
+						autenticadoPJ = facadeAdmin.getControleUsuario().autenticarPJ(usuario); 
+					} 
+					if ( !isLogged() ){
+						new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+						FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_INDEX.getValor());
+					} 
+				}else {
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_AUTENTICAR_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
 			}
-			if (autenticadoPF==null && autenticadoPJ==null){
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
-			}else{
-				FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_INDEX.getValor());
-			}
-		} catch (SQLException | IOException e) {
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+		} catch (IOException | SQLException e) {
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 	}
 }

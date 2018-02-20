@@ -6,7 +6,9 @@
 	template="/template/template.xhtml">
 	
 	<ui:define name="conteudo"> 
+	
 		<div class="wrapper">
+			<p:messages  id="id-mensagem-index" showIcon="false" closable="true" />
 			
 			<p:panelGrid columns="2" styleClass="tabela-campos">
 			
@@ -19,7 +21,7 @@
 					<p:password id="usuario-entrar-senha" title="Senha"  value="#{adminBean.usuario.senha}" />
 					
 					<p:column/>
-					<p:commandButton id="usuario-entrar" ajax="false" value="Entrar" actionListener="#{adminBean.autenticar()}"/>
+					<p:commandButton id="usuario-entrar" value="Entrar" actionListener="#{adminBean.autenticar()}"/>
 					
 				</p:panelGrid>
 				

@@ -30,12 +30,12 @@ public class ControleEndereco implements IControleEndereco {
 		if (object.validarObjeto(object)){
 			retorno = getInstance().inserir(object);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ENDERECO_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ENDERECO_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ENDERECO_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ENDERECO_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}
@@ -44,7 +44,7 @@ public class ControleEndereco implements IControleEndereco {
 	public List<Endereco> obterTodos() {
 		List<Endereco> lista = getInstance().obterTodos();
 		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ENDERECO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ENDERECO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return lista;
 	}
@@ -53,7 +53,7 @@ public class ControleEndereco implements IControleEndereco {
 	public List<Endereco> obterPorCriterio(Endereco object) throws SQLException {
 		List<Endereco> lista = getInstance().obterPorCriterio(object);
 		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ENDERECO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ENDERECO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return lista;
 	}
@@ -64,12 +64,12 @@ public class ControleEndereco implements IControleEndereco {
 		if (object.validarObjeto(object)){
 			retorno = getInstance().atualizar(object);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ENDERECO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ENDERECO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ENDERECO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ENDERECO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}

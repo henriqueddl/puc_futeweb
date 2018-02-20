@@ -33,12 +33,12 @@ public class ControleEstabelecimento extends GenericoDAO implements IControleEst
 		if (object.validarObjeto(object)){
 			retorno = getInstance().inserir(object);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}
@@ -47,7 +47,7 @@ public class ControleEstabelecimento extends GenericoDAO implements IControleEst
 	public List<Estabelecimento> obterTodos() {
 		List<Estabelecimento> lista = getInstance().obterTodos();
 		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return lista;
 	}
@@ -56,7 +56,7 @@ public class ControleEstabelecimento extends GenericoDAO implements IControleEst
 	public List<Estabelecimento> obterPorCriterio(Estabelecimento object) throws SQLException {
 		List<Estabelecimento> lista = getInstance().obterPorCriterio(object);
 		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return lista;
 	}
@@ -67,12 +67,12 @@ public class ControleEstabelecimento extends GenericoDAO implements IControleEst
 		if (object.validarObjeto(object)){
 			retorno = getInstance().atualizar(object);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}
@@ -83,12 +83,12 @@ public class ControleEstabelecimento extends GenericoDAO implements IControleEst
 		if (estabelecimento!=null && pessoaJuridica!=null){
 			retorno = getInstance().inserirEstabelecimentoPessoaJuridica(estabelecimento, pessoaJuridica);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_PESSOA_JURIDICA_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_PESSOA_JURIDICA_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}
@@ -97,7 +97,7 @@ public class ControleEstabelecimento extends GenericoDAO implements IControleEst
 	public List<PessoaJuridica> obterPessoaJuridica(Estabelecimento estabelecimento) throws SQLException {
 		List<PessoaJuridica> lista = getInstance().obterPessoaJuridica(estabelecimento);
 		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return lista;
 	}
@@ -108,12 +108,12 @@ public class ControleEstabelecimento extends GenericoDAO implements IControleEst
 		if (estabelecimento!=null && pessoaJuridica!=null){
 			retorno = getInstance().removerEstabelecimentoPessoaJuridica(estabelecimento, pessoaJuridica);
 			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_PESSOA_JURIDICA_REMOVER, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_PESSOA_JURIDICA_REMOVER, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_REMOVER_0, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_REMOVER_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
 	}

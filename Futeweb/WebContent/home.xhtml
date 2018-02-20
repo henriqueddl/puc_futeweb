@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	
+	<ui:define name="conteudo"> 
+	
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+		
+		<div class="wrapper">
+			<p:messages  id="id-mensagem-home" showIcon="false" closable="true" />
+				
+			<p:panelGrid columns="2" styleClass="tabela-campos">
+			
+				<p:tieredMenu>
+			        <p:submenu  label="Cadastrar" icon="ui-icon-newwin">
+			            <p:menuitem  value="Estabelecimento" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-disk" />
+			            <p:menuitem  value="Quadra" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-disk" />
+			            <p:menuitem  value="Material" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-disk" />
+			            <p:submenu  label="Disponibilidade Reserva" icon="ui-icon-newwin">
+			            	<p:menuitem  value="Material" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-disk" />
+			            	<p:menuitem  value="Quadra" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-disk" />
+			            </p:submenu>
+			        </p:submenu>
+			        <p:submenu  label="Alterar" icon="ui-icon-newwin">
+			        	<p:menuitem  value="Estabelecimento" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-arrowrefresh-1-w" />
+			            <p:menuitem  value="Quadra" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-arrowrefresh-1-w" />
+			            <p:menuitem  value="Material" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-arrowrefresh-1-w" />
+			            <p:submenu  label="Disponibilidade Reserva" icon="ui-icon-newwin">
+			            	<p:menuitem  value="Material" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-arrowrefresh-1-w" />
+			            	<p:menuitem  value="Quadra" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-arrowrefresh-1-w" />
+			            </p:submenu>
+			        </p:submenu>
+			        <p:submenu  label="Consultar" icon="ui-icon-newwin">
+			        	<p:menuitem  value="Estabelecimento" actionListener="#{adminBean.teste()}" ajax="false"  />
+			            <p:menuitem  value="Quadra" actionListener="#{adminBean.teste()}" ajax="false"  />
+			            <p:menuitem  value="Material" actionListener="#{adminBean.teste()}" ajax="false"  />
+			            <p:submenu  label="Disponibilidade Reserva" icon="ui-icon-newwin">
+			            	<p:menuitem  value="Material" actionListener="#{adminBean.teste()}" ajax="false"  />
+			            	<p:menuitem  value="Quadra" actionListener="#{adminBean.teste()}" ajax="false"  />
+			            </p:submenu>
+			        </p:submenu>
+			        <p:submenu  label="Remover" icon="ui-icon-newwin">
+			        <p:menuitem  value="Estabelecimento" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-close"  />
+			            <p:menuitem  value="Quadra" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-close"  />
+			            <p:menuitem  value="Material" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-close"  />
+			            <p:submenu  label="Disponibilidade Reserva" icon="ui-icon-newwin">
+			            	<p:menuitem  value="Material" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-close"  />
+			            	<p:menuitem  value="Quadra" actionListener="#{adminBean.teste()}" ajax="false" icon="ui-icon-close"  />
+			            </p:submenu>
+			        </p:submenu>
+			    </p:tieredMenu> 
+			    
+			    <p:column></p:column>
+				
+			</p:panelGrid>
+			
+		</div>
+	</ui:define>
+</ui:composition>

@@ -28,7 +28,7 @@ public abstract class GenericoDAO {
 				pstmt = connection.prepareStatement(query);
 			}
 		} catch (Exception e) {
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREPAREDSTATEMENT_ABRIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREPAREDSTATEMENT_ABRIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 	}
 	
@@ -50,7 +50,7 @@ public abstract class GenericoDAO {
 					}
 				}
 			} catch (SQLException e) {
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_EXECUTAR_QUERY.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_EXECUTAR_QUERY.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			} finally {
 				fecharConexao();
 			}		
@@ -64,7 +64,7 @@ public abstract class GenericoDAO {
 			try {
 				retorno = pstmt.executeUpdate();
 			} catch (SQLException e) {
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_EXECUTAR_UPDATE.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_EXECUTAR_UPDATE.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			} finally {
 				fecharConexao();
 			}		
@@ -82,7 +82,7 @@ public abstract class GenericoDAO {
 			DataSource dataSource = (DataSource) contexto.lookup(DATA_SOURCE_FUTEWEB_USER);
 			connection = dataSource.getConnection();
 		} catch (NamingException | SQLException e) {
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_CONEXAO_ABRIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_CONEXAO_ABRIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			throw e;
 		}
 	}
@@ -93,21 +93,21 @@ public abstract class GenericoDAO {
 				connection.close();
 			}
 		} catch (SQLException e) {
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_CONEXAO_FECHAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_CONEXAO_FECHAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		try {
 			if (pstmt != null && !pstmt.isClosed()) {
 				pstmt.close();
 			}
 		} catch (SQLException e) {
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREPAREDSTATEMENT_FECHAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREPAREDSTATEMENT_FECHAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		try {
 			if (rs != null && !rs.isClosed()) {
 				rs.close();
 			}
 		} catch (SQLException e) {
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESULTSET_FECHAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_QUALQUER);
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESULTSET_FECHAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 	}
 	

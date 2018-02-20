@@ -10,6 +10,7 @@ public enum AplicacaoEnum {
 	SEVERIDADE_ALERTA(FacesMessage.SEVERITY_WARN),
 	
 	PAGE_INDEX("index.web"),
+	PAGE_HOME("home.web"),
 	PAGE_CADASTRO_PF("cadastro_pf.web"),
 	PAGE_CADASTRO_PJ("cadastro_pj.web")
 	
