@@ -78,13 +78,12 @@ public class AdminBean extends AdminVO implements Serializable{
 					} 
 					if ( !isLogged() ){
 						new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-						FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_INDEX.getValor());
 					} 
 				}else {
 					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_AUTENTICAR_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 				}
 			}
-		} catch (IOException | SQLException e) {
+		} catch (SQLException e) {
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 	}
