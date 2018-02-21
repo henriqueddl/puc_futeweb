@@ -1,13 +1,21 @@
 package br.com.futeweb.aplicacao.interfaces.classificacao.controle;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.faces.application.FacesMessage;
+
 import br.com.futeweb.aplicacao.dao.generico.IGenericoDAO;
 import br.com.futeweb.aplicacao.interfaces.classificacao.entidade.Classificacao;
+import br.com.futeweb.aplicacao.utils.Logger;
+import br.com.futeweb.aplicacao.utils.Mensagens;
 
 public interface IControleClassificacao extends IGenericoDAO<Classificacao>  {
 //	
-//	public boolean inserir(Disponibilidade object);
-//	public List<Disponibilidade> obterDisponibilidade(Quadra object);
-//	public List<Disponibilidade> obterPorCriterio(Disponibilidade object);
-//	public boolean deletar(Disponibilidade object);
-//
+	public int inserir(Classificacao object) throws SQLException;
+	public List<Classificacao> obterTodos();
+	public List<Classificacao> obterPorCriterio(Classificacao object) throws SQLException;
+	public int atualizar(Classificacao object) throws SQLException;
+	public int AtualizarClassificacao(Classificacao object) throws SQLException;
+
 }

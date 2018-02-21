@@ -15,6 +15,8 @@ public class Classificacao implements Serializable {
 	private int vitorias;
 	private int golsPro;
 	private int golsContra;	
+	
+	public Classificacao(){}
         
 	public Classificacao(int id, int Id_Campeonato,int Id_Time,int jogos, int Vitorias,int golsPro, int golsContra) {
 		super();

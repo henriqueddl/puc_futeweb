@@ -9,6 +9,8 @@ public class Time implements Serializable {
 	
 	private int id;
 	private String nome;
+	
+	public Time(){}
         
     public Time(int id, String nome) {
 		super();

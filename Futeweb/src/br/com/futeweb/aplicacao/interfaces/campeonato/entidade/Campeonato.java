@@ -11,6 +11,8 @@ public class Campeonato implements Serializable {
 	private String nome;
 	private int id_estabelecimento;
 	
+	public Campeonato(){}
+	
 	public Campeonato(int id, String nome, int id_estabelecimento) {
 		super();
 		this.id = id;
