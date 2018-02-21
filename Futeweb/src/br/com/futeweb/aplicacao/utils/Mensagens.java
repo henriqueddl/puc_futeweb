@@ -89,6 +89,39 @@ public class Mensagens {
 	public static final String OK_USUARIO_INSERIR = "O usuário foi registrado com sucesso.";
 	public static final String OK_USUARIO_ATUALIZAR = "O usuário foi atualizado com sucesso.";
 	
+	
+	public static final String ERRO_JOGO_INSERIR = "Ocorreu um erro ao inserir o jogo: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_JOGO_INSERIR_0 = "Ocorreu um erro ao inserir o jogo, nenhum jogo foi registrado.";
+	public static final String ERRO_JOGO_ATUALIZAR = "Ocorreu um erro ao atualizar o jogo: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_JOGO_ATUALIZAR_0 = "Ocorreu um erro ao atualizar o jogo, nenhum jogo foi atualizado.";
+	public static final String ERRO_JOGO_CONSULTAR = "A busca do jogo foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String OK_JOGO_INSERIR = "O jogo foi registrado com sucesso.";
+	public static final String OK_JOGO_ATUALIZAR = "O jogo foi atualizado com sucesso.";
+		
+	public static final String ERRO_TIME_INSERIR = "Ocorreu um erro ao inserir o time: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_TIME_INSERIR_0 = "Ocorreu um erro ao inserir o time, nenhum time foi registrado.";
+	public static final String ERRO_TIME_ATUALIZAR = "Ocorreu um erro ao atualizar o time: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_TIME_ATUALIZAR_0 = "Ocorreu um erro ao atualizar o time, nenhum time foi atualizado.";
+	public static final String ERRO_TIME_CONSULTAR = "A busca do time foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String OK_TIME_INSERIR = "O time foi registrado com sucesso.";
+	public static final String OK_TIME_ATUALIZAR = "O time foi atualizado com sucesso.";
+		
+	public static final String ERRO_CAMPEONATO_INSERIR = "Ocorreu um erro ao inserir o campeonato: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_CAMPEONATO_INSERIR_0 = "Ocorreu um erro ao inserir o campeonato.";
+	public static final String ERRO_CAMPEONATO_ATUALIZAR = "Ocorreu um erro ao atualizar o campeonato: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_CAMPEONATO_ATUALIZAR_0 = "Ocorreu um erro ao atualizar o campeonato, nenhum campeonato foi atualizado.";
+	public static final String ERRO_CAMPEONATO_CONSULTAR = "A busca do campeonato foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String OK_CAMPEONATO_INSERIR = "O campeonato foi registrado com sucesso.";
+	public static final String OK_CAMPEONATO_ATUALIZAR = "O campeonato foi atualizado com sucesso.";
+
+	public static final String ERRO_CLASSIFICACAO_INSERIR = "Ocorreu um erro ao inserir a classificação: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_CLASSIFICACAO_INSERIR_0 = "Ocorreu um erro ao inserir a classificação.";
+	public static final String ERRO_CLASSIFICACAO_ATUALIZAR = "Ocorreu um erro ao atualizar a classificação: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_CLASSIFICACAO_ATUALIZAR_0 = "Ocorreu um erro ao atualizar a classificação, nenhum campeonato foi atualizado.";
+	public static final String ERRO_CLASSIFICACAO_CONSULTAR = "A busca da classificação foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String OK_CLASSIFICACAO_INSERIR = "A classificação foi registrada com sucesso.";
+	public static final String OK_CLASSIFICACAO_ATUALIZAR = "A classificação foi atualizada com sucesso.";
+	
 	public static final String ERRO_AUTENTICAR_PREENCHIMENTO = "Para logar no sistema o campo Login e Senha devem ser preenchidos.";
 	public static final String ERRO_ATENTICAR = "Ocorreu um erro ao tentar autenticar o usuário: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_ATENTICAR_0 = "Não foi encontrado nenhum usuário ativo a partir dos dados informados.";

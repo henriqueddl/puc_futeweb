@@ -50,7 +50,7 @@ public class Teste {
 		estabelecimento = new Estabelecimento(1, "Stark", "Aqui voce joga bola", endereco);
 		material = new Material(1, "bola nike", "bola qualquer");
 		quadra = new Quadra(1, "Coberta 1", "quadra qualquer");
-		usuario = new Usuario(1, "g", "g!3", true);
+		usuario = new Usuario(1, "G0036216", "Sr4d2018!3", true);
 		Date dataNascimento = null;
 		try {
 			dataNascimento = AplicacaoUtils.sdf.parse("21/09/1989 12:34:56");
