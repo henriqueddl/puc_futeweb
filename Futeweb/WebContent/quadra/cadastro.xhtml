@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	
+	<ui:define name="conteudo"> 
+	
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+	
+		<div class="wrapper">
+			<p:messages  id="id-mensagem-quadra" showIcon="false" closable="true" />
+			
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-quadra">
+			
+				<p:outputLabel for="cadastrar-quadra-nome" value="Nome" />
+	            <p:inputText id="cadastrar-quadra-nome" title="Nome" required="true" value="#{adminBean.quadra.nome}" />
+	            
+	            <p:outputLabel for="cadastrar-quadra-descricao" value="Descrição" />
+	            <p:inputTextarea id="cadastrar-quadra-descricao" title="Descrição" required="true" value="#{adminBean.quadra.descricao}" />
+	           	           	
+				<p:column/>
+	            <p:commandButton id="quadra-cadastrar-button" value="Cadastar Quadra" update="grid-cadastrar-quadra" ajax="false" actionListener="#{adminBean.cadastraQuadra()}" />
+            
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,27 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	<ui:define name="conteudo">
+
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+
+		<div class="wrapper">
+			<p:messages id="id-mensagem-material" showIcon="false" closable="true" />
+
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-material">
+
+				<p:outputLabel for="material-cadastrar-nome" value="Nome: " />
+				<p:inputText id="material-cadastrar-nome" value="#{adminVO.material.nome}" required="true"/>
+
+				<p:outputLabel for="material-cadastrar-descricao" value="Descrição: " />
+				<p:inputTextarea id="material-cadastrar-descricao" value="#{adminVO.material.descricao}" required="true"/>
+
+				<p:column/>
+	            <p:commandButton id="material-cadastrar-button" value="Cadastar Material" update="grid-cadastrar-material" ajax="false" actionListener="#{adminBean.cadastrarmaterial()}" />
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

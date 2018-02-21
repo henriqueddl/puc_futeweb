@@ -35,19 +35,24 @@ public class AdminBean extends AdminVO implements Serializable{
 	
 	public void cadastrarEstabelecimento(){
 		System.out.println("chamou cadastrar estabelecimento");
+	}	
+	
+	public void cadastraQuadra(){
+		System.out.println("chamou cadastrar quadra");
 	}
+
+	public void cadastrarPessoaFisica(){
+		System.out.println("chamou Pessoa Fisica");
+	}	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void cadastrarPessoaJuridica(){
+		System.out.println("chamou Pessoa Juridica");
+	}
+
+	public void cadastrarmaterial(){
+		System.out.println("chamou cadastrar Material");
+	}	
+
 	
 	
 	public boolean isLogged(){

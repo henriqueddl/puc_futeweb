@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core" template="/template/template.xhtml">
+
+	<ui:define name="conteudo">
+
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+
+		<div class="wrapper">
+			<p:messages id="id-mensagem-pessoa-juridica" showIcon="false" closable="true" />
+
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-Pessoa-juridica">
+
+				<p:outputLabel for="pj-cadastrar-nome" value="Nome" />
+				<p:inputText id="pj-cadastrar-nome" title="Nome" required="true" value="#{adminBean.pessoaJuridica.nome}" />
+
+				<p:outputLabel for="pj-cadastrar-email" value="Email" />
+				<p:inputText id="pj-cadastrar-email" title="Email" required="true" value="#{adminBean.pessoaJuridica.email}" />
+
+				<p:outputLabel for="pj-cadastrar-cpj" value="Cpj" />
+				<p:inputMask id="pj-cadastrar-cpj" title="Cpj" required="true" value="#{adminBean.pessoaJuridica.cnpj}" mask="99.999.999/9999-99"/>
+				
+				<p:column/>
+	            <p:commandButton id="pj-cadastrar-button" value="Cadastar Pessoa Fisica" update="grid-cadastrar-Pessoa-juridica" ajax="false" actionListener="#{adminBean.cadastrarPessoaJuridica()}" />
+	
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>
