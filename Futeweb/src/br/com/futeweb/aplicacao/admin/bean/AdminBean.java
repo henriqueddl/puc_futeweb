@@ -26,34 +26,71 @@ public class AdminBean extends AdminVO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@EJB(beanName="FacadeAdmin")
-	private FacadeAdmin facadeAdmin;	
+	private FacadeAdmin facadeAdmin;
 	
 	public void abrirConta(){
 		Teste teste = new Teste();
 		teste.teste();
 	}
 	
-	public void cadastrarEstabelecimento(){
-		System.out.println("chamou cadastrar estabelecimento");
-	}	
-	
-	public void cadastraQuadra(){
-		System.out.println("chamou cadastrar quadra");
+	public void teste(){
+		System.out.println("chamou teste");
+		
 	}
-
-	public void cadastrarPessoaFisica(){
-		System.out.println("chamou Pessoa Fisica");
-	}	
 	
-	public void cadastrarPessoaJuridica(){
-		System.out.println("chamou Pessoa Juridica");
+	public void cadastrarQuadra() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_QUADRA.getValor());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}		
 	}
-
-	public void cadastrarmaterial(){
-		System.out.println("chamou cadastrar Material");
-	}	
-
 	
+	public void cadastrarEstabelecimento() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_ESTABELECIMENTO.getValor());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}		
+	}
+	
+	public void cadastrarJogo() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_JOGO.getValor());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}		
+	}
+	
+	public void cadastrarTime() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_TIME.getValor());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}		
+	}
+	
+	public void cadastrarCampeonato() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_CAMPEONATO.getValor());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}		
+	}
+	
+	public void cadastrarClassificacao() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_CLASSIFICACAO.getValor());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}		
+	}
 	
 	public boolean isLogged(){
 		boolean retorno = false;
@@ -95,12 +132,13 @@ public class AdminBean extends AdminVO implements Serializable{
 					} 
 					if ( !isLogged() ){
 						new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+						FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_INDEX.getValor());
 					} 
 				}else {
 					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_AUTENTICAR_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 				}
 			}
-		} catch (SQLException e) {
+		} catch (IOException | SQLException e) {
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 	}
