@@ -9,6 +9,11 @@ import br.com.futeweb.aplicacao.interfaces.quadra.entidade.Quadra;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaFisica;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaJuridica;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.Usuario;
+import br.com.futeweb.aplicacao.interfaces.time.entidade.Time;
+import br.com.futeweb.aplicacao.interfaces.jogo.entidade.Jogo;
+import br.com.futeweb.aplicacao.interfaces.campeonato.entidade.Campeonato;
+import br.com.futeweb.aplicacao.interfaces.classificacao.entidade.Classificacao;
+
 
 public class AdminVO implements Serializable {
 
@@ -25,8 +30,16 @@ public class AdminVO implements Serializable {
 	protected PessoaFisica autenticadoPF = new PessoaFisica();
 	protected PessoaJuridica autenticadoPJ = new PessoaJuridica();
 
-	protected Quadra quadra = new Quadra();
+	protected Quadra quabdra = new Quadra();
 	protected Material material = new Material();
+
+
+	protected Time time = new Time();
+	protected Jogo jogo = new Jogo();
+
+
+	protected Campeonato campeonato = new Campeonato();
+	protected Classificacao classificacao = new Classificacao();
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -76,12 +89,12 @@ public class AdminVO implements Serializable {
 		this.autenticadoPJ = autenticadoPJ;
 	}
 
-	public Quadra getQuadra() {
-		return quadra;
+	public Quadra getQuabdra() {
+		return quabdra;
 	}
 
-	public void setQuadra(Quadra quadra) {
-		this.quadra = quadra;
+	public void setQuabdra(Quadra quabdra) {
+		this.quabdra = quabdra;
 	}
 
 	public Material getMaterial() {
@@ -99,7 +112,41 @@ public class AdminVO implements Serializable {
 	public void setEstabelecimento(Estabelecimento estabelecimento) {
 		this.estabelecimento = estabelecimento;
 	}
+	
+	
+	public Time getTime() {
+		return time;
+	}
 
+	public void setTime(Time time) {
+		this.time = time;
+	}
+
+	
+	public Jogo getJogo() {
+		return jogo;
+	}
+
+	public void setJogo(Jogo jogo) {
+		this.jogo = jogo;
+	}	
+	
+	public Campeonato getCampeonato() {
+		return campeonato;
+	}
+
+	public void setCampeonato(Campeonato campeonato) {
+		this.campeonato = campeonato;
+	}
+	
+	public Classificacao getClassificacao() {
+		return classificacao;
+	}
+
+	public void setClassificacao(Classificacao classificacao) {
+		this.classificacao = classificacao;
+	}
+	
 	public boolean isLogado() {
 		return logado;
 	}
