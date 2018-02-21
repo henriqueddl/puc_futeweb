@@ -13,6 +13,12 @@
 
 			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-material">
 
+				<p:outputLabel for="material-cadastrar-quadra" value="Quadra: " />
+				<p:selectOneMenu id="material-cadastrar-quadra" value="">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="" />
+				</p:selectOneMenu>
+
 				<p:outputLabel for="material-cadastrar-nome" value="Nome: " />
 				<p:inputText id="material-cadastrar-nome" value="#{adminVO.material.nome}" required="true"/>
 

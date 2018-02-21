@@ -13,7 +13,13 @@
 			<p:messages  id="id-mensagem-quadra" showIcon="false" closable="true" />
 			
 			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-quadra">
-			
+
+				<p:outputLabel for="cadastrar-quadra-estabelecimento" value="Estabelecimento: " />
+				<p:selectOneMenu id="cadastrar-quadra-estabelecimento" value="">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="" />
+				</p:selectOneMenu>
+
 				<p:outputLabel for="cadastrar-quadra-nome" value="Nome" />
 	            <p:inputText id="cadastrar-quadra-nome" title="Nome" required="true" value="#{adminBean.quadra.nome}" />
 	            
