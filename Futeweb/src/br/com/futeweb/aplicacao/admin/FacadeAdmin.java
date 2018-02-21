@@ -10,6 +10,11 @@ import br.com.futeweb.aplicacao.interfaces.quadra.controle.IControleQuadra;
 import br.com.futeweb.aplicacao.interfaces.reserva.controle.IControleReserva;
 import br.com.futeweb.aplicacao.interfaces.usuario.controle.IControleUsuario;
 
+import br.com.futeweb.aplicacao.interfaces.jogo.controle.IControleJogo;
+import br.com.futeweb.aplicacao.interfaces.time.controle.IControleTime;
+import br.com.futeweb.aplicacao.interfaces.campeonato.controle.IControleCampeonato;
+import br.com.futeweb.aplicacao.interfaces.classificacao.controle.IControleClassificacao;
+
 @Stateless
 public class FacadeAdmin {
 	
@@ -29,8 +34,20 @@ public class FacadeAdmin {
 	private IControleReserva controleReserva;
 	
 	@EJB(beanName="ControleUsuario")
-	
 	private IControleUsuario controleUsuario;
+	
+	
+	@EJB(beanName="ControleJogo")
+	private IControleJogo controleJogo;
+	
+	@EJB(beanName="ControleTime")
+	private IControleTime controleTime;
+	
+	@EJB(beanName="ControleCampeonato")
+	private IControleCampeonato controleCampeonato;
+	
+	@EJB(beanName="ControleClassificacao")
+	private IControleClassificacao controleClassificacao;	
 
 	public IControleEndereco getControleEndereco() {
 		return controleEndereco;
