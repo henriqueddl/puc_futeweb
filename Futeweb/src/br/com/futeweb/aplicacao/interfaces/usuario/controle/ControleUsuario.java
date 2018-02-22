@@ -68,18 +68,7 @@ public class ControleUsuario extends GenericoDAO implements IControleUsuario {
 	
 	@Override
 	public int inserir(PessoaFisica object) throws SQLException {
-		int retorno = 0;
-		if (object.validarObjeto(object)){
-			retorno = getInstance().inserir(object);
-			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_USUARIO_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}
-		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return retorno;
+		return	getInstance().inserir(object);
 	}
 
 	@Override
@@ -118,18 +107,7 @@ public class ControleUsuario extends GenericoDAO implements IControleUsuario {
 	
 	@Override
 	public int inserir(PessoaJuridica object) throws SQLException {
-		int retorno = 0;
-		if (object.validarObjeto(object)){
-			retorno = getInstance().inserir(object);
-			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_USUARIO_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}
-		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return retorno;
+		return getInstance().inserir(object);
 	}
 
 	@Override

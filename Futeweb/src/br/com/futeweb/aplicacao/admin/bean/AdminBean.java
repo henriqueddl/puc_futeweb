@@ -118,6 +118,38 @@ public class AdminBean extends AdminVO implements Serializable{
 		}
 	}
 	
+	public void cadastrarPessoaFisica() {
+		if (pessoaFisica.validarObjeto(pessoaFisica)){
+			try {
+				if (0 != facadeAdmin.getControleUsuario().inserir(pessoaFisica)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_USUARIO_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_INSERIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void cadastrarPessoaJuridica() {
+		if (pessoaJuridica.validarObjeto(pessoaJuridica)){
+			try {
+				if (0 != facadeAdmin.getControleUsuario().inserir(pessoaJuridica)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_USUARIO_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_INSERIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
 	public void cadastrarJogo() {
 		try {
 			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_JOGO.getValor());
