@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	
+	<ui:define name="conteudo"> 
+	
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+	
+		<div class="wrapper">
+			<p:messages  id="id-mensagem-quadra" showIcon="false" closable="true" />
+			
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-reservar-quadra">
+
+				<p:outputLabel for="reserva-quadra-estabelecimento" value="Estabelecimento: " />
+				<p:selectOneMenu id="reserva-quadra-estabelecimento" value="">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="" />
+                </p:selectOneMenu>
+                
+                <p:outputLabel for="reserva-quadra-quadra" value="Quadra: " />
+				<p:selectOneMenu id="reserva-quadra-quadra" value="">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="" />
+				</p:selectOneMenu>
+
+                <p:outputLabel for="reserva-quadra-material" value="Material: " />
+				<p:selectOneMenu id="reserva-quadra-material" value="">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="" />
+                </p:selectOneMenu>
+                
+                <p:outputLabel for="reserva-quadra-horario" value="Horario: " />
+				<p:selectOneMenu id="reserva-quadra-horario" value="">
+					<f:selectItem itemLabel="Select One" itemValue="" />
+					<f:selectItems value="" />
+				</p:selectOneMenu>
+
+
+				<p:column/>
+	            <p:commandButton id="quadra-reservar-button" value="Reservar Quadra" update="grid-reservar-quadra" ajax="false" actionListener="#{adminBean.reservar()}" />
+            
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

@@ -38,6 +38,10 @@ public class AdminBean extends AdminVO implements Serializable{
 		
 	}
 	
+	public void reservar(){
+		
+	}
+	
 	public void cadastrarEstabelecimento() {
 		if (estabelecimento.validarObjeto(estabelecimento)){
 			try {
