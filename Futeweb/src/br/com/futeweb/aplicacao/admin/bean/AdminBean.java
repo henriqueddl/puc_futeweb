@@ -38,15 +38,6 @@ public class AdminBean extends AdminVO implements Serializable{
 		
 	}
 	
-	public void cadastrarQuadra() {
-		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_QUADRA.getValor());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}		
-	}
-	
 	public void cadastrarEstabelecimento() {
 		if (estabelecimento.validarObjeto(estabelecimento)){
 			try {
@@ -57,6 +48,70 @@ public class AdminBean extends AdminVO implements Serializable{
 				}
 			} catch (SQLException e) {
 				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_INSERIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void cadastrarMaterial() {
+		if (material.validarObjeto(material)){
+			try {
+				if (0 != facadeAdmin.getControleMaterial().inserir(material)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_INSERIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void cadastrarQuadra() {
+		if (quadra.validarObjeto(quadra)){
+			try {
+				if (0 != facadeAdmin.getControleQuadra().inserir(quadra)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_QUADRA_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_INSERIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void cadastrarReserva() {
+		if (reserva.validarObjeto(reserva)){
+			try {
+				if (0 != facadeAdmin.getControleReserva().inserir(reserva)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_RESERVA_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_INSERIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void cadastrarUsuario() {
+		if (usuario.validarObjeto(usuario)){
+			try {
+				if (0 != facadeAdmin.getControleUsuario().inserir(usuario)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_USUARIO_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_INSERIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}
 		}else{
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);

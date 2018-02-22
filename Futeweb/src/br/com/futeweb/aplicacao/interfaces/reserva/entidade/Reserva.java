@@ -14,6 +14,8 @@ public class Reserva implements Serializable {
 	private Disponibilidade disponibilidadeMaterial;
 	private PessoaFisica pessoaFisica;
 	
+	public Reserva(){}
+	
 	public Reserva(int id, Disponibilidade disponibilidadeQuadra, Disponibilidade disponibilidadeMaterial,
 			PessoaFisica pessoaFisica) {
 		super();

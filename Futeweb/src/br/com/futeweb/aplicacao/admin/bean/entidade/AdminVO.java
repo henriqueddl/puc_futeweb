@@ -2,6 +2,8 @@ package br.com.futeweb.aplicacao.admin.bean.entidade;
 
 import java.io.Serializable;
 
+import org.python.modules.newmodule;
+
 import br.com.futeweb.aplicacao.interfaces.campeonato.entidade.Campeonato;
 import br.com.futeweb.aplicacao.interfaces.classificacao.entidade.Classificacao;
 import br.com.futeweb.aplicacao.interfaces.endereco.entidade.Endereco;
@@ -9,6 +11,7 @@ import br.com.futeweb.aplicacao.interfaces.estabelecimento.entidade.Estabelecime
 import br.com.futeweb.aplicacao.interfaces.jogo.entidade.Jogo;
 import br.com.futeweb.aplicacao.interfaces.material.entidade.Material;
 import br.com.futeweb.aplicacao.interfaces.quadra.entidade.Quadra;
+import br.com.futeweb.aplicacao.interfaces.reserva.entidade.Reserva;
 import br.com.futeweb.aplicacao.interfaces.time.entidade.Time;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaFisica;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaJuridica;
@@ -30,8 +33,9 @@ public class AdminVO implements Serializable {
 	protected PessoaFisica autenticadoPF = new PessoaFisica();
 	protected PessoaJuridica autenticadoPJ = new PessoaJuridica();
 
-	protected Quadra quabdra = new Quadra();
+	protected Quadra quadra = new Quadra();
 	protected Material material = new Material();
+	protected Reserva reserva = new Reserva();
 
 
 	protected Time time = new Time();
@@ -87,14 +91,6 @@ public class AdminVO implements Serializable {
 
 	public void setAutenticadoPJ(PessoaJuridica autenticadoPJ) {
 		this.autenticadoPJ = autenticadoPJ;
-	}
-
-	public Quadra getQuabdra() {
-		return quabdra;
-	}
-
-	public void setQuabdra(Quadra quabdra) {
-		this.quabdra = quabdra;
 	}
 
 	public Material getMaterial() {
@@ -154,5 +150,24 @@ public class AdminVO implements Serializable {
 	public void setLogado(boolean logado) {
 		this.logado = logado;
 	}
+
+	public Quadra getQuadra() {
+		return quadra;
+	}
+
+	public void setQuadra(Quadra quadra) {
+		this.quadra = quadra;
+	}
+
+	public Reserva getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
+	}
+	
+	
+	
 
 }
