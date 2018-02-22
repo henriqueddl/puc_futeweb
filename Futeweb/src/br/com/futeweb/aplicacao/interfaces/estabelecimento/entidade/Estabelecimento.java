@@ -36,6 +36,11 @@ public class Estabelecimento implements Serializable {
 				&& obj.getNome()!=null && !"".equals(obj.getNome())
 				&& obj.getDescricao()!=null && !"".equals(obj.getDescricao())
 				&& obj.getEndereco()!=null
+				&& obj.getEndereco().getLogradouro()!=null && !"".equals(obj.getEndereco().getLogradouro())
+				&& obj.getEndereco().getNumero()!=0
+				&& obj.getEndereco().getCidade()!=null && !"".equals(obj.getEndereco().getCidade())
+				&& obj.getEndereco().getEstado()!=null && !"".equals(obj.getEndereco().getEstado())
+				&& obj.getEndereco().getCep()!=null && !"".equals(obj.getEndereco().getCep())
 				) ? true : false;
 	}
 	

@@ -29,18 +29,7 @@ public class ControleEstabelecimento extends GenericoDAO implements IControleEst
 
 	@Override
 	public int inserir(Estabelecimento object) throws SQLException {
-		int retorno = 0; 
-		if (object.validarObjeto(object)){
-			retorno = getInstance().inserir(object);
-			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}
-		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return retorno;
+		return getInstance().inserir(object);
 	}
 	
 	@Override

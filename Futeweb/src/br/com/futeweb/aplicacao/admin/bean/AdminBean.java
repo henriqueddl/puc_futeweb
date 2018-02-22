@@ -48,12 +48,19 @@ public class AdminBean extends AdminVO implements Serializable{
 	}
 	
 	public void cadastrarEstabelecimento() {
-		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_ESTABELECIMENTO.getValor());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}		
+		if (estabelecimento.validarObjeto(estabelecimento)){
+			try {
+				if (0 != facadeAdmin.getControleEstabelecimento().inserir(estabelecimento)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_INSERIR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
 	}
 	
 	public void cadastrarJogo() {
