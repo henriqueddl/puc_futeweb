@@ -2,17 +2,17 @@ package br.com.futeweb.aplicacao.admin.bean.entidade;
 
 import java.io.Serializable;
 
+import br.com.futeweb.aplicacao.interfaces.campeonato.entidade.Campeonato;
+import br.com.futeweb.aplicacao.interfaces.classificacao.entidade.Classificacao;
 import br.com.futeweb.aplicacao.interfaces.endereco.entidade.Endereco;
 import br.com.futeweb.aplicacao.interfaces.estabelecimento.entidade.Estabelecimento;
+import br.com.futeweb.aplicacao.interfaces.jogo.entidade.Jogo;
 import br.com.futeweb.aplicacao.interfaces.material.entidade.Material;
 import br.com.futeweb.aplicacao.interfaces.quadra.entidade.Quadra;
+import br.com.futeweb.aplicacao.interfaces.time.entidade.Time;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaFisica;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaJuridica;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.Usuario;
-import br.com.futeweb.aplicacao.interfaces.time.entidade.Time;
-import br.com.futeweb.aplicacao.interfaces.jogo.entidade.Jogo;
-import br.com.futeweb.aplicacao.interfaces.campeonato.entidade.Campeonato;
-import br.com.futeweb.aplicacao.interfaces.classificacao.entidade.Classificacao;
 
 
 public class AdminVO implements Serializable {

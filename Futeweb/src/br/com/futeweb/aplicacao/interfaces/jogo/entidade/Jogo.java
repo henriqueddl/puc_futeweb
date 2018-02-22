@@ -14,6 +14,8 @@ public class Jogo implements Serializable {
 	private int gols_timemandante;
 	private int gols_timevisitante;
 	private int id_campeonato;
+	
+	public Jogo(){}
         
 	
 	public Jogo(int id, int id_quadra, int id_timemandante,int id_timevisitante,int gols_timemandante, int gols_timevisitante, int id_campeonato) {

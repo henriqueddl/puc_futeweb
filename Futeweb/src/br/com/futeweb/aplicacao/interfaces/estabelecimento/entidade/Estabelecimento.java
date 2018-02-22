@@ -16,7 +16,7 @@ public class Estabelecimento implements Serializable {
 	private int id;
 	private String nome;
 	private String descricao;
-	private Endereco endereco;
+	private Endereco endereco = new Endereco();
 	private List<PessoaJuridica> listPessoaJuridica = new ArrayList<PessoaJuridica>();
 	private List<Quadra> listQuadra = new ArrayList<Quadra>();
 	private List<Material> listMaterial = new ArrayList<Material>();

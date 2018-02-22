@@ -3,8 +3,6 @@ package br.com.futeweb.aplicacao.interfaces.usuario.entidade;
 import java.io.Serializable;
 import java.util.Date;
 
-import br.com.futeweb.aplicacao.interfaces.endereco.entidade.Endereco;
-
 public class PessoaFisica implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -15,12 +13,10 @@ public class PessoaFisica implements Serializable {
 	private String cpf;
 	private Date dataNascimento;
 	private Usuario usuario = new Usuario();
-	private Endereco endereco = new Endereco();
 	
 	public PessoaFisica(){}
 	
-	public PessoaFisica(int id, String nome, String email, String cpf, Date dataNascimento, Usuario usuario,
-			Endereco endereco) {
+	public PessoaFisica(int id, String nome, String email, String cpf, Date dataNascimento, Usuario usuario) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -28,7 +24,6 @@ public class PessoaFisica implements Serializable {
 		this.cpf = cpf;
 		this.dataNascimento = dataNascimento;
 		this.usuario = usuario;
-		this.endereco = endereco;
 	}
 	
 	public boolean validarObjeto(PessoaFisica obj){
@@ -38,14 +33,13 @@ public class PessoaFisica implements Serializable {
 				&& obj.getCpf()!=null && !"".equals(obj.getCpf())
 				&& obj.getDataNascimento()!=null && !"".equals(obj.getDataNascimento())
 				&& obj.getUsuario()!=null
-				&& obj.getEndereco()!=null
 				) ? true : false;
 	}
 	
 	@Override
 	public String toString() {
 		return "PessoaFisica [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", dataNascimento="
-				+ dataNascimento + ", usuario=" + usuario + ", endereco=" + endereco + "]";
+				+ dataNascimento + ", usuario=" + usuario + "]";
 	}
 
 	public int getId() {
@@ -84,14 +78,4 @@ public class PessoaFisica implements Serializable {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	public Endereco getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-	
-	
-	
-	
 }

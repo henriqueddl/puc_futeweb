@@ -17,14 +17,6 @@ public class Mensagens {
 	
 	public static final String ERRO_PREENCHIMENTO = "Todos os campos com * devem ser preenchidos.";
 	
-	public static final String ERRO_ENDERECO_INSERIR = "Ocorreu um erro ao inserir o endereço: "+PARAMETRO_EXCEPTION;
-	public static final String ERRO_ENDERECO_INSERIR_0 = "Ocorreu um erro ao inserir o endereço, nenhum endereço foi registrado.";
-	public static final String ERRO_ENDERECO_ATUALIZAR = "Ocorreu um erro ao atualizar o endereço: "+PARAMETRO_EXCEPTION;
-	public static final String ERRO_ENDERECO_ATUALIZAR_0 = "Ocorreu um erro ao atualizar o endereço, nenhum endereço foi atualizado.";
-	public static final String ERRO_ENDERECO_CONSULTAR = "A busca de endereço foi realizada com sucesso, porem não retornou nenhum registro.";
-	public static final String OK_ENDERECO_INSERIR = "O endereço foi registrado com sucesso.";
-	public static final String OK_ENDERECO_ATUALIZAR = "O endereço foi atualizado com sucesso.";
-	
 	public static final String ERRO_ESTABELECIMENTO_INSERIR = "Ocorreu um erro ao inserir o estabelecimento: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_ESTABELECIMENTO_INSERIR_0 = "Ocorreu um erro ao inserir o estabelecimento, nenhum estabelecimento foi registrado.";
 	public static final String ERRO_ESTABELECIMENTO_ATUALIZAR = "Ocorreu um erro ao atualizar o estabelecimento: "+PARAMETRO_EXCEPTION;

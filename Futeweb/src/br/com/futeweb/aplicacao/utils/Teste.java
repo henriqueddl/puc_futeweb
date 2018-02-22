@@ -5,8 +5,6 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
-import br.com.futeweb.aplicacao.interfaces.endereco.controle.ControleEndereco;
-import br.com.futeweb.aplicacao.interfaces.endereco.controle.IControleEndereco;
 import br.com.futeweb.aplicacao.interfaces.endereco.entidade.Endereco;
 import br.com.futeweb.aplicacao.interfaces.estabelecimento.controle.ControleEstabelecimento;
 import br.com.futeweb.aplicacao.interfaces.estabelecimento.controle.IControleEstabelecimento;
@@ -46,7 +44,7 @@ public class Teste {
 		
 		acao = 1;
 		
-		endereco = new Endereco(1, "Rua Fredolin Wolf", 641, "Curitiba", "PR", "82115000");
+		endereco = new Endereco("Rua Fredolin Wolf", 641, "Curitiba", "PR", "82115000");
 		estabelecimento = new Estabelecimento(1, "Stark", "Aqui voce joga bola", endereco);
 		material = new Material(1, "bola nike", "bola qualquer");
 		quadra = new Quadra(1, "Coberta 1", "quadra qualquer");
@@ -57,7 +55,7 @@ public class Teste {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		pessoaFisica = new PessoaFisica(1, "Jose Henrique Dias de Lima", "henriqueddl89@gmail.com", "04654782982", dataNascimento, usuario, endereco);
+		pessoaFisica = new PessoaFisica(1, "Jose Henrique Dias de Lima", "henriqueddl89@gmail.com", "04654782982", dataNascimento, usuario);
 		pessoaJuridica = new PessoaJuridica(1, "Desiree Angelica Rieiro de Lima", "desiree.ribeiro@hotmail.com", "1234/0001-10", usuario);
 		
 		
@@ -88,7 +86,6 @@ public class Teste {
 		init();
 		while (acao <=4){
 			try {
-				testarEndereco();
 				testarEstabelecimento();
 				testarMaterial();
 				testarQuadra();
@@ -103,25 +100,6 @@ public class Teste {
 				e.printStackTrace();
 			}
 			acao++;
-		}
-	}
-	
-	private void testarEndereco() throws SQLException{
-		IControleEndereco impl = new ControleEndereco();
-		if (acao==1){
-			impl.inserir(endereco);
-		}else if (acao==2){
-			List<Endereco> lista = impl.obterTodos();
-			for (Endereco obj : lista){
-				System.out.println(obj.toString());
-			}
-		}else if (acao==3){
-			List<Endereco> lista = impl.obterPorCriterio(endereco);
-			for (Endereco obj : lista){
-				System.out.println(obj.toString());
-			}
-		}else if (acao==4){
-			impl.atualizar(endereco);
 		}
 	}
 	

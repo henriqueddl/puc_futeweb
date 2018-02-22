@@ -7,7 +7,6 @@ import java.util.List;
 import javax.ejb.Stateless;
 
 import br.com.futeweb.aplicacao.dao.generico.GenericoDAO;
-import br.com.futeweb.aplicacao.interfaces.endereco.entidade.Endereco;
 import br.com.futeweb.aplicacao.interfaces.usuario.controle.IControleUsuario;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaFisica;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaJuridica;
@@ -34,7 +33,7 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 		if (retorno != null){
 			for (String r[] : retorno){
 				pessoa = new PessoaFisica(Integer.parseInt(r[0]), r[1], r[2], r[3], AplicacaoUtils.parseDate(r[4]),
-						new Usuario(Integer.parseInt(r[5]), r[6], null, ("1".equals(r[7]))), null);
+						new Usuario(Integer.parseInt(r[5]), r[6], null, ("1".equals(r[7]))));
 			}
 		}
 		return pessoa;
@@ -115,14 +114,13 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 	
 	@Override
 	public int inserir(PessoaFisica object) throws SQLException {
-		String query = " insert into pessoa_fisica (nome, email, cpf, data_nascimento, id_usuario, id_endereco) values (?, ?, ?, ?, ?, ?) ";
+		String query = " insert into pessoa_fisica (nome, email, cpf, data_nascimento, id_usuario) values (?, ?, ?, ?, ?) ";
 		montarQuery(query);
 		setParametros().setString(1, object.getNome());
 		setParametros().setString(2, object.getEmail());
 		setParametros().setString(3, object.getCpf());
 		setParametros().setTimestamp(4, AplicacaoUtils.dateUtilToSql(object.getDataNascimento()));
 		setParametros().setInt(5, object.getUsuario().getId());
-		setParametros().setInt(6, object.getEndereco().getId());
 		return executarUpdate();
 	}
 
@@ -130,18 +128,15 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 	public List<PessoaFisica> obterPessoaFisica() {
 		List<PessoaFisica> lista = new ArrayList<PessoaFisica>();
 		String query = " select pf.id, pf.nome, pf.email, pf.cpf, pf.data_nascimento, ";
-		query += " u.id, u.login, u.ativo,  ";
-		query += " e.id, e.logradouro, e.numero, e.cidade, e.estado, e.cep ";
-		query += " from pessoa_fisica pf, usuario u, endereco e ";
+		query += " u.id, u.login, u.ativo  ";
+		query += " from pessoa_fisica pf, usuario u ";
 		query += " where pf.id_usuario = u.id ";
-		query += " and pf.id_endereco = e.id ";
 		montarQuery(query);
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
 				lista.add(new PessoaFisica(Integer.parseInt(r[0]), r[1], r[2], r[3], AplicacaoUtils.parseDate(r[4]),
-						new Usuario(Integer.parseInt(r[5]), r[6], null, ("1".equals(r[7]))),
-						new Endereco(Integer.parseInt(r[8]), r[9], Integer.parseInt(r[10]), r[11], r[12], r[13])));
+						new Usuario(Integer.parseInt(r[5]), r[6], null, ("1".equals(r[7])))));
 			}
 		}
 		return lista;
@@ -151,12 +146,10 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 	public List<PessoaFisica> obterPorCriterio(PessoaFisica object) throws SQLException {
 		List<PessoaFisica> lista = new ArrayList<PessoaFisica>();
 		String query = " select pf.id, pf.nome, pf.email, pf.cpf, pf.data_nascimento, ";
-		query += " u.id, u.login, u.ativo, ";
-		query += " e.id, e.logradouro, e.numero, e.cidade, e.estado, e.cep ";
-		query += " from pessoa_fisica pf, usuario u, endereco e ";
+		query += " u.id, u.login, u.ativo ";
+		query += " from pessoa_fisica pf, usuario u ";
 		query += " where pf.id = ? or pf.nome = ? or pf.email = ? or pf.cpf = ? ";
 		query += " and pf.id_usuario = u.id ";
-		query += " and pf.id_endereco = e.id ";
 		montarQuery(query);
 		setParametros().setInt(1, object.getId());
 		setParametros().setString(2, object.getNome());
@@ -166,8 +159,7 @@ public class UsuarioDAO extends GenericoDAO implements IControleUsuario {
 		if (retorno != null){
 			for (String r[] : retorno){
 				lista.add(new PessoaFisica(Integer.parseInt(r[0]), r[1], r[2], r[3], AplicacaoUtils.parseDate(r[4]),
-						new Usuario(Integer.parseInt(r[5]), r[6], null, ("1".equals(r[7]))),
-						new Endereco(Integer.parseInt(r[8]), r[9], Integer.parseInt(r[10]), r[11], r[12], r[13])));
+						new Usuario(Integer.parseInt(r[5]), r[6], null, ("1".equals(r[7])))));
 			}
 		}
 		return lista;

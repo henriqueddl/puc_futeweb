@@ -6,7 +6,6 @@ public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private int id;
 	private String logradouro;
 	private int numero;
 	private String cidade;
@@ -15,9 +14,8 @@ public class Endereco implements Serializable {
 	
 	public Endereco(){}
 	
-	public Endereco(int id, String logradouro, int numero, String cidade, String estado, String cep) {
+	public Endereco( String logradouro, int numero, String cidade, String estado, String cep) {
 		super();
-		this.id = id;
 		this.logradouro = logradouro;
 		this.numero = numero;
 		this.cidade = cidade;
@@ -37,16 +35,10 @@ public class Endereco implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Endereco [id=" + id + ", logradouro=" + logradouro + ", numero=" + numero + ", cidade=" + cidade
+		return "Endereco [logradouro=" + logradouro + ", numero=" + numero + ", cidade=" + cidade
 				+ ", estado=" + estado + ", cep=" + cep + "]";
 	}
 
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getLogradouro() {
 		return logradouro;
 	}

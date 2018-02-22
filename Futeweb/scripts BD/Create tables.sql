@@ -2,7 +2,6 @@ use futeweb;
 
 commit;
 
-drop table endereco;
 drop table Estabelecimento;
 drop table Material;
 drop table Quadra;
@@ -13,6 +12,17 @@ drop table Estabelecimento_Pessoa_Juridica;
 drop table Disponibilidade_Quadra;
 drop table Disponibilidade_Material;
 drop table Reserva;
+
+select * from Estabelecimento;
+select * from Material;
+select * from Quadra;
+select * from Usuario;
+select * from Pessoa_Fisica;
+select * from Pessoa_Juridica;
+select * from Estabelecimento_Pessoa_Juridica;
+select * from Disponibilidade_Quadra;
+select * from Disponibilidade_Material;
+select * from Reserva;
 
 CREATE TABLE Endereco (
   id INT NOT NULL AUTO_INCREMENT,
@@ -26,11 +36,14 @@ CREATE TABLE Endereco (
 
 CREATE TABLE Estabelecimento (
   id INT NOT NULL AUTO_INCREMENT,
-  id_endereco INT NOT NULL,
   nome VARCHAR(100) NOT NULL,
   descricao VARCHAR(200) NOT NULL,
-  PRIMARY KEY(id),
-  INDEX Estabelecimento_FKIndex1(id_endereco)
+  logradouro VARCHAR(200) NOT NULL,
+  numero INT NOT NULL,
+  cidade VARCHAR(200) NOT NULL,
+  estado VARCHAR(2) NOT NULL,
+  cep VARCHAR(10) NOT NULL,
+  PRIMARY KEY(id)
 );
 
 CREATE TABLE Material (
@@ -62,14 +75,12 @@ CREATE TABLE Usuario (
 CREATE TABLE Pessoa_Fisica (
   id INT NOT NULL AUTO_INCREMENT,
   id_usuario INT NOT NULL,
-  id_endereco INT NOT NULL,
   nome VARCHAR(200) NOT NULL,
   cpf VARCHAR(14) NOT NULL,
   email VARCHAR(200) NOT NULL,
   data_nascimento DATETIME NOT NULL,
   PRIMARY KEY(id),
-  INDEX Pessoa_Fisica_FKIndex1(id_usuario),
-  INDEX Pessoa_Fisica_FKIndex2(id_endereco)
+  INDEX Pessoa_Fisica_FKIndex1(id_usuario)
 );
 
 CREATE TABLE Pessoa_Juridica (
@@ -78,8 +89,7 @@ CREATE TABLE Pessoa_Juridica (
   cnpj VARCHAR(18) NOT NULL,
   nome VARCHAR(200) NOT NULL,
   email VARCHAR(200) NOT NULL,
-  PRIMARY KEY(id),
-  INDEX Pessoa_Juridica_FKIndex1(id_usuario)
+  PRIMARY KEY(id)
 );
 
 

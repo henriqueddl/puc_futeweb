@@ -56,7 +56,7 @@ public class ReservaDAO extends GenericoDAO implements IControleReserva {
 				lista.add(new Reserva(Integer.parseInt(r[0]), 
 						new Disponibilidade(Integer.parseInt(r[1]), AplicacaoUtils.parseDate(r[2]), AplicacaoUtils.parseDate(r[3])),
 						new Disponibilidade(Integer.parseInt(r[4]), AplicacaoUtils.parseDate(r[5]), AplicacaoUtils.parseDate(r[6])),
-						new PessoaFisica(Integer.parseInt(r[7]), r[8], r[9], r[10], AplicacaoUtils.parseDate(r[11]), null, null)));
+						new PessoaFisica(Integer.parseInt(r[7]), r[8], r[9], r[10], AplicacaoUtils.parseDate(r[11]), null)));
 			}
 		}
 		return lista;
@@ -82,7 +82,7 @@ public class ReservaDAO extends GenericoDAO implements IControleReserva {
 				lista.add(new Reserva(Integer.parseInt(r[0]), 
 						new Disponibilidade(Integer.parseInt(r[1]), AplicacaoUtils.parseDate(r[2]), AplicacaoUtils.parseDate(r[3])),
 						new Disponibilidade(Integer.parseInt(r[4]), AplicacaoUtils.parseDate(r[5]), AplicacaoUtils.parseDate(r[6])),
-						new PessoaFisica(Integer.parseInt(r[7]), r[8], r[9], r[10], AplicacaoUtils.parseDate(r[11]), null, null)));
+						new PessoaFisica(Integer.parseInt(r[7]), r[8], r[9], r[10], AplicacaoUtils.parseDate(r[11]), null)));
 			}
 		}
 		return lista;
@@ -108,7 +108,7 @@ public class ReservaDAO extends GenericoDAO implements IControleReserva {
 				lista.add(new Reserva(Integer.parseInt(r[0]), 
 						new Disponibilidade(Integer.parseInt(r[1]), AplicacaoUtils.parseDate(r[2]), AplicacaoUtils.parseDate(r[3])),
 						new Disponibilidade(Integer.parseInt(r[4]), AplicacaoUtils.parseDate(r[5]), AplicacaoUtils.parseDate(r[6])),
-						new PessoaFisica(Integer.parseInt(r[7]), r[8], r[9], r[10], AplicacaoUtils.parseDate(r[11]), null, null)));
+						new PessoaFisica(Integer.parseInt(r[7]), r[8], r[9], r[10], AplicacaoUtils.parseDate(r[11]), null)));
 			}
 		}
 		return lista;
@@ -134,7 +134,7 @@ public class ReservaDAO extends GenericoDAO implements IControleReserva {
 				lista.add(new Reserva(Integer.parseInt(r[0]), 
 						new Disponibilidade(Integer.parseInt(r[1]), AplicacaoUtils.parseDate(r[2]), AplicacaoUtils.parseDate(r[3])),
 						new Disponibilidade(Integer.parseInt(r[4]), AplicacaoUtils.parseDate(r[5]), AplicacaoUtils.parseDate(r[6])),
-						new PessoaFisica(Integer.parseInt(r[7]), r[8], r[9], r[10], AplicacaoUtils.parseDate(r[11]), null, null)));
+						new PessoaFisica(Integer.parseInt(r[7]), r[8], r[9], r[10], AplicacaoUtils.parseDate(r[11]), null)));
 			}
 		}
 		return lista;

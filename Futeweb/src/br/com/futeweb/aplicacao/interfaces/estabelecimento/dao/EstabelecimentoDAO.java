@@ -20,11 +20,15 @@ public class EstabelecimentoDAO extends GenericoDAO implements IControleEstabele
 
 	@Override
 	public int inserir(Estabelecimento object) throws SQLException {
-		String query = " insert into estabelecimento (nome, descricao, id_endereco) values (?, ?, ?) ";
+		String query = " insert into estabelecimento (nome, descricao, logradouro, numero, cidade, estado, cep) values (?, ?, ?, ?, ?, ?, ?) ";
 		montarQuery(query);
 		setParametros().setString(1, object.getNome());
 		setParametros().setString(2, object.getDescricao());
-		setParametros().setInt(3, object.getEndereco().getId());
+		setParametros().setString(3, object.getEndereco().getLogradouro());
+		setParametros().setInt(4, object.getEndereco().getNumero());
+		setParametros().setString(5, object.getEndereco().getCidade());
+		setParametros().setString(6, object.getEndereco().getEstado());
+		setParametros().setString(7, object.getEndereco().getCep());
 		return executarUpdate();
 	}
 	
@@ -32,13 +36,13 @@ public class EstabelecimentoDAO extends GenericoDAO implements IControleEstabele
 	public List<Estabelecimento> obterTodos() {
 		List<Estabelecimento> lista = new ArrayList<Estabelecimento>();
 		String query = " select es.id, es.nome, es.descricao, ";
-		query += " en.id, en.logradouro, en.numero, en.cidade, en.estado, en.cep from estabelecimento es, endereco en ";
-		query += " where es.id_endereco = en.id ";
+		query += " es.logradouro, es.numero, es.cidade, es.estado, es.cep from estabelecimento es ";
 		montarQuery(query);
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new Estabelecimento(Integer.parseInt(r[0]), r[1], r[2], new Endereco(Integer.parseInt(r[3]), r[4], Integer.parseInt(r[5]), r[6], r[7], r[8])));
+				lista.add(new Estabelecimento(Integer.parseInt(r[0]), r[1], r[2], 
+						new Endereco(r[3], Integer.parseInt(r[4]), r[5], r[6], r[7])));
 			}
 		}
 		return lista;
@@ -48,16 +52,16 @@ public class EstabelecimentoDAO extends GenericoDAO implements IControleEstabele
 	public List<Estabelecimento> obterPorCriterio(Estabelecimento object) throws SQLException {
 		List<Estabelecimento> lista = new ArrayList<Estabelecimento>();
 		String query = " select es.id, es.nome, es.descricao, ";
-		query += " en.id, en.logradouro, en.numero, en.cidade, en.estado, en.cep from estabelecimento es, endereco en ";
+		query += " es.logradouro, es.numero, es.cidade, es.estado, es.cep from estabelecimento es ";
 		query += " where es.id = ? or es.nome = ? ";
-		query += " and es.id_endereco = en.id ";		
 		montarQuery(query);
 		setParametros().setInt(1, object.getId());
 		setParametros().setString(2, object.getNome());
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new Estabelecimento(Integer.parseInt(r[0]), r[1], r[2], new Endereco(Integer.parseInt(r[3]), r[4], Integer.parseInt(r[5]), r[6], r[7], r[8])));
+				lista.add(new Estabelecimento(Integer.parseInt(r[0]), r[1], r[2], 
+						new Endereco(r[3], Integer.parseInt(r[4]), r[5], r[6], r[7])));
 			}
 		}
 		return lista;
@@ -65,11 +69,24 @@ public class EstabelecimentoDAO extends GenericoDAO implements IControleEstabele
 	
 	@Override
 	public int atualizar(Estabelecimento object) throws SQLException {
-		String query = " update estabelecimento set nome = ?, descricao = ? where id = ? ";
+		String query = " update estabelecimento set ";
+		query += " nome = ?, ";
+		query += " descricao = ?, ";
+		query += " logradouro = ?, ";
+		query += " numero = ?, ";
+		query += " cidade = ?, ";
+		query += " estado = ?, ";
+		query += " cep = ? ";
+		query += " where id = ? ";
 		montarQuery(query);
 		setParametros().setString(1, object.getNome());
 		setParametros().setString(2, object.getDescricao());
-		setParametros().setInt(3, object.getId());
+		setParametros().setString(3, object.getEndereco().getLogradouro());
+		setParametros().setInt(4, object.getEndereco().getNumero());
+		setParametros().setString(5, object.getEndereco().getCidade());
+		setParametros().setString(6, object.getEndereco().getEstado());
+		setParametros().setString(7, object.getEndereco().getCep());
+		setParametros().setInt(8, object.getId());
 		return executarUpdate();
 	}
 
