@@ -65,16 +65,10 @@ public class ControleReserva extends GenericoDAO implements IControleReserva {
 		}
 		return lista;
 	}
-	
-	
 
 	@Override
 	public List<Reserva> obterPorCriterio(Reserva object) throws SQLException {
-		List<Reserva> lista = getInstance().obterPorCriterio(object);
-		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return lista;
+		return getInstance().obterPorCriterio(object);
 	}
 	
 	@Override

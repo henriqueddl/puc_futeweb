@@ -1,7 +1,6 @@
 package br.com.futeweb.aplicacao.interfaces.time.entidade;
 
 import java.io.Serializable;
-import br.com.futeweb.aplicacao.interfaces.usuario.entidade.Usuario;
 
 public class Time implements Serializable {
 

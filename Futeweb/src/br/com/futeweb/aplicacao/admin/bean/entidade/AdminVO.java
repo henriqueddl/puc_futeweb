@@ -43,7 +43,13 @@ public class AdminVO implements Serializable {
 	protected Campeonato campeonato = new Campeonato();
 	protected Classificacao classificacao = new Classificacao();
 	
-	protected List<Estabelecimento> listEstabelecimento = new ArrayList<Estabelecimento>();
+	protected List<Estabelecimento> listEstabelecimento = new ArrayList<>();
+	protected List<Material> listMaterial = new ArrayList<>();
+	protected List<Quadra> listQuadra = new ArrayList<>();
+	protected List<Reserva> listReserva = new ArrayList<>();
+	protected List<Usuario> listUsuario = new ArrayList<>();
+	protected List<PessoaFisica> listPessoaFisica = new ArrayList<>();
+	protected List<PessoaJuridica> listPessoaJuridica = new ArrayList<>();
 
 	public List<Estabelecimento> getListEstabelecimento() {
 		return listEstabelecimento;

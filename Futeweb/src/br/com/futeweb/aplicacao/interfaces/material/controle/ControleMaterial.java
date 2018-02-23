@@ -53,11 +53,7 @@ public class ControleMaterial extends GenericoDAO implements IControleMaterial {
 
 	@Override
 	public List<Material> obterMaterial(Estabelecimento estabelecimento) throws SQLException {
-		List<Material> lista = getInstance().obterMaterial(estabelecimento);
-		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return lista;
+		return getInstance().obterMaterial(estabelecimento);
 	}
 	
 	@Override

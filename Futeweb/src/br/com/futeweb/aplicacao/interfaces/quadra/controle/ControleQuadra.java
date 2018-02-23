@@ -52,11 +52,7 @@ public class ControleQuadra extends GenericoDAO implements IControleQuadra {
 
 	@Override
 	public List<Quadra> obterQuadra(Estabelecimento estabelecimento) throws SQLException {
-		List<Quadra> lista = getInstance().obterQuadra(estabelecimento);
-		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return lista;
+		return getInstance().obterQuadra(estabelecimento);		
 	}
 	
 	@Override
