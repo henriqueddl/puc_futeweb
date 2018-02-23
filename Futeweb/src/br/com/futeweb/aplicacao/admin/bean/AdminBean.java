@@ -54,10 +54,21 @@ public class AdminBean extends AdminVO implements Serializable{
 		}
 	}
 	
-	public void obterEstabelecimentos() {
+	public void obterEstabelecimento() {
 		listEstabelecimento = facadeAdmin.getControleEstabelecimento().obterTodos();
 		if (listEstabelecimento==null || listEstabelecimento.size()==0){
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void obterEstabelecimentoPorCriterio() {
+		try {
+			listEstabelecimento = facadeAdmin.getControleEstabelecimento().obterPorCriterio(estabelecimento);
+			if (listEstabelecimento==null || listEstabelecimento.size()==0){
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		} catch (SQLException e) {
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR_EXCEPTION.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 	}
 	

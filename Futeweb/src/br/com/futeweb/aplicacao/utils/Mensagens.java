@@ -22,6 +22,7 @@ public class Mensagens {
 	public static final String ERRO_ESTABELECIMENTO_ATUALIZAR = "Ocorreu um erro ao atualizar o estabelecimento: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_ESTABELECIMENTO_ATUALIZAR_0 = "Ocorreu um erro ao atualizar o estabelecimento, nenhum estabelecimento foi atualizado.";
 	public static final String ERRO_ESTABELECIMENTO_CONSULTAR = "A busca do estabelecimento foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String ERRO_ESTABELECIMENTO_CONSULTAR_EXCEPTION = "Ocorreu um erro ao buscar os estabelecimentos: "+PARAMETRO_EXCEPTION;
 	public static final String OK_ESTABELECIMENTO_INSERIR = "O estabelecimento foi registrado com sucesso.";
 	public static final String OK_ESTABELECIMENTO_ATUALIZAR = "O estabelecimento foi atualizado com sucesso.";
 	
@@ -30,6 +31,7 @@ public class Mensagens {
 	public static final String ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_REMOVER = "Ocorreu um erro ao desvincular o estabelecimento ao usuário: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_REMOVER_0 = "Ocorreu um erro ao desvincular o estabelecimento ao usuário, nenhum vinculo foi removido.";
 	public static final String ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_CONSULTAR = "A busca dos estabelecimentos vinculados ao usuário foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String ERRO_ESTABELECIMENTO_PESSOA_JURIDICA_CONSULTAR_EXCEPTION = "Ocorreu um erro ao buscar os usuários do estabelecimento: "+PARAMETRO_EXCEPTION;
 	public static final String OK_ESTABELECIMENTO_PESSOA_JURIDICA_INSERIR = "O estabelecimento foi vinculado ao usuário com sucesso.";
 	public static final String OK_ESTABELECIMENTO_PESSOA_JURIDICA_REMOVER = "O estabelecimento foi desvinculado ao usuário com sucesso.";
 	
@@ -38,6 +40,7 @@ public class Mensagens {
 	public static final String ERRO_MATERIAL_ATUALIZAR = "Ocorreu um erro ao atualizar o material: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_MATERIAL_ATUALIZAR_0 = "Ocorreu um erro ao atualizar o material, nenhum material foi atualizado.";
 	public static final String ERRO_MATERIAL_CONSULTAR = "A busca do material foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String ERRO_MATERIAL_CONSULTAR_EXCEPTION = "Ocorreu um erro ao buscar os materias: "+PARAMETRO_EXCEPTION;
 	public static final String OK_MATERIAL_INSERIR = "O material foi registrado com sucesso.";
 	public static final String OK_MATERIAL_ATUALIZAR = "O material foi atualizado com sucesso.";
 	
@@ -46,6 +49,7 @@ public class Mensagens {
 	public static final String ERRO_MATERIAL_DISPONIBILIDADE_REMOVER = "Ocorreu um erro ao remover a disponibilidade do material: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_MATERIAL_DISPONIBILIDADE_REMOVER_0 = "Ocorreu um erro ao remover a disponibilidade do material, nenhuma disponibilidade foi removida.";
 	public static final String ERRO_MATERIAL_DISPONIBILIDADE_CONSULTAR = "A busca da disponibilidade do material foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String ERRO_MATERIAL_DISPONIBILIDADE_CONSULTAR_EXCEPTION = "Ocorreu um erro a disponibilidade dos materias: "+PARAMETRO_EXCEPTION;
 	public static final String OK_MATERIAL_DISPONIBILIDADE_INSERIR = "A disponibilidade do material foi registrada com sucesso.";
 	public static final String OK_MATERIAL_DISPONIBILIDADE_REMOVER = "A disponibilidade do material foi removida com sucesso.";
 	
@@ -54,6 +58,7 @@ public class Mensagens {
 	public static final String ERRO_QUADRA_ATUALIZAR = "Ocorreu um erro ao atualizar a quadra: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_QUADRA_ATUALIZAR_0 = "Ocorreu um erro ao atualizar a quadra, nenhuma quadra foi atualizada.";
 	public static final String ERRO_QUADRA_CONSULTAR = "A busca da quadra foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String ERRO_QUADRA_CONSULTAR_EXCEPTION = "Ocorreu um erro ao buscar as quadras: "+PARAMETRO_EXCEPTION;
 	public static final String OK_QUADRA_INSERIR = "A quadra foi registrada com sucesso.";
 	public static final String OK_QUADRA_ATUALIZAR = "A quadra foi atualizada com sucesso.";
 	
@@ -62,6 +67,7 @@ public class Mensagens {
 	public static final String ERRO_QUADRA_DISPONIBILIDADE_REMOVER = "Ocorreu um erro ao remover a disponibilidade da quadra: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_QUADRA_DISPONIBILIDADE_REMOVER_0 = "Ocorreu um erro ao remover a disponibilidade da quadra, nenhuma disponibilidade foi removida.";
 	public static final String ERRO_QUADRA_DISPONIBILIDADE_CONSULTAR = "A busca da disponibilidade da quadra foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String ERRO_QUADRA_DISPONIBILIDADE_CONSULTAR_EXCEPTION = "Ocorreu um erro a disponibilidade das quadras: "+PARAMETRO_EXCEPTION;
 	public static final String OK_QUADRA_DISPONIBILIDADE_INSERIR = "A disponibilidade da quadra foi registrada com sucesso.";
 	public static final String OK_QUADRA_DISPONIBILIDADE_REMOVER = "A disponibilidade da quadra foi removida com sucesso.";
 	
@@ -70,6 +76,7 @@ public class Mensagens {
 	public static final String ERRO_RESERVA_REMOVER = "Ocorreu um erro ao remover a reserva: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_RESERVA_REMOVER_0 = "Ocorreu um erro ao remover a reserva, nenhuma reserva foi removida.";
 	public static final String ERRO_RESERVA_CONSULTAR = "A busca da reserva foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String ERRO_RESERVA_CONSULTAR_EXCEPTION = "Ocorreu um erro ao buscar as reservas: "+PARAMETRO_EXCEPTION;
 	public static final String OK_RESERVA_INSERIR = "A reserva foi registrada com sucesso.";
 	public static final String OK_RESERVA_REMOVER = "A reserva foi removida com sucesso.";
 	
@@ -78,6 +85,7 @@ public class Mensagens {
 	public static final String ERRO_USUARIO_ATUALIZAR = "Ocorreu um erro ao atualizar o usuário: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_USUARIO_ATUALIZAR_0 = "Ocorreu um erro ao atualizar o usuário, nenhum usuário foi atualizado.";
 	public static final String ERRO_USUARIO_CONSULTAR = "A busca do usuário foi realizada com sucesso, porem não retornou nenhum registro.";
+	public static final String ERRO_USUARIO_CONSULTAR_EXCEPTION = "Ocorreu um erro ao buscar os usuários: "+PARAMETRO_EXCEPTION;
 	public static final String OK_USUARIO_INSERIR = "O usuário foi registrado com sucesso.";
 	public static final String OK_USUARIO_ATUALIZAR = "O usuário foi atualizado com sucesso.";
 	

@@ -39,11 +39,7 @@ public class ControleEstabelecimento extends GenericoDAO implements IControleEst
 	
 	@Override
 	public List<Estabelecimento> obterPorCriterio(Estabelecimento object) throws SQLException {
-		List<Estabelecimento> lista = getInstance().obterPorCriterio(object);
-		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return lista;
+		return getInstance().obterPorCriterio(object);
 	}
 	
 	@Override
