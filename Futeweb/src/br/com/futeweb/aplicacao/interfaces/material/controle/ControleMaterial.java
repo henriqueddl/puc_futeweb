@@ -62,18 +62,7 @@ public class ControleMaterial extends GenericoDAO implements IControleMaterial {
 	
 	@Override
 	public int atualizar(Material object) throws SQLException {
-		int retorno = 0;
-		if (object.validarObjeto(object)){
-			retorno = getInstance().atualizar(object);
-			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}
-		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return retorno;
+		return getInstance().atualizar(object);
 	}
 	
 	@Override

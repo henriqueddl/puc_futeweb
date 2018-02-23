@@ -31,7 +31,6 @@ public class FacadeAdmin {
 	@EJB(beanName="ControleUsuario")
 	private IControleUsuario controleUsuario;
 	
-	
 	@EJB(beanName="ControleJogo")
 	private IControleJogo controleJogo;
 	

@@ -67,11 +67,11 @@ public class Mensagens {
 	
 	public static final String ERRO_RESERVA_INSERIR = "Ocorreu um erro ao inserir a reserva: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_RESERVA_INSERIR_0 = "Ocorreu um erro ao inserir a reserva, nenhuma reserva foi registrada.";
-	public static final String ERRO_RESERVA_ATUALIZAR = "Ocorreu um erro ao atualizar a reserva: "+PARAMETRO_EXCEPTION;
-	public static final String ERRO_RESERVA_ATUALIZAR_0 = "Ocorreu um erro ao atualizar a reserva, nenhuma reserva foi atualizada.";
+	public static final String ERRO_RESERVA_REMOVER = "Ocorreu um erro ao remover a reserva: "+PARAMETRO_EXCEPTION;
+	public static final String ERRO_RESERVA_REMOVER_0 = "Ocorreu um erro ao remover a reserva, nenhuma reserva foi removida.";
 	public static final String ERRO_RESERVA_CONSULTAR = "A busca da reserva foi realizada com sucesso, porem não retornou nenhum registro.";
 	public static final String OK_RESERVA_INSERIR = "A reserva foi registrada com sucesso.";
-	public static final String OK_RESERVA_ATUALIZAR = "A reserva foi atualizada com sucesso.";
+	public static final String OK_RESERVA_REMOVER = "A reserva foi removida com sucesso.";
 	
 	public static final String ERRO_USUARIO_INSERIR = "Ocorreu um erro ao inserir o usuário: "+PARAMETRO_EXCEPTION;
 	public static final String ERRO_USUARIO_INSERIR_0 = "Ocorreu um erro ao inserir o usuário, nenhum usuário foi registrado.";

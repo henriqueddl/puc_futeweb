@@ -9,16 +9,8 @@ public enum AplicacaoEnum {
 	SEVERIDADE_SUCESSO(FacesMessage.SEVERITY_INFO),
 	SEVERIDADE_ALERTA(FacesMessage.SEVERITY_WARN),
 	
-	PAGE_INDEX("index.web"),
-	PAGE_HOME("home.web"),
-	PAGE_CADASTRO_PF("cadastro_pf.web"),
-	PAGE_CADASTRO_PJ("cadastro_pj.web"),
-	PAGE_QUADRA("quadra.web"),
-	PAGE_ESTABELECIMENTO("estabelecimento.web"),
-	PAGE_JOGO("jogo.web"),
-	PAGE_TIME("time.web"),
-	PAGE_CAMPEONATO("campeonato.web"),
-	PAGE_CLASSIFICACAO("classificacao.web")	
+	PAGE_INDEX("/Futeweb/index.web"),
+	PAGE_HOME("/Futeweb/home.web")
 	;
     
 	private String valor;

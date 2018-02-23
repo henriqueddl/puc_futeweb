@@ -1,8 +1,8 @@
 package br.com.futeweb.aplicacao.admin.bean.entidade;
 
 import java.io.Serializable;
-
-import org.python.modules.newmodule;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.futeweb.aplicacao.interfaces.campeonato.entidade.Campeonato;
 import br.com.futeweb.aplicacao.interfaces.classificacao.entidade.Classificacao;
@@ -37,13 +37,21 @@ public class AdminVO implements Serializable {
 	protected Material material = new Material();
 	protected Reserva reserva = new Reserva();
 
-
 	protected Time time = new Time();
 	protected Jogo jogo = new Jogo();
 
-
 	protected Campeonato campeonato = new Campeonato();
 	protected Classificacao classificacao = new Classificacao();
+	
+	protected List<Estabelecimento> listEstabelecimento = new ArrayList<Estabelecimento>();
+
+	public List<Estabelecimento> getListEstabelecimento() {
+		return listEstabelecimento;
+	}
+
+	public void setListEstabelecimento(List<Estabelecimento> listEstabelecimento) {
+		this.listEstabelecimento = listEstabelecimento;
+	}
 
 	public Usuario getUsuario() {
 		return usuario;

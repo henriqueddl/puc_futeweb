@@ -52,18 +52,7 @@ public class ControleUsuario extends GenericoDAO implements IControleUsuario {
 	
 	@Override
 	public int atualizar(Usuario object) throws SQLException {
-		int retorno = 0;
-		if (object.validarObjeto(object)){
-			retorno = getInstance().atualizar(object);
-			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_USUARIO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}
-		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return retorno;
+		return getInstance().atualizar(object);
 	}
 	
 	@Override
@@ -91,18 +80,7 @@ public class ControleUsuario extends GenericoDAO implements IControleUsuario {
 	
 	@Override
 	public int atualizar(PessoaFisica object) throws SQLException {
-		int retorno = 0;
-		if (object.validarObjeto(object)){
-			retorno = getInstance().atualizar(object);
-			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_USUARIO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}
-		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return retorno;
+		return getInstance().atualizar(object);
 	}
 	
 	@Override
@@ -130,18 +108,7 @@ public class ControleUsuario extends GenericoDAO implements IControleUsuario {
 	
 	@Override
 	public int atualizar(PessoaJuridica object) throws SQLException {
-		int retorno = 0;
-		if (object.validarObjeto(object)){
-			retorno = getInstance().atualizar(object);
-			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_USUARIO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}
-		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return retorno;
+		return getInstance().atualizar(object);
 	}
 
 	@Override

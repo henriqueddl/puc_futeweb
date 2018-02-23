@@ -16,7 +16,6 @@ import br.com.futeweb.aplicacao.admin.bean.entidade.AdminVO;
 import br.com.futeweb.aplicacao.utils.AplicacaoEnum;
 import br.com.futeweb.aplicacao.utils.Logger;
 import br.com.futeweb.aplicacao.utils.Mensagens;
-import br.com.futeweb.aplicacao.utils.Teste;
 
 @Stateless
 @SessionScoped
@@ -29,8 +28,7 @@ public class AdminBean extends AdminVO implements Serializable{
 	private FacadeAdmin facadeAdmin;
 	
 	public void abrirConta(){
-		Teste teste = new Teste();
-		teste.teste();
+
 	}
 	
 	public void teste(){
@@ -38,9 +36,7 @@ public class AdminBean extends AdminVO implements Serializable{
 		
 	}
 	
-	public void reservar(){
-		
-	}
+	// ---------- ESTABELECIMENTO ----------
 	
 	public void cadastrarEstabelecimento() {
 		if (estabelecimento.validarObjeto(estabelecimento)){
@@ -58,10 +54,35 @@ public class AdminBean extends AdminVO implements Serializable{
 		}
 	}
 	
-	public void cadastrarMaterial() {
-		if (material.validarObjeto(material)){
+	public void obterEstabelecimentos() {
+		listEstabelecimento = facadeAdmin.getControleEstabelecimento().obterTodos();
+		if (listEstabelecimento==null || listEstabelecimento.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void atualizarEstabelecimento(){
+		if (estabelecimento.validarObjeto(estabelecimento)){
 			try {
-				if (0 != facadeAdmin.getControleMaterial().inserir(material)){
+				if (0 != facadeAdmin.getControleEstabelecimento().atualizar(estabelecimento)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_ATUALIZAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	// ---------- MATERIAL ----------
+	
+	public void cadastrarMaterial() {
+		if (material.validarObjeto(material) && estabelecimento.getId()!=0){
+			try {
+				if (0 != facadeAdmin.getControleMaterial().inserir(material, estabelecimento.getId())){
 					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 				}else{
 					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
@@ -74,10 +95,29 @@ public class AdminBean extends AdminVO implements Serializable{
 		}
 	}
 	
-	public void cadastrarQuadra() {
-		if (quadra.validarObjeto(quadra)){
+	public void atualizarMaterial() {
+		if (material.validarObjeto(material)){
 			try {
-				if (0 != facadeAdmin.getControleQuadra().inserir(quadra)){
+				if (0 != facadeAdmin.getControleMaterial().atualizar(material)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_MATERIAL_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_ATUALIZAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	
+	// ---------- QUADRA ----------
+	
+	public void cadastrarQuadra() {
+		if (quadra.validarObjeto(quadra) && estabelecimento.getId()!=0){
+			try {
+				if (0 != facadeAdmin.getControleQuadra().inserir(quadra, estabelecimento.getId())){
 					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_QUADRA_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 				}else{
 					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_INSERIR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
@@ -89,6 +129,24 @@ public class AdminBean extends AdminVO implements Serializable{
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 	}
+	
+	public void atualizarQuadra() {
+		if (quadra.validarObjeto(quadra)){
+			try {
+				if (0 != facadeAdmin.getControleQuadra().atualizar(quadra)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_QUADRA_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_ATUALIZAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	// ---------- RESERVA ----------
 	
 	public void cadastrarReserva() {
 		if (reserva.validarObjeto(reserva)){
@@ -106,6 +164,24 @@ public class AdminBean extends AdminVO implements Serializable{
 		}
 	}
 	
+	public void removerReserva() {
+		if (reserva.validarObjeto(reserva)){
+			try {
+				if (0 != facadeAdmin.getControleReserva().atualizar(reserva)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_RESERVA_REMOVER, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_REMOVER_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_REMOVER.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	// ---------- USUARIO ----------
+	
 	public void cadastrarUsuario() {
 		if (usuario.validarObjeto(usuario)){
 			try {
@@ -121,6 +197,24 @@ public class AdminBean extends AdminVO implements Serializable{
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 	}
+	
+	public void atualizarUsuario() {
+		if (usuario.validarObjeto(usuario)){
+			try {
+				if (0 != facadeAdmin.getControleUsuario().atualizar(usuario)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_USUARIO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_ATUALIZAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	// ---------- PESSOA FISICA ----------
 	
 	public void cadastrarPessoaFisica() {
 		if (pessoaFisica.validarObjeto(pessoaFisica)){
@@ -138,6 +232,24 @@ public class AdminBean extends AdminVO implements Serializable{
 		}
 	}
 	
+	public void atualizarPessoaFisica() {
+		if (pessoaFisica.validarObjeto(pessoaFisica)){
+			try {
+				if (0 != facadeAdmin.getControleUsuario().atualizar(pessoaFisica)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_USUARIO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_ATUALIZAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	// ---------- PESSOA JURIDICA ----------
+	
 	public void cadastrarPessoaJuridica() {
 		if (pessoaJuridica.validarObjeto(pessoaJuridica)){
 			try {
@@ -154,41 +266,36 @@ public class AdminBean extends AdminVO implements Serializable{
 		}
 	}
 	
+	public void atualizarPessoaJuridica() {
+		if (pessoaJuridica.validarObjeto(pessoaJuridica)){
+			try {
+				if (0 != facadeAdmin.getControleUsuario().atualizar(pessoaJuridica)){
+					new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_USUARIO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}else{
+					new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+				}
+			} catch (SQLException e) {
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_ATUALIZAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		}else{
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	
 	public void cadastrarJogo() {
-		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_JOGO.getValor());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}		
 	}
 	
 	public void cadastrarTime() {
-		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_TIME.getValor());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}		
 	}
 	
 	public void cadastrarCampeonato() {
-		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_CAMPEONATO.getValor());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}		
 	}
 	
 	public void cadastrarClassificacao() {
-		try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_CLASSIFICACAO.getValor());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}		
 	}
+	
+	// ---------- AUTENTICAÇÃO ----------
 	
 	public boolean isLogged(){
 		boolean retorno = false;

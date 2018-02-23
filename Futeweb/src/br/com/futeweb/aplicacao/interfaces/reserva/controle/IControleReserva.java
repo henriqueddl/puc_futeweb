@@ -10,9 +10,10 @@ import br.com.futeweb.aplicacao.interfaces.reserva.entidade.Reserva;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaFisica;
 
 public interface IControleReserva extends IGenericoDAO<Reserva>  {
-
+	
 	public List<Reserva> obterReservaDisponibilidadeMaterial(Material material) throws SQLException;
 	public List<Reserva> obterReservaDisponibilidadeQuadra(Quadra quadra) throws SQLException;
 	public List<Reserva> obterReservaPessoaFisica(PessoaFisica pessoaFisica) throws SQLException;
+	public int remover(Reserva object) throws SQLException;
 	
 }

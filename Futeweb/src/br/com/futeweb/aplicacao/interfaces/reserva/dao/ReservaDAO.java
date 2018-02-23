@@ -140,8 +140,14 @@ public class ReservaDAO extends GenericoDAO implements IControleReserva {
 		return lista;
 	}
 	
+	@Deprecated
 	@Override
 	public int atualizar(Reserva object) throws SQLException {
+		return 0;
+	}
+
+	@Override
+	public int remover(Reserva object) throws SQLException {
 		String query = " delete from reserva where id = ? ";
 		montarQuery(query);
 		setParametros().setInt(1, object.getId());

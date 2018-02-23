@@ -38,15 +38,6 @@ public class ControleReserva extends GenericoDAO implements IControleReserva {
 	public List<Reserva> obterTodos() {
 		return getInstance().obterTodos();
 	}
-
-//	@Override
-//	public List<Reserva> obterTodos() {
-//		List<Reserva> lista = getInstance().obterTodos();
-//		if (lista==null || lista.size()==0){
-//			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-//		}
-//		return lista;
-//	}
 	
 	@Override
 	public List<Reserva> obterReservaDisponibilidadeMaterial(Material material) throws SQLException {
@@ -87,18 +78,13 @@ public class ControleReserva extends GenericoDAO implements IControleReserva {
 	}
 	
 	@Override
+	public int remover(Reserva object) throws SQLException {
+		return getInstance().remover(object);
+	}
+
+	@Deprecated
+	@Override
 	public int atualizar(Reserva object) throws SQLException {
-		int retorno = 0;
-		if (object.validarObjeto(object)){
-			retorno = getInstance().atualizar(object);
-			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_RESERVA_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}
-		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return retorno;
+		return getInstance().atualizar(object);
 	}
 }

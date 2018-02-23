@@ -34,11 +34,7 @@ public class ControleEstabelecimento extends GenericoDAO implements IControleEst
 	
 	@Override
 	public List<Estabelecimento> obterTodos() {
-		List<Estabelecimento> lista = getInstance().obterTodos();
-		if (lista==null || lista.size()==0){
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return lista;
+		return getInstance().obterTodos();
 	}
 	
 	@Override
@@ -52,18 +48,7 @@ public class ControleEstabelecimento extends GenericoDAO implements IControleEst
 	
 	@Override
 	public int atualizar(Estabelecimento object) throws SQLException {
-		int retorno = 0;
-		if (object.validarObjeto(object)){
-			retorno = getInstance().atualizar(object);
-			if (retorno!=0){
-				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_ESTABELECIMENTO_ATUALIZAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}else{
-				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_ATUALIZAR_0, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-			}
-		}else{
-			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
-		}
-		return retorno;
+		return getInstance().atualizar(object);
 	}
 
 	@Override
