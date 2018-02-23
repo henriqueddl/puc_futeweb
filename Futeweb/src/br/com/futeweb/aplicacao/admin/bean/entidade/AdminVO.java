@@ -180,8 +180,52 @@ public class AdminVO implements Serializable {
 	public void setReserva(Reserva reserva) {
 		this.reserva = reserva;
 	}
-	
-	
-	
 
+	public List<Material> getListMaterial() {
+		return listMaterial;
+	}
+
+	public void setListMaterial(List<Material> listMaterial) {
+		this.listMaterial = listMaterial;
+	}
+
+	public List<Quadra> getListQuadra() {
+		return listQuadra;
+	}
+
+	public void setListQuadra(List<Quadra> listQuadra) {
+		this.listQuadra = listQuadra;
+	}
+
+	public List<Reserva> getListReserva() {
+		return listReserva;
+	}
+
+	public void setListReserva(List<Reserva> listReserva) {
+		this.listReserva = listReserva;
+	}
+
+	public List<Usuario> getListUsuario() {
+		return listUsuario;
+	}
+
+	public void setListUsuario(List<Usuario> listUsuario) {
+		this.listUsuario = listUsuario;
+	}
+
+	public List<PessoaFisica> getListPessoaFisica() {
+		return listPessoaFisica;
+	}
+
+	public void setListPessoaFisica(List<PessoaFisica> listPessoaFisica) {
+		this.listPessoaFisica = listPessoaFisica;
+	}
+
+	public List<PessoaJuridica> getListPessoaJuridica() {
+		return listPessoaJuridica;
+	}
+
+	public void setListPessoaJuridica(List<PessoaJuridica> listPessoaJuridica) {
+		this.listPessoaJuridica = listPessoaJuridica;
+	}	
 }
