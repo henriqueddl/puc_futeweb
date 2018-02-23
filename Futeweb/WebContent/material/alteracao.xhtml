@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	<ui:define name="conteudo">
+
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+
+		<div class="wrapper">
+
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-alterar-material">
+				
+				<p:outputLabel for="alterar-material-estabelecimento" value="Estabelecimento" />
+	            <p:inputText id="alterar-material-estabelecimento" title="Estabelecimento" disabled="true" required="true" value="#{adminBean.estabelecimento.nome}" />
+				
+				<p:outputLabel for="alterar-material-id" value="ID" />
+	            <p:inputText id="alterar-material-id" title="ID" required="true" disabled="true" value="#{adminBean.material.id}" />
+
+				<p:outputLabel for="alterar-material-nome" value="Nome" />
+	            <p:inputText id="alterar-material-nome" title="Nome" required="true" value="#{adminBean.material.nome}" />
+	            
+	            <p:outputLabel for="alterar-material-descricao" value="Descrição" />
+	            <p:inputText id="alterar-material-descricao" title="Descrição" required="true" value="#{adminBean.material.descricao}" />
+	            
+				<p:column/>
+	            <p:commandButton id="alterar-material-button" value="Editar Material" update="grid-alterar-material" ajax="false" actionListener="#{adminBean.atualizarMaterial()}" />
+			
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

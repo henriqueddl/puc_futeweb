@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	
+	<ui:define name="conteudo"> 
+	
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+	
+		<div class="wrapper">
+			
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-alterar-estabelecimento">
+			
+				<p:outputLabel for="alterar-estabelecimento-id" value="ID" />
+	            <p:inputText id="alterar-estabelecimento-id" title="ID" required="true" disabled="true" value="#{adminBean.estabelecimento.id}" />
+			
+				<p:outputLabel for="alterar-estabelecimento-nome" value="Nome" />
+	            <p:inputText id="alterar-estabelecimento-nome" title="Nome" required="true" value="#{adminBean.estabelecimento.nome}" />
+	            
+	            <p:outputLabel for="alterar-estabelecimento-descricao" value="Descrição" />
+	            <p:inputTextarea id="alterar-estabelecimento-descricao" title="Nome" required="true" value="#{adminBean.estabelecimento.descricao}" />
+	            
+	            <p:outputLabel for="alterar-estabelecimento-logradouro" value="Logradouro" />
+	            <p:inputText id="alterar-estabelecimento-logradouro" title="Logradouro" required="true" value="#{adminBean.estabelecimento.endereco.logradouro}"/>
+	
+	            <p:outputLabel for="alterar-estabelecimento-numero" value="Número" />
+	            <p:inputText id="alterar-estabelecimento-numero" title="Número" required="true" value="#{adminBean.estabelecimento.endereco.numero}" type="number" />
+	
+	            <p:outputLabel for="alterar-estabelecimento-cidade" value="Cidade" />
+	            <p:inputText id="alterar-estabelecimento-cidade" title="Cidade" required="true" value="#{adminBean.estabelecimento.endereco.cidade}"/>
+	
+	            <p:outputLabel for="alterar-estabelecimento-estado" value="Estado" />
+	            <p:inputText id="alterar-estabelecimento-estado" title="Estado" required="true" value="#{adminBean.estabelecimento.endereco.estado}"/>
+	            
+	            <p:outputLabel for="alterar-estabelecimento-cep" value="CEP" />
+	            <p:inputText id="alterar-estabelecimento-cep" title="CEP" required="true" value="#{adminBean.estabelecimento.endereco.cep}"/>
+	
+				<p:column/>
+	            <p:commandButton id="alterar-estabelecimento-button" value="Editar Estabelecimento" update="grid-alterar-estabelecimento" ajax="false" actionListener="#{adminBean.atualizarEstabelecimento()}" />
+            
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

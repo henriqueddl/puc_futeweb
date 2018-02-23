@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core" template="/template/template.xhtml">
+
+	<ui:define name="conteudo">
+
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+
+		<div class="wrapper">
+
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-alterar-pessoa-juridica">
+				
+				<p:outputLabel for="alterar-pessoa-juridica-id" value="ID Pessoa Juridica" />
+				<p:inputText id="alterar-pessoa-juridica-id" title="ID Pessoa Juridica" disabled="true" required="true" value="#{adminBean.pessoaJuridica.id}" />
+	
+				<p:outputLabel for="alterar-pessoa-juridica-nome" value="Nome" />
+				<p:inputText id="alterar-pessoa-juridica-nome" title="Nome" required="true" value="#{adminBean.pessoaJuridica.nome}" />
+
+				<p:outputLabel for="alterar-pessoa-juridica-email" value="Email" />
+				<p:inputText id="alterar-pessoa-juridica-email" title="Email" disabled="true" required="true" value="#{adminBean.pessoaJuridica.email}" />
+
+				<p:outputLabel for="alterar-pessoa-juridica-cnpj" value="CNPJ" />
+				<p:inputMask id="alterar-pessoa-juridica-cnpj" title="CNPJ" required="true" disabled="true" value="#{adminBean.pessoaJuridica.cnpj}" mask="99.999.999/9999-99"/>
+
+				<p:outputLabel for="alterar-pessoa-juridica-senha" value="Senha" />
+				<p:password id="alterar-pessoa-juridica-senha" title="Senha" required="true" value="#{adminBean.usuario.senha}" />
+
+				<p:outputLabel for="alterar-pessoa-juridica-confirmaSenha" value="Confirmação da Senha" />
+				<p:password id="alterar-pessoa-juridica-confirmaSenha" title="Confirmação da Senha" required="true" value="#{adminBean.usuario.confirmaSenha}"/>
+
+				<p:column/>
+	            <p:commandButton id="alterar-pessoa-juridica-button" value="Editar Usuário" update="grid-alterar-pessoa-juridica" ajax="false" actionListener="#{adminBean.atualizarPessoaJuridica()}" />
+	
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

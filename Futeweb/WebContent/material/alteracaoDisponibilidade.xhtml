@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	<ui:define name="conteudo">
+
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+
+		<div class="wrapper">
+
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-alterar-disponibilidade-material">
+				
+				<p:outputLabel for="alterar-disponibilidade-material-estabelecimento" value="Estabelecimento" />
+	            <p:inputText id="alterar-disponibilidade-material-estabelecimento" title="Estabelecimento" disabled="true" required="true" value="#{adminBean.estabelecimento.nome}" />
+				
+				<p:outputLabel for="alterar-disponibilidade-material" value="Material" />
+	            <p:inputText id="alterar-disponibilidade-material" title="Material" disabled="true" required="true" value="#{adminBean.material.nome}" />
+				
+				<p:outputLabel for="alterar-disponibilidade-material-id" value="ID" />
+	            <p:inputText id="alterar-disponibilidade-material-id" title="ID" required="true" disabled="true" value="#{adminBean.disponibilidade.id}" />
+				
+				<p:outputLabel for="alterar-disponibilidade-material-inicio" value="Inicio" />
+        		<p:calendar id="alterar-disponibilidade-material-inicio" title="Inicio" required="true" disabled="true" value="#{adminBean.disponibilidade.dataInicio}" pattern="dd/MM/yyyy HH:mm:ss" />
+ 
+ 				<p:outputLabel for="alterar-disponibilidade-material-fim" value="Fim" />
+        		<p:calendar id="alterar-disponibilidade-material-fim" title="Fim" required="true" disabled="true" value="#{adminBean.disponibilidade.dataFim}" pattern="dd/MM/yyyy HH:mm:ss" />
+
+				<p:column/>
+	            <p:commandButton id="alterar-disponibilidade-material-button" value="Remover Disponibilidade Material" update="grid-alterar-disponibilidade-material" ajax="false" actionListener="#{adminBean.removerDisponibilidadeMaterial()}" />
+			
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

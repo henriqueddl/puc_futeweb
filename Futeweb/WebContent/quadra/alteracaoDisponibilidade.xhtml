@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	<ui:define name="conteudo">
+
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+
+		<div class="wrapper">
+
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-alterar-disponibilidade-quadra">
+				
+				<p:outputLabel for="alterar-disponibilidade-quadra-estabelecimento" value="Estabelecimento" />
+	            <p:inputText id="alterar-disponibilidade-quadra-estabelecimento" title="Estabelecimento" disabled="true" required="true" value="#{adminBean.estabelecimento.nome}" />
+				
+				<p:outputLabel for="alterar-disponibilidade-quadra" value="Quadra" />
+	            <p:inputText id="alterar-disponibilidade-quadra" title="Quadra" disabled="true" required="true" value="#{adminBean.quadra.nome}" />
+				
+				<p:outputLabel for="alterar-disponibilidade-quadra-id" value="ID" />
+	            <p:inputText id="alterar-disponibilidade-quadra-id" title="ID" required="true" disabled="true" value="#{adminBean.disponibilidade.id}" />
+				
+				<p:outputLabel for="alterar-disponibilidade-quadra-inicio" value="Inicio" />
+        		<p:calendar id="alterar-disponibilidade-quadra-inicio" title="Inicio" required="true" disabled="true" value="#{adminBean.disponibilidade.dataInicio}" pattern="dd/MM/yyyy HH:mm:ss" />
+ 
+ 				<p:outputLabel for="alterar-disponibilidade-quadra-fim" value="Fim" />
+        		<p:calendar id="alterar-disponibilidade-quadra-fim" title="Fim" required="true" disabled="true" value="#{adminBean.disponibilidade.dataFim}" pattern="dd/MM/yyyy HH:mm:ss" />
+
+				<p:column/>
+	            <p:commandButton id="alterar-disponibilidade-quadra-button" value="Remover Disponibilidade Quadra" update="grid-alterar-disponibilidade-quadra" ajax="false" actionListener="#{adminBean.removerDisponibilidadeQuadra()}" />
+			
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

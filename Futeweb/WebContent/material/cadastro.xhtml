@@ -9,24 +9,24 @@
 		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
 
 		<div class="wrapper">
-			<p:messages id="id-mensagem-material" showIcon="false" closable="true" />
 
 			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-material">
-
-				<p:outputLabel for="material-cadastrar-quadra" value="Quadra: " />
-				<p:selectOneMenu id="material-cadastrar-quadra" value="">
-					<f:selectItem itemLabel="Select One" itemValue="" />
+				
+				<p:outputLabel for="cadastrar-material-estabelecimento" value="Estabelecimento" />
+	            <p:selectOneMenu id="cadastrar-material-estabelecimento" title="Estabelecimento" required="true" value="#{adminBean.estabelecimento}" >
+					<f:selectItem itemLabel="..." itemValue="" />
 					<f:selectItems value="" />
 				</p:selectOneMenu>
 
-				<p:outputLabel for="material-cadastrar-nome" value="Nome: " />
-				<p:inputText id="material-cadastrar-nome" value="#{adminVO.material.nome}" required="true"/>
-
-				<p:outputLabel for="material-cadastrar-descricao" value="Descrição: " />
-				<p:inputTextarea id="material-cadastrar-descricao" value="#{adminVO.material.descricao}" required="true"/>
-
+				<p:outputLabel for="cadastrar-material-nome" value="Nome" />
+	            <p:inputText id="cadastrar-material-nome" title="Nome" required="true" value="#{adminBean.material.nome}" />
+	            
+	            <p:outputLabel for="cadastrar-material-descricao" value="Descrição" />
+	            <p:inputText id="cadastrar-material-descricao" title="Descrição" required="true" value="#{adminBean.material.descricao}" />
+	            
 				<p:column/>
-	            <p:commandButton id="material-cadastrar-button" value="Cadastar Material" update="grid-cadastrar-material" ajax="false" actionListener="#{adminBean.cadastrarMaterial()}" />
+	            <p:commandButton id="cadastrar-material-button" value="Cadastar Material" update="grid-cadastrar-material" ajax="false" actionListener="#{adminBean.cadastrarMaterial()}" />
+			
 			</p:panelGrid>
 		</div>
 	</ui:define>

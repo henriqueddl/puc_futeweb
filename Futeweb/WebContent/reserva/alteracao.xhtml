@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	
+	<ui:define name="conteudo"> 
+	
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+	
+		<div class="wrapper">
+			
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-alterar-reserva">
+			
+				<p:outputLabel for="alterar-reserva-id" value="ID" />
+	            <p:inputText id="alterar-reserva-id" title="ID" required="true" disabled="true" value="#{adminBean.reserva.id}" />
+
+				<p:outputLabel for="alterar-reserva-usuario" value="Usuário" />
+	            <p:inputText id="alterar-reserva-usuario" title="Usuário" required="true" disabled="true" value="#{adminBean.autenticadoPF.nome}" />
+				
+				<p:outputLabel for="alterar-reserva-estabelecimento" value="Estabelecimento" />
+	            <p:inputText id="alterar-reserva-estabelecimento" title="Estabelecimento" disabled="true" required="true" value="#{adminBean.estabelecimento.nome}" />
+				
+				<p:outputLabel for="alterar-reserva-quadra" value="Quadra" />
+	            <p:inputText id="alterar-reserva-quadra" title="Quadra" disabled="true" required="true" value="#{adminBean.quadra.nome}" />
+				
+				<p:outputLabel for="alterar-reserva-material" value="Material" />
+	            <p:inputText id="alterar-reserva-material" title="Material" disabled="true" required="true" value="#{adminBean.material.nome}" />
+
+				<p:column/>
+	            <p:commandButton id="alterar-reserva-button" value="Remover Reserva" update="grid-alterar-reserva" ajax="false" actionListener="#{adminBean.removerReserva()}" />
+            
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

@@ -4,19 +4,17 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
 	template="/template/template.xhtml">
-	
-	<ui:define name="conteudo"> 
-	
-		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
-	
-		<div class="wrapper">
-			<p:messages  id="id-mensagem-quadra" showIcon="false" closable="true" />
-			
-			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-quadra">
+	<ui:define name="conteudo">
 
-				<p:outputLabel for="cadastrar-quadra-estabelecimento" value="Estabelecimento: " />
-				<p:selectOneMenu id="cadastrar-quadra-estabelecimento" value="">
-					<f:selectItem itemLabel="Select One" itemValue="" />
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+
+		<div class="wrapper">
+
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-quadra">
+				
+				<p:outputLabel for="cadastrar-quadra-estabelecimento" value="Estabelecimento" />
+	            <p:selectOneMenu id="cadastrar-quadra-estabelecimento" title="Estabelecimento" required="true" value="#{adminBean.estabelecimento}" >
+					<f:selectItem itemLabel="..." itemValue="" />
 					<f:selectItems value="" />
 				</p:selectOneMenu>
 
@@ -24,11 +22,11 @@
 	            <p:inputText id="cadastrar-quadra-nome" title="Nome" required="true" value="#{adminBean.quadra.nome}" />
 	            
 	            <p:outputLabel for="cadastrar-quadra-descricao" value="Descrição" />
-	            <p:inputTextarea id="cadastrar-quadra-descricao" title="Descrição" required="true" value="#{adminBean.quadra.descricao}" />
-	           	           	
+	            <p:inputText id="cadastrar-quadra-descricao" title="Descrição" required="true" value="#{adminBean.quadra.descricao}" />
+	            
 				<p:column/>
-	            <p:commandButton id="quadra-cadastrar-button" value="Cadastar Quadra" update="grid-cadastrar-quadra" ajax="false" actionListener="#{adminBean.cadastraQuadra()}" />
-            
+	            <p:commandButton id="cadastrar-quadra-button" value="Cadastar Quadra" update="grid-cadastrar-quadra" ajax="false" actionListener="#{adminBean.cadastrarQuadra()}" />
+			
 			</p:panelGrid>
 		</div>
 	</ui:define>

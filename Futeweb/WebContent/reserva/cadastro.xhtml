@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	
+	<ui:define name="conteudo"> 
+	
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+	
+		<div class="wrapper">
+			
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-reserva">
+
+				<p:outputLabel for="cadastrar-reserva-usuario" value="Usuário" />
+	            <p:inputText id="cadastrar-reserva-usuario" title="Usuário" required="true" disabled="true" value="#{adminBean.autenticadoPF.nome}" />
+				
+				<p:outputLabel for="cadastrar-reserva-disponibilidade-quadra" value="Quadra Disponível" />
+	            <p:selectOneMenu id="cadastrar-reserva-disponibilidade-quadra" title="Quadra Disponível" required="true" value="#{adminBean.quadra}" >
+					<f:selectItem itemLabel="..." itemValue="" />
+					<f:selectItems value="" />
+				</p:selectOneMenu>
+				
+				<p:outputLabel for="cadastrar-reserva-disponibilidade-material" value="Material Disponível" />
+	            <p:selectOneMenu id="cadastrar-reserva-disponibilidade-material" title="Material Disponível" required="true" value="#{adminBean.material}" >
+					<f:selectItem itemLabel="..." itemValue="" />
+					<f:selectItems value="" />
+				</p:selectOneMenu>
+
+				<p:column/>
+	            <p:commandButton id="cadastrar-reserva-button" value="Cadastrar Reserva" update="grid-cadastrar-reserva" ajax="false" actionListener="#{adminBean.cadastrarReserva()}" />
+            
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

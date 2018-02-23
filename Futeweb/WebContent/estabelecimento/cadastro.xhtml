@@ -10,7 +10,6 @@
 		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
 	
 		<div class="wrapper">
-			<p:messages  id="id-mensagem-estabelecimento" showIcon="false" closable="true" />
 			
 			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-estabelecimento">
 			
@@ -20,20 +19,23 @@
 	            <p:outputLabel for="cadastrar-estabelecimento-descricao" value="Descrição" />
 	            <p:inputTextarea id="cadastrar-estabelecimento-descricao" title="Nome" required="true" value="#{adminBean.estabelecimento.descricao}" />
 	            
-	            <p:outputLabel for="estabelecimento-cadastrar-logradouro" value="Logradouro" />
-	            <p:inputText id="estabelecimento-cadastrar-logradouro" title="Logradouro" required="true" value="#{adminBean.estabelecimento.endereco.logradouro}"/>
+	            <p:outputLabel for="cadastrar-estabelecimento-logradouro" value="Logradouro" />
+	            <p:inputText id="cadastrar-estabelecimento-logradouro" title="Logradouro" required="true" value="#{adminBean.estabelecimento.endereco.logradouro}"/>
 	
-	            <p:outputLabel for="estabelecimento-cadastrar-numero" value="Número" />
-	            <p:inputText id="estabelecimento-cadastrar-numero" title="Número" required="true" value="#{adminBean.estabelecimento.endereco.numero}" type="number" />
+	            <p:outputLabel for="cadastrar-estabelecimento-numero" value="Número" />
+	            <p:inputText id="cadastrar-estabelecimento-numero" title="Número" required="true" value="#{adminBean.estabelecimento.endereco.numero}" type="number" />
 	
-	            <p:outputLabel for="estabelecimento-cadastrar-cidade" value="Cidade" />
-	            <p:inputText id="estabelecimento-cadastrar-cidade" title="Cidade" required="true" value="#{adminBean.estabelecimento.endereco.cidade}"/>
+	            <p:outputLabel for="cadastrar-estabelecimento-cidade" value="Cidade" />
+	            <p:inputText id="cadastrar-estabelecimento-cidade" title="Cidade" required="true" value="#{adminBean.estabelecimento.endereco.cidade}"/>
 	
-	            <p:outputLabel for="estabelecimento-cadastrar-estado" value="Estado" />
-	            <p:inputText id="estabelecimento-cadastrar-estado" title="Estado" required="true" value="#{adminBean.estabelecimento.endereco.estado}"/>
+	            <p:outputLabel for="cadastrar-estabelecimento-estado" value="Estado" />
+	            <p:inputText id="cadastrar-estabelecimento-estado" title="Estado" required="true" value="#{adminBean.estabelecimento.endereco.estado}"/>
+	            
+	            <p:outputLabel for="cadastrar-estabelecimento-cep" value="CEP" />
+	            <p:inputText id="cadastrar-estabelecimento-cep" title="CEP" required="true" value="#{adminBean.estabelecimento.endereco.cep}"/>
 	
 				<p:column/>
-	            <p:commandButton id="estabelecimento-cadastrar-button" value="Cadastar Estabelecimento" update="grid-cadastrar-estabelecimento" ajax="false" actionListener="#{adminBean.cadastrarEstabelecimento()}" />
+	            <p:commandButton id="cadastrar-estabelecimento-button" value="Cadastar Estabelecimento" update="grid-cadastrar-estabelecimento" ajax="false" actionListener="#{adminBean.cadastrarEstabelecimento()}" />
             
 			</p:panelGrid>
 		</div>

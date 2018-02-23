@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core" template="/template/template.xhtml">
+
+	<ui:define name="conteudo">
+
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+
+		<div class="wrapper">
+
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-alterar-pessoa-fisica">
+				
+				<p:outputLabel for="alterar-pessoa-fisica-id" value="ID Pessoa Fisica" />
+				<p:inputText id="alterar-pessoa-fisica-id" title="ID Pessoa Fisica" disabled="true" required="true" value="#{adminBean.pessoaFisica.id}" />
+	
+				<p:outputLabel for="alterar-pessoa-fisica-nome" value="Nome" />
+				<p:inputText id="alterar-pessoa-fisica-nome" title="Nome" required="true" value="#{adminBean.pessoaFisica.nome}" />
+
+				<p:outputLabel for="alterar-pessoa-fisica-email" value="Email" />
+				<p:inputText id="alterar-pessoa-fisica-email" title="Email" disabled="true" required="true" value="#{adminBean.pessoaFisica.email}" />
+
+				<p:outputLabel for="alterar-pessoa-fisica-cpf" value="CPF" />
+				<p:inputMask id="alterar-pessoa-fisica-cpf" title="CPF" required="true" disabled="true" value="#{adminBean.pessoaFisica.cpf}" mask="999.999.999-99"/>
+
+				<p:outputLabel for="alterar-pessoa-fisica-dataNascimento" value="Data de Nascimento" />
+				<p:calendar id="alterar-pessoa-fisica-dataNascimento" title="Data de Nascimento" required="true" value="#{adminBean.pessoaFisica.dataNascimento}"
+				 readonly="#{facesContext.renderResponse}" showOn="button" pattern="dd/MM/yyyy" maxdate="today" locale="br" />
+
+				<p:outputLabel for="alterar-pessoa-fisica-senha" value="Senha" />
+				<p:password id="alterar-pessoa-fisica-senha" title="Senha" required="true" value="#{adminBean.usuario.senha}" />
+
+				<p:outputLabel for="alterar-pessoa-fisica-confirmaSenha" value="Confirmação da Senha" />
+				<p:password id="alterar-pessoa-fisica-confirmaSenha" title="Confirmação da Senha" required="true" value="#{adminBean.usuario.confirmaSenha}"/>
+
+				<p:column/>
+	            <p:commandButton id="alterar-pessoa-fisica-button" value="Editar Usuário" update="grid-alterar-pessoa-fisica" ajax="false" actionListener="#{adminBean.atualizarPessoaFisica()}" />
+	
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	<ui:define name="conteudo">
+
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+
+		<div class="wrapper">
+
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-cadastrar-disponibilidade-quadra">
+				
+				<p:outputLabel for="cadastrar-disponibilidade-quadra-estabelecimento" value="Estabelecimento" />
+	            <p:selectOneMenu id="cadastrar-disponibilidade-quadra-estabelecimento" title="Estabelecimento" required="true" value="#{adminBean.estabelecimento}" >
+					<f:selectItem itemLabel="..." itemValue="" />
+					<f:selectItems value="" /> 
+				</p:selectOneMenu>
+				
+				<p:outputLabel for="cadastrar-disponibilidade-quadra" value="Quadra" />
+	            <p:selectOneMenu id="cadastrar-disponibilidade-quadra" title="Quadra" required="true" value="#{adminBean.quadra}" >
+					<f:selectItem itemLabel="..." itemValue="" />
+					<f:selectItems value="" /> 
+				</p:selectOneMenu>
+				
+				<p:outputLabel for="cadastrar-disponibilidade-quadra-inicio" value="Inicio" />
+        		<p:calendar id="cadastrar-disponibilidade-quadra-inicio" title="Inicio" required="true" value="#{adminBean.disponibilidade.dataInicio}" pattern="dd/MM/yyyy HH:mm:ss" />
+ 
+ 				<p:outputLabel for="cadastrar-disponibilidade-quadra-fim" value="Fim" />
+        		<p:calendar id="cadastrar-disponibilidade-quadra-fim" title="Fim" required="true" value="#{adminBean.disponibilidade.dataFim}" pattern="dd/MM/yyyy HH:mm:ss" />
+
+				<p:column/>
+	            <p:commandButton id="cadastrar-disponibilidade-quadra-button" value="Cadastar Disponibilidade Quadra" update="grid-cadastrar-disponibilidade-quadra" ajax="false" actionListener="#{adminBean.cadastrarDisponibilidadeQuadra()}" />
+			
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

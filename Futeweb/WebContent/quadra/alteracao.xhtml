@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/template/template.xhtml">
+	<ui:define name="conteudo">
+
+		<f:event listener="#{adminBean.isLogged()}" type="preRenderView" />
+
+		<div class="wrapper">
+
+			<p:panelGrid columns="2" styleClass="tabela-campos" id="grid-alterar-quadra">
+				
+				<p:outputLabel for="alterar-quadra-estabelecimento" value="Estabelecimento" />
+	            <p:inputText id="alterar-quadra-estabelecimento" title="Estabelecimento" disabled="true" required="true" value="#{adminBean.estabelecimento.nome}" />
+				
+				<p:outputLabel for="alterar-quadra-id" value="ID" />
+	            <p:inputText id="alterar-quadra-id" title="ID" required="true" disabled="true" value="#{adminBean.quadra.id}" />
+
+				<p:outputLabel for="alterar-quadra-nome" value="Nome" />
+	            <p:inputText id="alterar-quadra-nome" title="Nome" required="true" value="#{adminBean.quadra.nome}" />
+	            
+	            <p:outputLabel for="alterar-quadra-descricao" value="Descrição" />
+	            <p:inputText id="alterar-quadra-descricao" title="Descrição" required="true" value="#{adminBean.quadra.descricao}" />
+	            
+				<p:column/>
+	            <p:commandButton id="alterar-quadra-button" value="Editar Quadra" update="grid-alterar-quadra" ajax="false" actionListener="#{adminBean.atualizarQuadra()}" />
+			
+			</p:panelGrid>
+		</div>
+	</ui:define>
+</ui:composition>

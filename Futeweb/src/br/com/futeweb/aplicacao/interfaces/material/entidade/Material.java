@@ -10,12 +10,11 @@ public class Material implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private int id;
-	private int id_estabelecimento;
 	private String nome;
 	private String descricao;
 	private List<Disponibilidade> listDisponibilidade;
 	
-        public Material(){}
+    public Material(){}
         
 	public Material(int id, String nome, String descricao) {
 		super();
@@ -63,13 +62,4 @@ public class Material implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
-	public int getId_estabelecimento() {
-		return id_estabelecimento;
-	}
-
-	public void setId_estabelecimento(int id_estabelecimento) {
-		this.id_estabelecimento = id_estabelecimento;
-	}
-	
 }
