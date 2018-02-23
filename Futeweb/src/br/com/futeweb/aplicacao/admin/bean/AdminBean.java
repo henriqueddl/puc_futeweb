@@ -106,6 +106,24 @@ public class AdminBean extends AdminVO implements Serializable{
 		}
 	}
 	
+	public void obterMaterial() {
+		listMaterial = facadeAdmin.getControleMaterial().obterTodos();
+		if (listMaterial==null || listMaterial.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void obterMaterialPorCriterio() {
+		try {
+			listMaterial = facadeAdmin.getControleMaterial().obterPorCriterio(material);
+			if (listMaterial==null || listMaterial.size()==0){
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_MATERIAL_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		} catch (SQLException e) {
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR_EXCEPTION.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
 	public void atualizarMaterial() {
 		if (material.validarObjeto(material)){
 			try {
@@ -138,6 +156,24 @@ public class AdminBean extends AdminVO implements Serializable{
 			}
 		}else{
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void obterQuadra() {
+		listQuadra = facadeAdmin.getControleQuadra().obterTodos();
+		if (listQuadra==null || listQuadra.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void obterQuadraPorCriterio() {
+		try {
+			listQuadra = facadeAdmin.getControleQuadra().obterPorCriterio(quadra);
+			if (listQuadra==null || listQuadra.size()==0){
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		} catch (SQLException e) {
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR_EXCEPTION.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 	}
 	
@@ -175,6 +211,24 @@ public class AdminBean extends AdminVO implements Serializable{
 		}
 	}
 	
+	public void obterReserva() {
+		listReserva = facadeAdmin.getControleReserva().obterTodos();
+		if (listReserva==null || listReserva.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void obterReservaPorCriterio() {
+		try {
+			listReserva = facadeAdmin.getControleReserva().obterPorCriterio(reserva);
+			if (listReserva==null || listReserva.size()==0){
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_RESERVA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		} catch (SQLException e) {
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR_EXCEPTION.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
 	public void removerReserva() {
 		if (reserva.validarObjeto(reserva)){
 			try {
@@ -206,6 +260,24 @@ public class AdminBean extends AdminVO implements Serializable{
 			}
 		}else{
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void obterUsuario() {
+		listUsuario = facadeAdmin.getControleUsuario().obterTodos();
+		if (listUsuario==null || listUsuario.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void obterUsuarioPorCriterio() {
+		try {
+			listUsuario = facadeAdmin.getControleUsuario().obterPorCriterio(usuario);
+			if (listUsuario==null || listUsuario.size()==0){
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		} catch (SQLException e) {
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR_EXCEPTION.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 	}
 	
@@ -243,6 +315,24 @@ public class AdminBean extends AdminVO implements Serializable{
 		}
 	}
 	
+	public void obterPessoaFisica() {
+		listPessoaFisica = facadeAdmin.getControleUsuario().obterPessoaFisica();
+		if (listPessoaFisica==null || listPessoaFisica.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void obterPessoaFisicaCriterio() {
+		try {
+			listPessoaFisica = facadeAdmin.getControleUsuario().obterPorCriterio(pessoaFisica);
+			if (listPessoaFisica==null || listPessoaFisica.size()==0){
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		} catch (SQLException e) {
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR_EXCEPTION.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+		
 	public void atualizarPessoaFisica() {
 		if (pessoaFisica.validarObjeto(pessoaFisica)){
 			try {
@@ -274,6 +364,24 @@ public class AdminBean extends AdminVO implements Serializable{
 			}
 		}else{
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void obterPessoaJuridica() {
+		listPessoaJuridica = facadeAdmin.getControleUsuario().obterPessoaJuridica();
+		if (listPessoaJuridica==null || listPessoaJuridica.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+	}
+	
+	public void obterPessoaJuridicaCriterio() {
+		try {
+			listPessoaJuridica = facadeAdmin.getControleUsuario().obterPorCriterio(pessoaJuridica);
+			if (listPessoaJuridica==null || listPessoaJuridica.size()==0){
+				new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_USUARIO_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+			}
+		} catch (SQLException e) {
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ESTABELECIMENTO_CONSULTAR_EXCEPTION.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()), Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 	}
 	
