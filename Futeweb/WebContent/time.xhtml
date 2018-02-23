@@ -10,6 +10,12 @@
 			<p:panelGrid columns="2" styleClass="tabela-campos">
 				<p:outputLabel for="cadastrar-time-nome" value="Nome"/>
                                 <p:inputText id="cadastrar-time-nome" title="Nome" required="true" value="#{adminBean.time.nome}" />
+
+				<p:outputLabel for="cadastrar-time-descricao" value="Descricao"/>
+                                <p:inputText id="cadastrar-time-descricao" title="Descricao" required="false" value="#{adminBean.time.descricao}" />
+
+			
+			<p:commandButton id="time-gravar" value="Cadastrar" actionListener="#{adminBean.inserirTime()}"/>
 			</p:panelGrid>
 			
 		</div>

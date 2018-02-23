@@ -8,10 +8,21 @@
     <ui:define name="conteudo"> 
         <div class="wrapper">
             <p:panelGrid columns="2" styleClass="tabela-campos">
-                <p:outputLabel for="cadastrar_quadra-nome" value="Nome"/>
-                <p:inputText id="quadra-nome" title="Nome" required="true" value="#{adminBean.quadra.nome}" />				
+                <p:outputLabel for="cadastrar-jogo-timemandante" value="Time Mandante"/>
+                <p:inputText id="cadastrar-jogo-timemandante" title="Time Mandante" required="true" value="#{adminBean.jogo.id_timemandante}" />				
+
+                <p:outputLabel for="cadastrar-gols-timemandante" value="Gols"/>
+                <p:inputText id="cadastrar-gols-timemandante" title="Gols" required="true" value="#{adminBean.jogo.gols_timemandante}" />				
+
+                <p:outputLabel for="cadastrar-jogo-timevisitante" value="Time Visitante"/>
+                <p:inputText id="cadastrar-jogo-timevisitante" title="Time Visitante" required="true" value="#{adminBean.jogo.id_timevisitante}" />				
+
+                <p:outputLabel for="cadastrar-gols-timevisitante" value="Gols"/>
+                <p:inputText id="cadastrar-gols-timevisitante" title="Gols" required="true" value="#{adminBean.jogo.gols_timevisitante}" />				
+			<p:commandButton id="time-gravar" value="Cadastrar" actionListener="#{adminBean.inserirJogo()}"/>
+
             </p:panelGrid>	
-            <p:outputLabel for="basic" value="Basic:" />
+          
             
         </div>
     </ui:define>
