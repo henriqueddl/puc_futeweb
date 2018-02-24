@@ -120,3 +120,42 @@ CREATE TABLE Reserva (
   INDEX Reserva_FKIndex2(id_disponibilidade_material),
   INDEX Reserva_FKIndex3(id_pessoa_fisica)
 );
+
+
+
+CREATE TABLE campeonato (
+  id INT NOT NULL AUTO_INCREMENT,
+  nome varchar(50) not null,
+  data_inicio DATETIME NOT NULL,
+  data_fim DATETIME NOT NULL,
+  id_estabelecimento int NULL,
+  PRIMARY KEY(id)
+ 
+);
+
+create table classificacao (
+  id INT NOT NULL AUTO_INCREMENT,
+  id_campeonato int not null,
+  id_time int not null,  
+  jogos int null,
+  vitorias int null,
+  golspro int null,
+  golscontra int null,
+  PRIMARY KEY(id)
+
+)
+
+
+create table times_campeonato (
+
+id_time int not null,
+id_campeonato int not null
+
+)
+
+create table jogadores_time (
+
+id_time int not null,
+id_pessoa_fisica INT NOT NULL
+
+)
