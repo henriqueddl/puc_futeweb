@@ -143,7 +143,7 @@ create table classificacao (
   golscontra int null,
   PRIMARY KEY(id)
 
-)
+);
 
 
 create table times_campeonato (
@@ -151,11 +151,11 @@ create table times_campeonato (
 id_time int not null,
 id_campeonato int not null
 
-)
+);
 
 create table jogadores_time (
 
 id_time int not null,
 id_pessoa_fisica INT NOT NULL
 
-)
+);
