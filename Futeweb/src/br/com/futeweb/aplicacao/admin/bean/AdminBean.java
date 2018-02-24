@@ -36,6 +36,155 @@ public class AdminBean extends AdminVO implements Serializable{
 		
 	}
 	
+	public void acessarQuadra() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_QUADRA.getValor());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}		
+	}
+	
+	
+	public void cadastrarJogo() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_JOGO.getValor());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}		
+	}
+	
+	public void cadastrarTime() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_TIME.getValor());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}		
+	}
+	
+	public void cadastrarCampeonato() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_CAMPEONATO.getValor());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}		
+	}
+	
+	public void cadastrarClassificacao() {
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_CLASSIFICACAO.getValor());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_ATENTICAR.replace(Mensagens.PARAMETRO_EXCEPTION, e.getMessage()) , Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}		
+	}
+	
+	
+	public int idUltimoTimeCadastrado(){
+		return facadeAdmin.getControleJogadoresTime().IdUltimoTimeCadastrado();
+	}
+
+	public String NomeUltimoTimeCadastrado(){
+		return facadeAdmin.getControleJogadoresTime().NomeUltimoTimeCadastrado();
+	}	
+	
+	
+	public int idUltimoCampeonatoCadastrado(){
+		return 1;// facadeAdmin.getControleTimesCampeonato().IdUltimoCampeonatoCadastrado();
+	}
+
+	public String NomeUltimoCampeonatoCadastrado(){
+		return "1";//facadeAdmin.getControleTimesCampeonato().NomeUltimoCampeonatoCadastrado();
+	}	
+	
+	public void inserirTime(){
+		try {
+			if(time !=null && time.getNome()!=null && time.getDescricao()!=null) {
+			if (facadeAdmin.getControleTime().inserir(time) != 0){
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_INSERIRJOGADORESTIME.getValor());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}				
+			};
+			//return 1;
+			}	
+		} catch (SQLException e) {
+	//		// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void inserirCampeonato(){
+		try {
+			int retorno = 0;
+			if(campeonato !=null && campeonato.getNome()!=null && campeonato.getDataInicio()!=null && campeonato.getDataFim() != null){
+			if (facadeAdmin.getControleCampeonato().inserir(campeonato) != 0){
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_INSERIRTIMESCAMPEONATO.getValor());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}				
+			};
+			//return 1;
+			}	
+		} catch (SQLException e) {
+	//		// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void inserirJogadoresTime(){
+		try {
+			int retorno = 0;
+			if((jogadorestime !=null) && (jogadorestime.getIdtime()!=0) && (jogadorestime.getIdjogador()!=0)){
+			if (facadeAdmin.getControleJogadoresTime().inserir(jogadorestime) != 0){
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_INSERIRJOGADORESTIME.getValor());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}				
+			};
+			//return 1;
+			}	
+		} catch (SQLException e) {
+	//		// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	public void inserirTimesCampeonato(){
+		try {
+			int retorno = 0;
+			if(timescampeonato !=null && timescampeonato.getIdtime()!=0 && timescampeonato.getIdcampeonato()!=0 && campeonato.getDataFim() != null){
+			if (facadeAdmin.getControleTimesCampeonato().inserir(timescampeonato) != 0){
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect(AplicacaoEnum.PAGE_INSERIRTIMESCAMPEONATO.getValor());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}				
+			};
+			//return 1;
+			}	
+		} catch (SQLException e) {
+	//		// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
 	// ---------- ESTABELECIMENTO ----------
 	
 	public void cadastrarEstabelecimento() {
@@ -399,19 +548,6 @@ public class AdminBean extends AdminVO implements Serializable{
 		}else{
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
-	}
-	
-	
-	public void cadastrarJogo() {
-	}
-	
-	public void cadastrarTime() {
-	}
-	
-	public void cadastrarCampeonato() {
-	}
-	
-	public void cadastrarClassificacao() {
 	}
 	
 	// ---------- AUTENTICAÇÃO ----------

@@ -8,12 +8,9 @@
 	<ui:define name="conteudo"> 
 		<div class="wrapper">
 
-<p:growl id="msgs" showDetail="true" />
- 
-    <p:panel header="Selecione os times do campeonato" style="margin-bottom:10px;">
         <h:panelGrid columns="2" cellpadding="5">
             <p:outputLabel for="campeonato" value="Campeonato: " />
-            <p:selectOneMenu id="country" value="#{adminBean.timescampeonato.idcampeonato}" style="width:150px">
+            <p:selectOneMenu id="campeonato" value="#{adminBean.timescampeonato.idcampeonato}" style="width:150px">
                 <f:selectItem itemLabel="Selecione um time" itemValue="" noSelectionOption="true" />
                 <f:selectItems value="#{adminBean.timescampeonato.campeonatos}" />
             </p:selectOneMenu>
@@ -25,10 +22,8 @@
             </p:selectOneMenu>
         </h:panelGrid>
  
-        <p:separator />
  
         <p:commandButton value="Cadastrar" update="msgs" actionListener="#{adminBean.inserirTimesCampeonato()}" icon="ui-icon-check" />
-    </p:panel>
 			
 		</div>
 	</ui:define>

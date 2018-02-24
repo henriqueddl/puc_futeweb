@@ -9,6 +9,7 @@ import javax.ejb.Stateless;
 import br.com.futeweb.aplicacao.dao.generico.GenericoDAO;
 import br.com.futeweb.aplicacao.interfaces.jogo.controle.IControleJogo;
 import br.com.futeweb.aplicacao.interfaces.jogo.entidade.Jogo;
+import br.com.futeweb.aplicacao.interfaces.time.entidade.Time;
 
 @Stateless
 public class JogoDAO extends GenericoDAO implements IControleJogo {

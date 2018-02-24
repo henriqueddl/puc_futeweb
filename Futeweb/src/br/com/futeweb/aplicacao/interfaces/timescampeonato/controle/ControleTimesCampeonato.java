@@ -1,32 +1,36 @@
-package br.com.futeweb.aplicacao.interfaces.time.controle;
+package br.com.futeweb.aplicacao.interfaces.timescampeonato.controle;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.ejb.Stateless;
 import javax.faces.application.FacesMessage;
 
 import br.com.futeweb.aplicacao.dao.generico.GenericoDAO;
-import br.com.futeweb.aplicacao.interfaces.time.dao.TimeDAO;
+import br.com.futeweb.aplicacao.interfaces.timescampeonato.dao.TimesCampeonatoDAO;
 import br.com.futeweb.aplicacao.interfaces.time.entidade.Time;
+import br.com.futeweb.aplicacao.interfaces.timescampeonato.entidade.TimesCampeonato;
+import br.com.futeweb.aplicacao.interfaces.campeonato.entidade.Campeonato;
 import br.com.futeweb.aplicacao.utils.Logger;
 import br.com.futeweb.aplicacao.utils.Mensagens;
 
 @Stateless
-public class ControleTime extends GenericoDAO implements IControleTime {
+public class ControleTimesCampeonato extends GenericoDAO implements IControleTimesCampeonato {
 
 	private static final long serialVersionUID = 1L;
-	private TimeDAO dao;
+	private TimesCampeonatoDAO dao;
 	
-	private TimeDAO getInstance(){
+	private TimesCampeonatoDAO getInstance(){
 		if (dao==null){
-			dao = new TimeDAO();
+			dao = new TimesCampeonatoDAO();
 		}
 		return dao;
 	}
 	
 	@Override
-	public int inserir(Time object) throws SQLException {
+	public int inserir(TimesCampeonato object) throws SQLException {
 		int retorno = 0;
 		if (object.validarObjeto(object)){
 			retorno = getInstance().inserir(object);
@@ -40,19 +44,13 @@ public class ControleTime extends GenericoDAO implements IControleTime {
 		}
 		return retorno;
 	}
-	
-	public int IdUltimoTimeCadastrado(){
-		return getInstance().IdUltimoTimeCadastrado();
-	}
-	public String NomeUltimoTimeCadastrado(){
-		return getInstance().NomeUltimoTimeCadastrado();		
-	}
 
 
-	public int inserirJogadorTime(Time object,int id_jogador) throws SQLException {
+
+	public int inserirTimesCampeonato(Campeonato object,int id_time) throws SQLException {
 		int retorno = 0;
 		if (object.validarObjeto(object)){
-			retorno = getInstance().inserirJogadorTime(object, id_jogador);
+			retorno = getInstance().inserirTimesCampeonato(object, id_time);
 			if (retorno!=0){
 				new Logger(true, FacesMessage.SEVERITY_INFO, Mensagens.OK_QUADRA_INSERIR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 			}else{
@@ -66,8 +64,8 @@ public class ControleTime extends GenericoDAO implements IControleTime {
 	
 	
 	@Override
-	public List<Time> obterTodos() {
-		List<Time> lista = getInstance().obterTodos();
+	public List<TimesCampeonato> obterTodos() {
+		List<TimesCampeonato> lista = getInstance().obterTodos();
 		if (lista==null || lista.size()==0){
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
@@ -75,8 +73,8 @@ public class ControleTime extends GenericoDAO implements IControleTime {
 	}
 
 	@Override
-	public List<Time> obterPorCriterio(Time object) throws SQLException {
-		List<Time> lista = getInstance().obterPorCriterio(object);
+	public List<TimesCampeonato> obterPorCriterio(TimesCampeonato object) throws SQLException {
+		List<TimesCampeonato> lista = getInstance().obterPorCriterio(object);
 		if (lista==null || lista.size()==0){
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
@@ -84,7 +82,7 @@ public class ControleTime extends GenericoDAO implements IControleTime {
 	}
 	
 	@Override
-	public int atualizar(Time object) throws SQLException {
+	public int atualizar(TimesCampeonato object) throws SQLException {
 		int retorno = 0;
 		if (object.validarObjeto(object)){
 			retorno = getInstance().atualizar(object);
@@ -97,5 +95,22 @@ public class ControleTime extends GenericoDAO implements IControleTime {
 			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_PREENCHIMENTO, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
 		}
 		return retorno;
+	}
+	
+	public Map<Integer, String> obterListaCampeonatos() throws SQLException {
+		Map<Integer, String> lista = getInstance().obterListaCampeonatos();
+		if (lista==null || lista.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_DISPONIBILIDADE_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+		return lista;
+	}
+	
+	
+	public Map<Integer, String> obterListaTimes() throws SQLException {
+		Map<Integer, String> lista = getInstance().obterListaTimes();
+		if (lista==null || lista.size()==0){
+			new Logger(true, FacesMessage.SEVERITY_ERROR, Mensagens.ERRO_QUADRA_DISPONIBILIDADE_CONSULTAR, Mensagens.ID_CAMPO_MENSAGEM_INDEX);
+		}
+		return lista;
 	}
 }

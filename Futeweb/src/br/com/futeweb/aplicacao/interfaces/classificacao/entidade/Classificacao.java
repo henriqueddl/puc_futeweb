@@ -9,8 +9,8 @@ public class Classificacao implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private int id;
-	private int Id_Campeonato;
-	private int Id_Time;
+	private int IdCampeonato;
+	private int IdTime;
 	private int jogos;
 	private int vitorias;
 	private int golsPro;
@@ -18,12 +18,12 @@ public class Classificacao implements Serializable {
 	
 	public Classificacao(){}
         
-	public Classificacao(int id, int Id_Campeonato,int Id_Time,int jogos, int Vitorias,int golsPro, int golsContra) {
+	public Classificacao(int id, int IdCampeonato,int IdTime,int jogos, int Vitorias,int golsPro, int golsContra) {
 		super();
 		this.id = id;
-		this.Id_Campeonato = Id_Campeonato;
+		this.IdCampeonato = IdCampeonato;
 		this.jogos = jogos;
-		this.Id_Time = Id_Time;
+		this.IdTime = IdTime;
 		this.vitorias = Vitorias;
 		this.golsPro = golsPro;
 		this.golsContra = golsContra;	
@@ -32,7 +32,7 @@ public class Classificacao implements Serializable {
 	public boolean validarObjeto(Classificacao obj){
 		return (obj!=null
 				&& obj.getId()!=0 && !"".equals(obj.getId())
-				&& obj.getId_Campeonato()!=0
+				&& obj.getIdCampeonato()!=0
 				) ? true : false;
 	}
 	
@@ -43,18 +43,19 @@ public class Classificacao implements Serializable {
 		this.id = id;
 	}
 
-	public int getId_Campeonato() {
-		return Id_Campeonato;
+	public int getIdCampeonato() {
+		return IdCampeonato;
 	}
-	public void setId_Campeonato(int id_Campeonato) {
-		this.Id_Campeonato = id_Campeonato;
+	
+	public void setIdCampeonato(int idCampeonato) {
+		this.IdCampeonato = idCampeonato;
 	}
 
-	public int getId_Time() {
-		return Id_Time;
+	public int getIdTime() {
+		return IdTime;
 	}
-	public void setId_Time(int id_Time) {
-		this.Id_Time = id_Time;
+	public void setIdTime(int idTime) {
+		this.IdTime = idTime;
 	}	
 	
 	public int getjogos() {

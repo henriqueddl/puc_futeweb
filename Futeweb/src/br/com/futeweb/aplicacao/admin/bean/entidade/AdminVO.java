@@ -8,11 +8,13 @@ import br.com.futeweb.aplicacao.interfaces.campeonato.entidade.Campeonato;
 import br.com.futeweb.aplicacao.interfaces.classificacao.entidade.Classificacao;
 import br.com.futeweb.aplicacao.interfaces.endereco.entidade.Endereco;
 import br.com.futeweb.aplicacao.interfaces.estabelecimento.entidade.Estabelecimento;
+import br.com.futeweb.aplicacao.interfaces.jogadorestime.entidade.JogadoresTime;
 import br.com.futeweb.aplicacao.interfaces.jogo.entidade.Jogo;
 import br.com.futeweb.aplicacao.interfaces.material.entidade.Material;
 import br.com.futeweb.aplicacao.interfaces.quadra.entidade.Quadra;
 import br.com.futeweb.aplicacao.interfaces.reserva.entidade.Reserva;
 import br.com.futeweb.aplicacao.interfaces.time.entidade.Time;
+import br.com.futeweb.aplicacao.interfaces.timescampeonato.entidade.TimesCampeonato;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaFisica;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.PessoaJuridica;
 import br.com.futeweb.aplicacao.interfaces.usuario.entidade.Usuario;
@@ -43,14 +45,17 @@ public class AdminVO implements Serializable {
 	protected Campeonato campeonato = new Campeonato();
 	protected Classificacao classificacao = new Classificacao();
 	
-	protected List<Estabelecimento> listEstabelecimento = new ArrayList<>();
-	protected List<Material> listMaterial = new ArrayList<>();
-	protected List<Quadra> listQuadra = new ArrayList<>();
-	protected List<Reserva> listReserva = new ArrayList<>();
-	protected List<Usuario> listUsuario = new ArrayList<>();
-	protected List<PessoaFisica> listPessoaFisica = new ArrayList<>();
-	protected List<PessoaJuridica> listPessoaJuridica = new ArrayList<>();
+	protected List<Estabelecimento> listEstabelecimento = new ArrayList<Estabelecimento>();
+	protected List<Material> listMaterial = new ArrayList<Material>();
+	protected List<Quadra> listQuadra = new ArrayList<Quadra>();
+	protected List<Reserva> listReserva = new ArrayList<Reserva>();
+	protected List<Usuario> listUsuario = new ArrayList<Usuario>();
+	protected List<PessoaFisica> listPessoaFisica = new ArrayList<PessoaFisica>();
+	protected List<PessoaJuridica> listPessoaJuridica = new ArrayList<PessoaJuridica>();
 
+	protected TimesCampeonato timescampeonato = new TimesCampeonato();
+	protected JogadoresTime jogadorestime = new JogadoresTime();
+	
 	public List<Estabelecimento> getListEstabelecimento() {
 		return listEstabelecimento;
 	}
@@ -133,6 +138,23 @@ public class AdminVO implements Serializable {
 	}
 
 	
+	public TimesCampeonato getTimesCampeonato() {
+		return timescampeonato;
+	}
+
+	public void setTimesCampeonato(TimesCampeonato timescampeonato) {
+		this.timescampeonato = timescampeonato;
+	}
+	
+	public JogadoresTime getJogadoresTime() {
+		return jogadorestime;
+	}
+
+	public void setJogadoresTime(JogadoresTime jogadorestime) {
+		this.jogadorestime = jogadorestime;
+	}	
+
+	
 	public Jogo getJogo() {
 		return jogo;
 	}
@@ -157,6 +179,8 @@ public class AdminVO implements Serializable {
 		this.classificacao = classificacao;
 	}
 	
+	
+
 	public boolean isLogado() {
 		return logado;
 	}

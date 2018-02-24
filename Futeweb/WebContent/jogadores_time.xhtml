@@ -8,26 +8,23 @@
 	<ui:define name="conteudo"> 
 		<div class="wrapper">
 
-<p:growl id="msgs" showDetail="true" />
+
+        <p:panelGrid columns="2" styleClass="tabela-campos">       
  
-    <p:panel header="Selecione um time e jogador" style="margin-bottom:10px;">
-        <h:panelGrid columns="2" cellpadding="5">
-            <p:outputLabel for="tjogador" value="#{adminBean.jogadorestime.idtime}" style="width:150px">
+            <p:selectOneMenu for="jogador" value="#{adminBean.jogadorestime.idtime}" style="width:150px">
                 <f:selectItem itemLabel="Selecione um time" itemValue="" noSelectionOption="true" />
                 <f:selectItems value="#{adminBean.jogadorestime.times}" />
             </p:selectOneMenu>
  
-            <p:outputLabel for="jogador" value="Jogador: " />
+            <p:outputLabel for="jogador" value="Jogador: " /> 
             <p:selectOneMenu id="jogador" value="#{adminBean.jogadorestime.idjogador}" style="width:150px">
-                <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true" />
+                <f:selectItem itemLabel="Select Jogador" itemValue="" noSelectionOption="true" />
                 <f:selectItems value="#{adminBean.jogadorestime.jogadores}" />
             </p:selectOneMenu>
-        </h:panelGrid>
+
  
-        <p:separator />
- 
-        <p:commandButton value="Submit" update="msgs" actionListener="#{dropdownView.displayLocation}" icon="ui-icon-check" />
-    </p:panel>
+        <p:commandButton value="Submit" update="msgs" actionListener="#{adminBean.inserirJogadoresTime()}" icon="ui-icon-check" />
+   </p:panelGrid>
 		</div>
 	</ui:define>
 </ui:composition>

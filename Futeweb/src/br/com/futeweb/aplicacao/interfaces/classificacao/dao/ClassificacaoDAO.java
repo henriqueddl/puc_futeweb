@@ -18,10 +18,10 @@ public class ClassificacaoDAO extends GenericoDAO implements IControleClassifica
 
 	@Override
 	public int inserir(Classificacao object) throws SQLException {
-		String query = " insert into classificacao (id_campeonato,id_time,jogos,vitorias,golspro,golscontra,saldo) values (?,?, ?,?,?,?) ";
+		String query = " insert into classificacao (idcampeonato,idtime,jogos,vitorias,golspro,golscontra,saldo) values (?,?, ?,?,?,?) ";
 		montarQuery(query);
-		setParametros().setInt(1, object.getId_Campeonato());
-		setParametros().setInt(2, object.getId_Time());
+		setParametros().setInt(1, object.getIdCampeonato());
+		setParametros().setInt(2, object.getIdTime());
 		setParametros().setInt(3, object.getjogos());
 		setParametros().setInt(4, object.getvitorias());
 		setParametros().setInt(5, object.getgolsPro());
@@ -32,7 +32,7 @@ public class ClassificacaoDAO extends GenericoDAO implements IControleClassifica
 	@Override
 	public List<Classificacao> obterTodos() {
 		List<Classificacao> lista = new ArrayList<Classificacao>();
-		String query = " select q.id, q.id_campeonato,q.id_time, ";
+		String query = " select q.id, q.idcampeonato,q.idtime, ";
 		query += " q.jogos,q.vitorias, q.golsPro,q.golsContra ";
 		query += " from classificacao q, campeonato e ";
 		query += " where q.id_campeonato = e.id ";
@@ -53,7 +53,7 @@ public class ClassificacaoDAO extends GenericoDAO implements IControleClassifica
 		query += " es.id, es.nome, es.descricao ";
 		query += " from classificacao q, campeonato e ";
 		query += " where q.id = ? or m.nome ";
-		query += " and q.id_campeonato = e.id ";
+		query += " and q.idcampeonato = e.id ";
 		montarQuery(query);
 		setParametros().setInt(1, object.getId());
 		String[][] retorno = executarQuery();
@@ -67,16 +67,32 @@ public class ClassificacaoDAO extends GenericoDAO implements IControleClassifica
 	
 	@Override
 	public int atualizar(Classificacao object) throws SQLException {
-		String query = " update classificacao set Id_campeonato = ?,Id_time = ?, vitorias = ?,golsPro = ?, golsContra = ? where id = ? ";
+		String query = " update classificacao set Idcampeonato = ?,Idtime = ?, vitorias = ?,golsPro = ?, golsContra = ? where id = ? ";
 		montarQuery(query);
-		setParametros().setInt(1, object.getId_Campeonato());
-		setParametros().setInt(2, object.getId_Time());
+		setParametros().setInt(1, object.getIdCampeonato());
+		setParametros().setInt(2, object.getIdTime());
 		setParametros().setInt(3, object.getvitorias());
 		setParametros().setInt(4, object.getgolsPro());
 		setParametros().setInt(5, object.getgolsContra());	
 		setParametros().setInt(6, object.getId());			
 		return executarUpdate();
 	}
+	
+	
+	@Override
+	//public int exibirClassificacao(int idcampeonato) throws SQLException {
+		//String query = " update classificacao set Idcampeonato = ?,Idtime = ?, vitorias = ?,golsPro = ?, golsContra = ? where id = ? ";
+		//montarQuery(query);
+		//setParametros().setInt(1, object.getIdCampeonato());
+		//setParametros().setInt(2, object.getIdTime());
+		//setParametros().setInt(3, object.getvitorias());
+		//setParametros().setInt(4, object.getgolsPro());
+		//setParametros().setInt(5, object.getgolsContra());	
+		//setParametros().setInt(6, object.getId());			
+		//return 1;
+	//}
+	
+	
 	
 	public int AtualizarClassificacao(Classificacao object) throws SQLException {
 		int pontosMandante = 0;
@@ -92,9 +108,9 @@ public class ClassificacaoDAO extends GenericoDAO implements IControleClassifica
 		int id_timemandante = 0;
 		int id_timevisitante = 0;
 		
-		String queryJogos = " select id_jogo,id_timeMandante,id_Timevisitante, golsTimeMandante,golsTime visitante from jogo where id_campeonato = ? and data_realizacao is not null";
+		String queryJogos = " select idjogo,idtimeMandante,id_Timevisitante, golsTimeMandante,golsTimevisitante from jogo where id_campeonato = ? and data_realizacao is not null";
 		montarQuery(queryJogos);
-		setParametros().setInt(1, object.getId_Campeonato());		
+		setParametros().setInt(1, object.getIdCampeonato());		
 		
 		String[][] retorno = executarQuery();
 		if (retorno != null){
@@ -136,10 +152,10 @@ public class ClassificacaoDAO extends GenericoDAO implements IControleClassifica
 				
 			}
 		    
-			//Atualiza informação do mandante, e depois do visitante
-			String query = " update classificacao set Id_campeonato = ?, jogos = ?,vitorias = ?,golsPro = ?, golsContra = ? where id = ? and Id_time = ?";
+			//Atualiza informaï¿½ï¿½o do mandante, e depois do visitante
+			String query = " update classificacao set Idcampeonato = ?, jogos = ?,vitorias = ?,golsPro = ?, golsContra = ? where id = ? and Id_time = ?";
 			montarQuery(query);
-			setParametros().setInt(1, object.getId_Campeonato());
+			setParametros().setInt(1, object.getIdCampeonato());
 			setParametros().setInt(2, jogosMandante);			
 			setParametros().setInt(3, vitoriasMandante);
 			setParametros().setInt(4, golsProMandante);
@@ -148,9 +164,9 @@ public class ClassificacaoDAO extends GenericoDAO implements IControleClassifica
 			setParametros().setInt(7, id_timemandante);			
 			executarUpdate();
 			
-			query = " update classificacao set Id_campeonato = ?, vitorias = ?,golsPro = ?, golsContra = ? where id = ? and Id_time = ?";
+			query = " update classificacao set Idcampeonato = ?, vitorias = ?,golsPro = ?, golsContra = ? where id = ? and Id_time = ?";
 			montarQuery(query);
-			setParametros().setInt(1, object.getId_Campeonato());
+			setParametros().setInt(1, object.getIdCampeonato());
 			setParametros().setInt(2, jogosVisitante);			
 			setParametros().setInt(3, vitoriasVisitante);
 			setParametros().setInt(4, golsProVisitante);

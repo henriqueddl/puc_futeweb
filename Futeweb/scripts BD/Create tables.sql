@@ -24,15 +24,6 @@ select * from Disponibilidade_Quadra;
 select * from Disponibilidade_Material;
 select * from Reserva;
 
-CREATE TABLE Endereco (
-  id INT NOT NULL AUTO_INCREMENT,
-  logradouro VARCHAR(200) NOT NULL,
-  numero INT NOT NULL,
-  cidade VARCHAR(200) NOT NULL,
-  estado VARCHAR(2) NOT NULL,
-  cep VARCHAR(10) NOT NULL,
-  PRIMARY KEY(id)
-);
 
 CREATE TABLE Estabelecimento (
   id INT NOT NULL AUTO_INCREMENT,

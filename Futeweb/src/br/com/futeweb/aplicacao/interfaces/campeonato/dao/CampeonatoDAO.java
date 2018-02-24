@@ -1,9 +1,9 @@
 package br.com.futeweb.aplicacao.interfaces.campeonato.dao;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.ejb.Stateless;
 
 import br.com.futeweb.aplicacao.dao.generico.GenericoDAO;
@@ -19,10 +19,12 @@ public class CampeonatoDAO extends GenericoDAO implements IControleCampeonato {
 
 	@Override
 	public int inserir(Campeonato object) throws SQLException {
-		String query = " insert into campeonato (nome, id_estabelecimento) values (?, ?) ";
+		String query = " insert into campeonato (nome, datainicio,datafim,id_estabelecimento) values (?, ?,?,?) ";
 		montarQuery(query);
 		setParametros().setString(1, object.getNome());
-		setParametros().setInt(2, object.getid_estabelecimento());
+		setParametros().setDate(2, (Date) object.getDataInicio());
+		setParametros().setDate(3, (Date) object.getDataFim());
+		setParametros().setInt(4, object.getid_estabelecimento());
 		return executarUpdate();
 	}
 
@@ -65,7 +67,7 @@ public class CampeonatoDAO extends GenericoDAO implements IControleCampeonato {
 		String[][] retorno = executarQuery();
 		if (retorno != null){
 			for (String r[] : retorno){
-				lista.add(new Campeonato(Integer.parseInt(r[0]), r[1],Integer.parseInt(r[2])));
+				lista.add(new Campeonato(Integer.parseInt(r[0]), r[1], Date.valueOf(r[2]),Date.valueOf(r[3]), Integer.parseInt(r[4])));
 			}
 		}
 		return lista;
@@ -73,10 +75,10 @@ public class CampeonatoDAO extends GenericoDAO implements IControleCampeonato {
 	
 	@Override
 	public int atualizar(Campeonato object) throws SQLException {
-		String query = " update campeonato set nome = ? where id = ? ";
+		String query = " update campeonato set nome = ?,datainicio = ?,datafim = ?, where id = ? ";
 		montarQuery(query);
 		setParametros().setString(1, object.getNome());
-		setParametros().setInt(2, object.getId());
+		setParametros().setInt(4, object.getId());
 		return executarUpdate();
 	}
 	
@@ -84,6 +86,15 @@ public class CampeonatoDAO extends GenericoDAO implements IControleCampeonato {
 		String query = " insert into times_campeonato (id_campeonato, id_time) values (?, ?) ";
 		montarQuery(query);
 		setParametros().setInt(1, campeonato.getId());
+		setParametros().setInt(2,time.getId());
+
+
+		
+		String queryClassificacao = " insert into classificacao (id_campeonato, id_time,jogos,vitorias,golspro,golscontra) values (?, ?,0,0,0,0) ";
+		montarQuery(queryClassificacao);
+		setParametros().setInt(1, campeonato.getId());
+		setParametros().setDate(2, (Date) campeonato.getDataInicio());
+		setParametros().setDate(3, (Date) campeonato.getDataFim());
 		setParametros().setInt(2, time.getId());
 		return executarUpdate();
 	}

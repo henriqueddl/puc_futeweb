@@ -12,5 +12,7 @@ public interface IControleTime extends IGenericoDAO<Time>  {
 	public List<Time> obterTodos() ;
 	public List<Time> obterPorCriterio(Time object) throws SQLException;
 	public int atualizar(Time object) throws SQLException;
-//
+	public int IdUltimoTimeCadastrado();
+	public String NomeUltimoTimeCadastrado();
+	
 }
